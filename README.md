@@ -3,15 +3,7 @@ School Idol Festival. Redefined.
 
 ### What's this repo about?
 
-This repository would contain Project Lovewing. We would accept contributions here later.
-
-### I want to help!
-
-For now, we won't allow contributions until we have set in stone.
-
-## How do I contribute once you accept outside contributions?
-
-soon:tm:
+This repository would contain Project Lovewing. We would accept contributions here.
 
 ### Disclaimer
 
