@@ -31,6 +31,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Framework.VisualTests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Framework.Desktop.Tests", "osu.Framework\osu.Framework.Desktop.Tests\osu.Framework.Desktop.Tests.csproj", "{46C1D3D0-EA66-4488-A186-621A36B9F0D5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3111BB43-F3F6-477E-B55B-2F3C6CEC16F5}"
+	ProjectSection(SolutionItems) = preProject
+		Lovewing.licenseheader = Lovewing.licenseheader
+		Lovewing.sln.dotSettings = Lovewing.sln.dotSettings
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
