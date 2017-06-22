@@ -1,15 +1,16 @@
-// Copyright (c) 2007-2017 Clara.
+﻿// Copyright (c) 2007-2017 Clara.
 // Licensed under the MIT License
 
 using System;
-using osu.Framework.Desktop;
-using osu.Framework.Platform;
 using osu.Framework;
+using osu.Framework.Desktop;
+using osu.Framework.Allocation;
 
-namespace Lovewing 
+namespace Lovewing
 {
-    public class Lovewing
+    public class LovewingGame
     {
-        //we'do smth here later uwu
+        [MTAThread]
+        //probably do smth here regarding UI stuff soon.
     }
 }
