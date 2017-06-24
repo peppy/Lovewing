@@ -2,3 +2,4 @@ osu.Framework/*
 *.cache
 *.cache
 obj/*/TempPE
+packages
