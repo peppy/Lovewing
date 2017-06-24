@@ -11,8 +11,9 @@ Idol Resources and assets are by KLab/Bushiroad. All rights reserved.
 
 osu!Framework is by Dean "peppy" Herbert of ppy Ltd. Licensed under MIT.
 
-Xamarin, the underlying source code and the logo are trademarks of Xamarin inc. All rights reserved.
+Xamarin, the underlying source code and the Xamarin logo are trademarks of Xamarin inc. All rights reserved.
 
 Lovewing is under MIT (Source Code) and CC-BY-NC (Original assets).
+
 
 
