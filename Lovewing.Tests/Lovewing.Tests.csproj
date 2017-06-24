@@ -48,5 +48,27 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\osu.Framework\osu.Framework.Desktop.Tests\osu.Framework.Desktop.Tests.csproj">
+      <Project>{46c1d3d0-ea66-4488-a186-621a36b9f0d5}</Project>
+      <Name>osu.Framework.Desktop.Tests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\osu.Framework\osu.Framework.Desktop\osu.Framework.Desktop.csproj">
+      <Project>{65dc628f-a640-4111-ab35-3a5652bc1e17}</Project>
+      <Name>osu.Framework.Desktop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\osu.Framework\osu.Framework.Tests\osu.Framework.Tests.csproj">
+      <Project>{79803407-6f50-484f-93f5-641911eabd8a}</Project>
+      <Name>osu.Framework.Tests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\osu.Framework\osu.Framework.VisualTests\osu.Framework.VisualTests.csproj">
+      <Project>{1f02f11c-2c66-4d25-bbb5-5c752aad3e62}</Project>
+      <Name>osu.Framework.VisualTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\osu.Framework\osu.Framework\osu.Framework.csproj">
+      <Project>{c76bf5b3-985e-4d39-95fe-97c9c879b83a}</Project>
+      <Name>osu.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
