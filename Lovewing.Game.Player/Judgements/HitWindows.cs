@@ -82,6 +82,7 @@ namespace Lovewing.Game.Player.Judegements
         /// </summary>
         public HitWindows () 
         {
+        }
 
         /// <summary>
         /// Constructs hit windows by fitting a parameter to a 2-part piecewise linear function for each hit window.
