@@ -5,12 +5,13 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2115C8D5-F7F4-4E97-A9A4-8B80AFB10B10}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Lovewing.Tests</RootNamespace>
     <AssemblyName>Lovewing.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>Lovewing.Tests.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,12 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LovewingTests.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lovewing.Game\Lovewing.Game.csproj">
+      <Project>{eb1cce53-53a0-44a0-ad58-459608687511}</Project>
+      <Name>Lovewing.Game</Name>
+    </ProjectReference>
     <ProjectReference Include="..\osu.Framework\osu.Framework.Desktop.Tests\osu.Framework.Desktop.Tests.csproj">
       <Project>{46c1d3d0-ea66-4488-a186-621a36b9f0d5}</Project>
       <Name>osu.Framework.Desktop.Tests</Name>
@@ -59,6 +65,10 @@
     <ProjectReference Include="..\osu.Framework\osu.Framework.Desktop\osu.Framework.Desktop.csproj">
       <Project>{65dc628f-a640-4111-ab35-3a5652bc1e17}</Project>
       <Name>osu.Framework.Desktop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\osu.Framework\osu.Framework.Testing\osu.Framework.Testing.csproj">
+      <Project>{007b2356-ab6f-4bd9-96d5-116fc2dce69a}</Project>
+      <Name>osu.Framework.Testing</Name>
     </ProjectReference>
     <ProjectReference Include="..\osu.Framework\osu.Framework.Tests\osu.Framework.Tests.csproj">
       <Project>{79803407-6f50-484f-93f5-641911eabd8a}</Project>
