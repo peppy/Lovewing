@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{5C23FD58-CD5E-4D5E-81B0-DFA78C6528DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing.Tests", "Lovewing.Tests\Lovewing.Tests.csproj", "{2115C8D5-F7F4-4E97-A9A4-8B80AFB10B10}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing.VisualTests", "Lovewing.Tests\Lovewing.VisualTests.csproj", "{2115C8D5-F7F4-4E97-A9A4-8B80AFB10B10}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing.Game", "Lovewing.Game\Lovewing.Game.csproj", "{EB1CCE53-53A0-44A0-AD58-459608687511}"
 EndProject
