@@ -35,6 +35,7 @@
     <StartupObject>Lovewing.Game.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OpenTK, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,9 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Graphics\Background.cs" />
     <Compile Include="LovewingGame.cs" />
+    <Compile Include="LovewingGameBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\MainScreen.cs" />
+    <Compile Include="Screens\Main\HomeWedge.cs" />
+    <Compile Include="Screens\Main\Wedge.cs" />
+    <Compile Include="Screens\LovewingScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -61,6 +68,10 @@
       <Project>{c76bf5b3-985e-4d39-95fe-97c9c879b83a}</Project>
       <Name>osu.Framework</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Backgrounds\mainmenu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
