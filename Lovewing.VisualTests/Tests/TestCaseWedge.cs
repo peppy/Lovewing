@@ -2,21 +2,45 @@
 // Licensed under the MIT License
 
 using Lovewing.Game.Screens.Main;
+using osu.Framework.Testing;
+using OpenTK.Graphics;
+using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
-using osu.Framework.Testing;
 
 namespace Lovewing.VisualTests.Tests
 {
-    class TestCaseWedge : TestCase
+    internal class TestCaseWedge : TestCase
     {
         public override void Reset()
         {
             base.Reset();
-            Wedge wedge = new HomeWedge { RelativeSizeAxes = Axes.Both };
-            Add(wedge);
 
-            AddToggleStep("Toogle Visibility", boolean => wedge.State = boolean ? Visibility.Visible : Visibility.Hidden);
+            List<Color4> colors = new List<Color4>
+            {
+                Color4.Red,
+                Color4.Green,
+                Color4.Blue,
+            };
+
+            for(int i = 0; i < colors.Count; i++)
+            {
+                Add(new CustomWedge(colors[i])
+                {
+                    RelativeSizeAxes = Axes.Both,
+                    X = -50 * i,
+                });
+            }
+        }
+
+        private class CustomWedge : Wedge
+        {
+            protected override Color4 WedgeColor { get; } = Color4.Wheat;
+
+            public CustomWedge(Color4 color)
+            {
+                WedgeColor = color;
+            }
         }
     }
 }
