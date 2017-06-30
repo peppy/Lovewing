@@ -7,6 +7,7 @@ using OpenTK.Graphics;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
+using osu.Framework.Graphics.Effects;
 
 namespace Lovewing.Game.Screens.Main
 {
@@ -18,11 +19,11 @@ namespace Lovewing.Game.Screens.Main
 
         public Wedge()
         {
-            Anchor = Anchor.BottomRight;
-            Origin = Anchor.BottomCentre;
-            Children = new[]{
+            Children = new Drawable[]{
                 wedgeBackground = new Container<Box>
                 {
+                    Anchor = Anchor.BottomRight,
+                    Origin = Anchor.BottomCentre,
                     RelativeSizeAxes = Axes.Both,
                     Shear = new Vector2(-0.1f, 0),
                     Colour = WedgeColor,
@@ -44,17 +45,18 @@ namespace Lovewing.Game.Screens.Main
                         }
                     }
                 },
+
             };
         }
 
         protected override void PopIn()
         {
-            ResizeWidthTo(1, 250, EasingTypes.OutQuad);
+            wedgeBackground.ScaleTo(Vector2.One, 250, EasingTypes.OutQuad);
         }
 
         protected override void PopOut()
         {
-            ResizeWidthTo(0, 250, EasingTypes.InQuad);
+            wedgeBackground.ScaleTo(new Vector2(0, 1), 250, EasingTypes.InQuad);
         }
     }
 }
