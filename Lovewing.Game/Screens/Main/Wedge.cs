@@ -6,6 +6,7 @@ using OpenTK.Graphics;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
+using System;
 
 namespace Lovewing.Game.Screens.Main
 {
@@ -14,8 +15,6 @@ namespace Lovewing.Game.Screens.Main
         protected abstract Color4 WedgeColor { get; }
 
         private Container<Box> wedgeBackground;
-        private Container button;
-        private WedgeButton buttonBox;
         private Container content;
 
         public override bool HandleInput => true;
@@ -26,14 +25,27 @@ namespace Lovewing.Game.Screens.Main
 
         private const float wedge_width = 50;
 
+        public Wedge()
+        {
+            AddInternal(content = new Container
+            {
+                RelativeSizeAxes = Axes.Both,
+                AlwaysPresent = true,
+                Depth = -1,
+            });
+        }
+
         protected override void LoadComplete()
         {
-            InternalChildren = new Drawable[]{
+            AddInternal(new Drawable[] {
                 wedgeBackground = new Container<Box>
                 {
+                    AlwaysPresent = true,
                     Anchor = Anchor.BottomRight,
                     Origin = Anchor.BottomCentre,
                     RelativeSizeAxes = Axes.Both,
+                    RelativePositionAxes = Axes.Both,
+                    Width = 2,
                     Shear = new Vector2(-0.1f, 0),
                     Colour = WedgeColor,
                     Children = new[]
@@ -54,69 +66,98 @@ namespace Lovewing.Game.Screens.Main
                         }
                     }
                 },
-                button = new Container
-                {
-                    Anchor = Anchor.BottomCentre,
-                    Origin = Anchor.BottomCentre,
-                    RelativeSizeAxes = Axes.Y,
-                    Width = 100,
-                    Shear = new Vector2(-0.1f, 0),
-                    Masking = true,
-                    Children = new Drawable[]
-                    {
-                        buttonBox = new WedgeButton(WedgeColor)
-                        {
-                            Shear = new Vector2(0.1f, 0),
-                            Anchor = Anchor.BottomRight,
-                            Origin = Anchor.BottomRight,
-                            Size = new Vector2(wedge_width * 1.1f),
-                            Action = Show,
-                        }
-                    },
-                },
-                content = new Container
-                {
-
-                }
-            };
+            });
 
             State = Visibility.Visible;
         }
 
+        public override bool Invalidate(Invalidation invalidation = Invalidation.All, Drawable source = null, bool shallPropagate = true)
+        {
+            if((invalidation & (Invalidation.DrawSize | Invalidation.MiscGeometry)) > 0)
+            {
+                content.Size = Vector2.Divide(LayoutSize, DrawSize);
+            }
+
+            return base.Invalidate(invalidation, source, shallPropagate);
+        }
+
         protected override void PopIn()
         {
-            wedgeBackground.ScaleTo(Vector2.One, 250, EasingTypes.OutQuad);
-            buttonBox.FadeColour(WedgeColor, 250);
-            buttonBox.ResizeHeightTo(75, 250, EasingTypes.OutQuad);
+            wedgeBackground.MoveTo(new Vector2(0, 0), 250, EasingTypes.OutQuad);
+            content.MoveTo(new Vector2(0, 0), 250, EasingTypes.OutQuad);
         }
 
         protected override void PopOut()
         {
-            wedgeBackground.ScaleTo(new Vector2(0, 1), 250, EasingTypes.InQuad);
-            buttonBox.FadeColour(Color4.Gray, 250);
-            buttonBox.ResizeHeightTo(50, 250, EasingTypes.InQuad);
+            wedgeBackground.MoveTo(new Vector2(2, 0), 250, EasingTypes.InQuad);
+            content.MoveTo(new Vector2(content.DrawSize.X, 0), 250, EasingTypes.InQuad);
         }
 
-        private class WedgeButton : ClickableContainer
+        public Drawable CreateButton()
+        {
+            WedgeButton button = new WedgeButton(WedgeColor)
+            {
+                Action = Show,
+                RelativeSizeAxes = Axes.Both,
+                Width = Width,
+                Anchor = Anchor,
+                Origin = Origin,
+                Margin = Margin,
+            };
+            StateChanged += (con, vis) => button.Active = vis == Visibility.Visible;
+            return button;
+        }
+
+        private class WedgeButton : Container
         {
             private readonly Color4 activeColor;
+            private readonly Box background;
+            private readonly ClickableContainer clickCon;
+
+            public bool Active
+            {
+                set
+                {
+                    background.FadeColour(value ? activeColor : Color4.Gray, 250);
+                    clickCon.ResizeHeightTo(value ? 75 : 50, 250, value ? EasingTypes.OutQuad : EasingTypes.InQuad);
+                }
+            }
+
+            public Action Action;
 
             public WedgeButton(Color4 activeColor)
             {
                 this.activeColor = activeColor;
 
-                Children = new Drawable[]
+                Child = new Container
                 {
-                    new Box()
+                    Anchor = Anchor.BottomLeft,
+                    Origin = Anchor.BottomCentre,
+                    RelativeSizeAxes = Axes.Y,
+                    Width = 100,
+                    Shear = new Vector2(-0.1f, 0),
+                    Masking = true,
+                    Child = clickCon = new ClickableContainer
                     {
+                        Shear = new Vector2(0.1f, 0),
                         Anchor = Anchor.BottomRight,
                         Origin = Anchor.BottomRight,
-                        RelativeSizeAxes = Axes.Both,
-                        Colour = activeColor,
-                        Shear = new Vector2(-0.05f, 0.05f),
-                        EdgeSmoothness = Vector2.One,
-                        Width = 1.05f,
-                    }
+                        Size = new Vector2(wedge_width * 1.1f),
+                        Action = () => Action?.Invoke(),
+                        Children = new Drawable[]
+                        {
+                            background = new Box()
+                            {
+                                Anchor = Anchor.BottomRight,
+                                Origin = Anchor.BottomRight,
+                                RelativeSizeAxes = Axes.Both,
+                                Colour = activeColor,
+                                Shear = new Vector2(-0.05f, 0.05f),
+                                EdgeSmoothness = Vector2.One,
+                                Width = 0.95f,
+                            }
+                        }
+                    },
                 };
             }
         }

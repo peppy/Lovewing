@@ -7,6 +7,9 @@ using OpenTK.Graphics;
 using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
+using System.Linq;
+using osu.Framework.Graphics.Shapes;
+using OpenTK;
 
 namespace Lovewing.VisualTests.Tests
 {
@@ -21,15 +24,42 @@ namespace Lovewing.VisualTests.Tests
                 Color4.Red,
                 Color4.Green,
                 Color4.Blue,
+                Color4.Wheat,
+                Color4.Aquamarine,
             };
 
             for(int i = 0; i < colors.Count; i++)
             {
-                Add(new CustomWedge(colors[i])
+                CustomWedge wedge = new CustomWedge(colors[i])
+                {
+                    Origin = Anchor.BottomRight,
+                    Anchor = Anchor.BottomRight,
+                    RelativeSizeAxes = Axes.Both,
+                    Width = 0.5f,
+                    Depth = i,
+                    Margin = new MarginPadding { Right = i * 50 },
+                };
+                wedge.StateChanged += selectWedge;
+
+                wedge.Add(new Box
                 {
                     RelativeSizeAxes = Axes.Both,
-                    X = -50 * i,
+                    Size = new Vector2(0.5f),
+                    Colour = colors[i],
+                    Anchor = Anchor.Centre,
+                    Origin = Anchor.Centre,
                 });
+
+                Add(wedge);
+                Add(wedge.CreateButton());
+            }
+        }
+
+        private void selectWedge(VisibilityContainer con, Visibility vis)
+        {
+            if (vis == Visibility.Visible)
+            {
+                Children.Where(child => child != con).OfType<Wedge>().ToList().ForEach(wedge => wedge.Hide());
             }
         }
 
