@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{5C23FD58-CD5E-4D5E-81B0-DFA78C6528DA}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{02639B6E-A6E6-41BA-AF02-475E5C2DCB0A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing.VisualTests", "Lovewing.VisualTests\Lovewing.VisualTests.csproj", "{2115C8D5-F7F4-4E97-A9A4-8B80AFB10B10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing.Game.Player", "Lovewing.Game.Player\Lovewing.Game.Player.csproj", "{A022240D-3E05-44CF-B23F-63E0DAB470A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{2115C8D5-F7F4-4E97-A9A4-8B80AFB10B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2115C8D5-F7F4-4E97-A9A4-8B80AFB10B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2115C8D5-F7F4-4E97-A9A4-8B80AFB10B10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A022240D-3E05-44CF-B23F-63E0DAB470A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A022240D-3E05-44CF-B23F-63E0DAB470A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A022240D-3E05-44CF-B23F-63E0DAB470A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A022240D-3E05-44CF-B23F-63E0DAB470A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,5 +82,6 @@ Global
 		{46C1D3D0-EA66-4488-A186-621A36B9F0D5} = {46CA05F7-5AC2-4A96-B065-FB6CB4E4D204}
 		{007B2356-AB6F-4BD9-96D5-116FC2DCE69A} = {02639B6E-A6E6-41BA-AF02-475E5C2DCB0A}
 		{2115C8D5-F7F4-4E97-A9A4-8B80AFB10B10} = {46CA05F7-5AC2-4A96-B065-FB6CB4E4D204}
+		{A022240D-3E05-44CF-B23F-63E0DAB470A0} = {5C23FD58-CD5E-4D5E-81B0-DFA78C6528DA}
 	EndGlobalSection
 EndGlobal
