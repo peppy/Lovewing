@@ -2,7 +2,7 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 // Modified for use in Lovewing.
 
-namespace Lovewing.Game.Player.Judegements
+namespace Lovewing.Game.Player.Judgements
 {
     public class HitWindows
     {
