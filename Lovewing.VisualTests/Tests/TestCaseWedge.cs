@@ -28,7 +28,7 @@ namespace Lovewing.VisualTests.Tests
                 Color4.Aquamarine,
             };
 
-            for(int i = 0; i < colors.Count; i++)
+            for(int i = colors.Count - 1; i >= 0; i--)
             {
                 CustomWedge wedge = new CustomWedge(colors[i])
                 {

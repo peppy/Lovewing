@@ -17,9 +17,7 @@ namespace Lovewing.Game.Screens.Main
         private Container<Box> wedgeBackground;
         private Container content;
 
-        public override bool HandleInput => true;
-
-        protected override bool BlockPassThroughMouse => false;
+        //public override bool HandleInput => true;
 
         protected override Container<Drawable> Content => content;
 
@@ -105,12 +103,18 @@ namespace Lovewing.Game.Screens.Main
                 Margin = Margin,
             };
             StateChanged += (con, vis) => button.Active = vis == Visibility.Visible;
+            if (!IsLoaded)
+                OnLoadComplete += drawable =>
+                {
+                    button.ActiveColor = WedgeColor;
+                    button.Active = State == Visibility.Visible;
+                };
             return button;
         }
 
         private class WedgeButton : Container
         {
-            private readonly Color4 activeColor;
+            public Color4 ActiveColor;
             private readonly Box background;
             private readonly ClickableContainer clickCon;
 
@@ -118,7 +122,7 @@ namespace Lovewing.Game.Screens.Main
             {
                 set
                 {
-                    background.FadeColour(value ? activeColor : Color4.Gray, 250);
+                    background.FadeColour(value ? ActiveColor : Color4.Gray, 250);
                     clickCon.ResizeHeightTo(value ? 75 : 50, 250, value ? EasingTypes.OutQuad : EasingTypes.InQuad);
                 }
             }
@@ -127,7 +131,7 @@ namespace Lovewing.Game.Screens.Main
 
             public WedgeButton(Color4 activeColor)
             {
-                this.activeColor = activeColor;
+                ActiveColor = activeColor;
 
                 Child = new Container
                 {
@@ -146,16 +150,16 @@ namespace Lovewing.Game.Screens.Main
                         Action = () => Action?.Invoke(),
                         Children = new Drawable[]
                         {
-                            background = new Box()
+                            background = new Box
                             {
                                 Anchor = Anchor.BottomRight,
                                 Origin = Anchor.BottomRight,
                                 RelativeSizeAxes = Axes.Both,
-                                Colour = activeColor,
                                 Shear = new Vector2(-0.05f, 0.05f),
-                                EdgeSmoothness = Vector2.One,
                                 Width = 0.95f,
-                            }
+                                Colour = activeColor,
+                                EdgeSmoothness = Vector2.One,
+                            },
                         }
                     },
                 };

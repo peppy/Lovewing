@@ -7,7 +7,7 @@ using osu.Framework.Allocation;
 
 namespace Lovewing.Game.Screens.Main
 {
-    public class HomeWedge : Wedge
+    public class IdolManagementWedge : Wedge
     {
         private Color4 wedgeColor;
         protected override Color4 WedgeColor => wedgeColor;
@@ -15,7 +15,7 @@ namespace Lovewing.Game.Screens.Main
         [BackgroundDependencyLoader]
         private void load(LovewingColors colors)
         {
-            wedgeColor = colors.Magenta;
+            wedgeColor = colors.LightYellow;
         }
     }
 }

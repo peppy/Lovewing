@@ -38,7 +38,7 @@ namespace Lovewing.Game.Screens
                             RelativeSizeAxes = Axes.Both,
                             Width = 0.5f,
                         },
-                        management = new ManagementWedge
+                        management = new IdolManagementWedge
                         {
                             Anchor = Anchor.BottomRight,
                             Origin = Anchor.BottomRight,
@@ -53,14 +53,10 @@ namespace Lovewing.Game.Screens
             home.StateChanged += selectWedge;
             management.StateChanged += selectWedge;
 
-            Add(new Container
+            Add(new[]
             {
-                RelativeSizeAxes = Axes.Both,
-                Children = new[]
-                {
-                    home.CreateButton(),
-                    management.CreateButton(),
-                },
+                home.CreateButton(),
+                management.CreateButton(),
             });
         }
 

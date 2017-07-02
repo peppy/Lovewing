@@ -47,13 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Graphics\Background.cs" />
+    <Compile Include="Graphics\LovewingColors.cs" />
     <Compile Include="LovewingGame.cs" />
     <Compile Include="LovewingGameBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\MainScreen.cs" />
     <Compile Include="Screens\Main\HomeWedge.cs" />
-    <Compile Include="Screens\Main\ManagementWedge.cs" />
+    <Compile Include="Screens\Main\IdolManagementWedge.cs" />
     <Compile Include="Screens\Main\Wedge.cs" />
     <Compile Include="Screens\LovewingScreen.cs" />
   </ItemGroup>
