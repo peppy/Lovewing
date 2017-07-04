@@ -5,6 +5,9 @@ using osu.Framework.Screens;
 
 namespace Lovewing.Game.Screens
 {
+    /// <summary>
+    /// This class should be used to add general properties and methods
+    /// </summary>
     public class LovewingScreen : Screen
     {
 
