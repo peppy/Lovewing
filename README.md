@@ -1,5 +1,4 @@
-# Lovewing
-School Idol Festival. Redefined.
+![LovewingLogo](LovewingLogo.png)
 
 ### What's this repo about?
 
