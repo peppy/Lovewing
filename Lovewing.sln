@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{5C23FD58-CD5E-4D5E-81B0-DFA78C6528DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing.Game", "Lovewing.Game\Lovewing.Game.csproj", "{EB1CCE53-53A0-44A0-AD58-459608687511}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9} = {7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Framework", "osu.Framework\osu.Framework\osu.Framework.csproj", "{C76BF5B3-985E-4D39-95FE-97C9C879B83A}"
 EndProject
@@ -26,6 +29,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing.VisualTests", "Lovewing.VisualTests\Lovewing.VisualTests.csproj", "{2115C8D5-F7F4-4E97-A9A4-8B80AFB10B10}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing.Game.Player", "Lovewing.Game.Player\Lovewing.Game.Player.csproj", "{A022240D-3E05-44CF-B23F-63E0DAB470A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing.Game.Resources", "Lovewing.Resources\Lovewing.Game.Resources\Lovewing.Game.Resources.csproj", "{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{708BB68C-4202-4504-8890-3D552BEE1DE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +76,10 @@ Global
 		{A022240D-3E05-44CF-B23F-63E0DAB470A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A022240D-3E05-44CF-B23F-63E0DAB470A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A022240D-3E05-44CF-B23F-63E0DAB470A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,5 +94,9 @@ Global
 		{007B2356-AB6F-4BD9-96D5-116FC2DCE69A} = {02639B6E-A6E6-41BA-AF02-475E5C2DCB0A}
 		{2115C8D5-F7F4-4E97-A9A4-8B80AFB10B10} = {46CA05F7-5AC2-4A96-B065-FB6CB4E4D204}
 		{A022240D-3E05-44CF-B23F-63E0DAB470A0} = {5C23FD58-CD5E-4D5E-81B0-DFA78C6528DA}
+		{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9} = {708BB68C-4202-4504-8890-3D552BEE1DE7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E26A080D-D84A-4F99-B293-7999116D5D89}
 	EndGlobalSection
 EndGlobal

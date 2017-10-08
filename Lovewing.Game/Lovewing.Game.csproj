@@ -47,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Graphics\Background.cs" />
+    <Compile Include="Graphics\FontAwesome.cs" />
     <Compile Include="Graphics\LovewingColors.cs" />
+    <Compile Include="Graphics\UserInterface\LovewingButton.cs" />
+    <Compile Include="Graphics\UserInterface\LovewingDoubleButton.cs" />
     <Compile Include="LovewingGame.cs" />
     <Compile Include="LovewingGameBase.cs" />
     <Compile Include="Program.cs" />
@@ -59,7 +62,11 @@
     <Compile Include="Screens\LovewingScreen.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="Fonts\FontAwesome.fnt" />
+    <EmbeddedResource Include="Tracks\mainmenu_aqours.ogg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\osu.Framework\osu.Framework.Desktop\osu.Framework.Desktop.csproj">
@@ -71,9 +78,31 @@
       <Name>osu.Framework</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Idols\kotori.png" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Textures\Backgrounds\mainmenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Icons\ruby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Icons\you.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\FontAwesome_0.png" />
+    <EmbeddedResource Include="Fonts\FontAwesome_1.png" />
+    <EmbeddedResource Include="Fonts\FontAwesome_2.png" />
+    <EmbeddedResource Include="Fonts\FontAwesome_3.png" />
+    <EmbeddedResource Include="Fonts\FontAwesome_4.png" />
+    <EmbeddedResource Include="Fonts\FontAwesome_5.png" />
+    <EmbeddedResource Include="Fonts\FontAwesome_6.png" />
+    <EmbeddedResource Include="Fonts\FontAwesome_7.png" />
+    <EmbeddedResource Include="Fonts\FontAwesome_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Tracks\mainmenu_muse.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
