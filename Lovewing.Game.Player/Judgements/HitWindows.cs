@@ -84,6 +84,7 @@ namespace Lovewing.Game.Player.Judgements
         {
         }
 
+        /*
         /// <summary>
         /// Constructs hit windows by fitting a parameter to a 2-part piecewise linear function for each hit window.
         /// </summary>
@@ -96,7 +97,7 @@ namespace Lovewing.Game.Player.Judgements
             Ok = BeatmapDifficulty.DifficultyRange(difficulty, ok_max, ok_mid, ok_min);
             Bad = BeatmapDifficulty.DifficultyRange(difficulty, bad_max, bad_mid, bad_min);
             Miss = BeatmapDifficulty.DifficultyRange(difficulty, miss_max, miss_mid, miss_min);
-        }
+        }*/
 
         /// <summary>
         /// Constructs new hit windows which have been multiplied by a value.
