@@ -3,6 +3,7 @@
 
 using Lovewing.Game.Graphics;
 using osu.Framework.Allocation;
+using osu.Framework.Audio.Track;
 using osu.Framework.Platform;
 using osu.Framework.IO.Stores;
 
@@ -19,9 +20,10 @@ namespace Lovewing.Game
 
             Fonts.AddStore(new GlyphStore(Resources, @"Fonts/FontAwesome"));
 
-            var t = Audio.Track.Get(@"mainmenu_muse");
+            var t = Audio.Track.Get(@"mainmenu_aqours");
 
             t?.Start();
+            t.Looping = true;
         }
 
         public override void SetHost(GameHost host)

@@ -1,5 +1,5 @@
-﻿// Copyright (c) 2007-2017 Clara.
-// Licensed under the MIT License
+﻿// Copyright (c) 2014-2017 Clara.
+// Licensed under Eclipse Public License 1.0
 
 using osu.Framework.Desktop;
 using osu.Framework.Platform;
