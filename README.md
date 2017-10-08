@@ -12,7 +12,7 @@ osu!Framework is by Dean "peppy" Herbert of ppy Ltd. Licensed under MIT.
 
 Xamarin, the underlying source code and the Xamarin logo are trademarks of Xamarin inc. All rights reserved.
 
-Lovewing is under MIT (Source Code) and CC-BY-NC (Original assets).
+Lovewing is under Eclipse Public License 1.0 (Source Code) and CC-BY-NC (Original assets).
 
 
 
