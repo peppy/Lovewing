@@ -1,9 +1,9 @@
 extensions: .cs
-// Copyright (c) 2007-2017 Clara.
+// Copyright (c) 2014-2017 Clara.
 // Licensed under Eclipse Public License 1.0
 
 extensions:  .xml .config .xsd
 <!--
-Copyright (c) 2007-2017 Clara.
+Copyright (c) 2014-2017 Clara.
 Licensed under Eclipse Public License 1.0
 -->
