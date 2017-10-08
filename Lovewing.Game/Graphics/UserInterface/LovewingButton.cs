@@ -33,7 +33,13 @@ namespace Lovewing.Game.Graphics.UserInterface
             set { SpriteText.FadeColour(value); }
         }
 
-        public LovewingButton()
+        public float TextY
+        {
+            get { return SpriteText.Y; }
+            set { SpriteText.MoveToY(value); }
+        }
+
+        public LovewingButton(float textX = 0, float textY = 60, float textSize = 30)
         {
             Height = 40;
             Masking = true;
@@ -57,8 +63,9 @@ namespace Lovewing.Game.Graphics.UserInterface
                 },
             });
 
+            SpriteText.X = textX;
             SpriteText.Y = 60;
-            SpriteText.TextSize = 30;
+            SpriteText.TextSize = textSize;
             SpriteText.Shadow = true;
         }
 
@@ -87,7 +94,7 @@ namespace Lovewing.Game.Graphics.UserInterface
 
         protected override bool OnMouseUp(InputState state, MouseUpEventArgs args)
         {
-            Content.ScaleTo(1, 1000, EasingTypes.OutElastic);
+            Content.ScaleTo(1.1f, 1000, EasingTypes.OutElastic);
             return base.OnMouseUp(state, args);
         }
 

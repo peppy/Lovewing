@@ -11,9 +11,7 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.IO.Stores;
-using Lovewing.Game.Graphics;
 using System;
-using osu.Framework.Input;
 
 namespace Lovewing.Game.Screens.Main
 {
@@ -176,6 +174,13 @@ namespace Lovewing.Game.Screens.Main
                         Origin = Anchor.BottomRight,
                         Size = new Vector2(wedgeWidth * 1.1f),
                         Action = () => Action?.Invoke(),
+                        Masking = true,
+                        EdgeEffect = new EdgeEffectParameters
+                        {
+                            Colour = Color4.Black.Opacity(0.05f),
+                            Type = EdgeEffectType.Shadow,
+                            Radius = 10,
+                        },
                         Children = new Drawable[]
                         {
                             background = new Box

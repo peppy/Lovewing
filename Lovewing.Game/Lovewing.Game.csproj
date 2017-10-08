@@ -52,6 +52,7 @@
     <Compile Include="Graphics\UserInterface\IconButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingDoubleButton.cs" />
+    <Compile Include="Graphics\UserInterface\Toolbar.cs" />
     <Compile Include="LovewingGame.cs" />
     <Compile Include="LovewingGameBase.cs" />
     <Compile Include="Program.cs" />
@@ -59,8 +60,10 @@
     <Compile Include="Screens\MainScreen.cs" />
     <Compile Include="Screens\Main\HomeWedge.cs" />
     <Compile Include="Screens\Main\IdolManagementWedge.cs" />
+    <Compile Include="Screens\Main\LiveShowWedge.cs" />
     <Compile Include="Screens\Main\Wedge.cs" />
     <Compile Include="Screens\LovewingScreen.cs" />
+    <Compile Include="Screens\MatchmakingScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

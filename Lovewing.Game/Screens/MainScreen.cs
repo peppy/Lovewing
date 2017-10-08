@@ -23,7 +23,6 @@ namespace Lovewing.Game.Screens
         private readonly Background background;
         private readonly Sprite idol;
         private readonly Sprite notifIcon;
-        private readonly Sprite avatar;
         private readonly LovewingButton notifBtn;
         private readonly Container toolbar;
         private readonly Container<Wedge> wedgeContainer;
@@ -31,7 +30,7 @@ namespace Lovewing.Game.Screens
 
         public MainScreen()
         {
-            Wedge home, management;
+            Wedge home, management, liveshow;
             Children = new Drawable[]
             {
                 background = new Background(@"Backgrounds/mainmenu")
@@ -47,43 +46,50 @@ namespace Lovewing.Game.Screens
                     Origin = Anchor.BottomLeft,
                     Size = new Vector2(300f, 600f),
                 },
-                toolbar = new Container
-                {
-                    X = -90,
-                    Y = 7,
-                    Anchor = Anchor.TopRight,
-                    Origin = Anchor.TopRight,
-                    Depth = -1,
-                    Children = new Drawable[]
-                    {
-                        new Circle
-                        {
-                            Size = new Vector2(80),
-                            Colour = Color4.White,
-                            BorderColour = new Color4(85, 85, 85, 255),
-                            BorderThickness = 10,
-                            Children = new Drawable[]
-                            {
-                                new Box
-                                {
-                                    FillMode = FillMode.Fill,
-                                    Colour = colors.Magenta,
-                                },
-                                avatar = new Sprite
-                                {
-                                    Anchor = Anchor.Centre,
-                                    Origin = Anchor.Centre,
-                                    FillMode = FillMode.Fit,
-                                },
-                            }
-                        },
-                    }
-                },
+                toolbar = new Toolbar(),
                 wedgeContainer = new Container<Wedge>
                 {
                     RelativeSizeAxes = Axes.Both,
                     Children = new Wedge[]
                     {
+                        management = new IdolManagementWedge
+                        {
+                            Anchor = Anchor.BottomRight,
+                            Origin = Anchor.BottomRight,
+                            RelativeSizeAxes = Axes.Both,
+                            Width = 0.5f,
+                            Margin = new MarginPadding { Right = 50 }
+                        },
+                        liveshow = new LiveShowWedge
+                        {
+                            Anchor = Anchor.BottomRight,
+                            Origin = Anchor.BottomRight,
+                            RelativeSizeAxes = Axes.Both,
+                            Width = 0.5f,
+                            Margin = new MarginPadding { Right = 100 },
+                            Children = new[]
+                            {
+                                new Container
+                                {
+                                    X = -100,
+                                    Y = -220,
+                                    Padding = new MarginPadding(15),
+                                    Anchor = Anchor.Centre,
+                                    Origin = Anchor.Centre,
+                                    Children = new Drawable[]
+                                    {
+                                        new LovewingButton
+                                        {
+                                            Text = "test",
+                                            Size = new Vector2(300, 200),
+                                            BackgroundColour = colors.Blue,
+                                            HoverColor = colors.Blue,
+                                            TextColor = Color4.White,
+                                        }
+                                    }
+                                }
+                            }
+                        },
                         home = new HomeWedge
                         {
                             Anchor = Anchor.BottomRight,
@@ -160,26 +166,20 @@ namespace Lovewing.Game.Screens
                                     }
                                 }
                             }
-                        },
-                        management = new IdolManagementWedge
-                        {
-                            Anchor = Anchor.BottomRight,
-                            Origin = Anchor.BottomRight,
-                            RelativeSizeAxes = Axes.Both,
-                            Width = 0.5f,
-                            Margin = new MarginPadding { Right = 50 }
-                        }
+                        },   
                     }
                 },
             };
 
             home.StateChanged += SelectWedge;
             management.StateChanged += SelectWedge;
+            liveshow.StateChanged += SelectWedge;
 
             Add(new[]
             {
                 management.CreateButton("Idols"),
                 home.CreateButton("Home"),
+                liveshow.CreateButton("Liveshow"),
             });
         }
 
@@ -203,8 +203,6 @@ namespace Lovewing.Game.Screens
             idol.Texture = texStore.Get(@"Idols/kotori");
             
             notifIcon.Texture = fontStore.Get(((char)FontAwesome.fa_envelope_o).ToString());
-
-            avatar.Texture = texStore.Get(@"https://owo.whats-th.is/455c65.png");
         }
 
         private void SelectWedge(VisibilityContainer con, Visibility vis)
