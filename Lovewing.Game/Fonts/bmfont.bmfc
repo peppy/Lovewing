@@ -1,0 +1,61 @@
+# AngelCode Bitmap Font Generator configuration file
+fileVersion=1
+
+# font settings
+fontName=FontAwesome
+fontFile=
+charSet=0
+fontSize=128
+aa=1
+scaleH=100
+useSmoothing=1
+isBold=0
+isItalic=0
+useUnicode=1
+disableBoxChars=1
+outputInvalidCharGlyph=0
+dontIncludeKerningPairs=0
+useHinting=1
+renderFromOutline=0
+useClearType=1
+
+# character alignment
+paddingDown=0
+paddingUp=0
+paddingRight=0
+paddingLeft=0
+spacingHoriz=1
+spacingVert=1
+useFixedHeight=0
+forceZero=0
+
+# output file
+outWidth=1024
+outHeight=1024
+outBitDepth=32
+fontDescFormat=0
+fourChnlPacked=0
+textureFormat=png
+textureCompression=0
+alphaChnl=1
+redChnl=0
+greenChnl=0
+blueChnl=0
+invA=0
+invR=0
+invG=0
+invB=0
+
+# outline
+outlineThickness=0
+
+# selected chars
+chars=32,168-169,174,180,198,216,8482,8734,8800,61440-61454,61456-61470,61473-61502,61504-61518,61520
+chars=61521-61534,61536-61550,61552-61566,61568-61582,61584-61598,61600-61614,61616-61618,61632-61646
+chars=61648-61662,61664-61678,61680-61694,61696-61710,61712-61726,61728-61742,61744-61758,61760-61774
+chars=61776-61790,61792-61806,61808-61822,61824-61838,61840-61854,61856-61870,61872-61886,61888-61902
+chars=61904-61918,61920-61934,61936-61950,61952-61966,61968-61982,61985-62014,62016-62030,62032-62046
+chars=62048-62062,62064-62078,62080-62094,62096-62110,62112-62126,62128-62142,62144-62158,62160-62174
+chars=62176-62190,62720
+
+# imported icon images
