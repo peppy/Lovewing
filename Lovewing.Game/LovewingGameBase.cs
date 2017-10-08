@@ -20,7 +20,7 @@ namespace Lovewing.Game
 
             Fonts.AddStore(new GlyphStore(Resources, @"Fonts/FontAwesome"));
 
-            var t = Audio.Track.Get(@"mainmenu_aqours");
+            var t = Audio.Track.Get(@"mainmenu_muse");
 
             t?.Start();
             t.Looping = true;
