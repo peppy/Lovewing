@@ -14,11 +14,23 @@ namespace Lovewing.Game.Graphics.UserInterface
     class LovewingButton : Button, IFilterable
     {
         private readonly Box hover;
-        
+
         public Color4 BackgroundColor
         {
             get { return Background.Colour; }
-            set { Background.Colour = value; }
+            set { Background.FadeColour(value); }
+        }
+
+        public Color4 HoverColor
+        {
+            get { return hover.Colour; }
+            set { hover.FadeColour(value); }
+        }
+
+        public Color4 TextColor
+        {
+            get { return SpriteText.Colour; }
+            set { SpriteText.FadeColour(value); }
         }
 
         public LovewingButton()
@@ -45,7 +57,7 @@ namespace Lovewing.Game.Graphics.UserInterface
                 },
             });
 
-            SpriteText.Y = 75;
+            SpriteText.Y = 60;
             SpriteText.TextSize = 30;
             SpriteText.Shadow = true;
         }

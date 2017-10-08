@@ -1,29 +1,40 @@
-﻿// Copyright (c) 2007-2017 Clara.
-// Licensed under the MIT License
-
-using osu.Framework.Allocation;
+﻿using osu.Framework.Allocation;
 using osu.Framework.Graphics;
+using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
+using OpenTK.Graphics;
 
 namespace Lovewing.Game.Graphics
 {
-    public class Background : Sprite
+    public class Background : BufferedContainer
     {
+        public Sprite Sprite;
+
         private readonly string textureName;
 
-        public Background(string textureName)
+        public Background(string textureName = @"")
         {
+            CacheDrawnFrameBuffer = true;
+
             this.textureName = textureName;
-            FillMode = FillMode.Fill;
-            Anchor = Anchor.Centre;
-            Origin = Anchor.Centre;
+            RelativeSizeAxes = Axes.Both;
+            Depth = float.MaxValue;
+
+            Add(Sprite = new Sprite
+            {
+                Anchor = Anchor.Centre,
+                Origin = Anchor.Centre,
+                Colour = Color4.DarkGray,
+                FillMode = FillMode.Fill,
+            });
         }
 
         [BackgroundDependencyLoader]
-        private void load(TextureStore store)
+        private void load(TextureStore textures)
         {
-            Texture = store.Get(textureName);
+            if (!string.IsNullOrEmpty(textureName))
+                Sprite.Texture = textures.Get(textureName);
         }
     }
 }
