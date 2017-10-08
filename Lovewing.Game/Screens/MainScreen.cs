@@ -20,10 +20,12 @@ namespace Lovewing.Game.Screens
 {
     public class MainScreen : LovewingScreen
     {
-        private readonly Sprite background;
+        private readonly Background background;
         private readonly Sprite idol;
         private readonly Sprite notifIcon;
+        private readonly Sprite avatar;
         private readonly LovewingButton notifBtn;
+        private readonly Container toolbar;
         private readonly Container<Wedge> wedgeContainer;
         private readonly LovewingColors colors = new LovewingColors();
 
@@ -32,7 +34,7 @@ namespace Lovewing.Game.Screens
             Wedge home, management;
             Children = new Drawable[]
             {
-                background = new Sprite
+                background = new Background(@"Backgrounds/mainmenu")
                 {
                     FillMode = FillMode.Fill,
                     Anchor = Anchor.Centre,
@@ -40,9 +42,42 @@ namespace Lovewing.Game.Screens
                 },
                 idol = new Sprite
                 {
+                    X = 50,
                     Anchor = Anchor.BottomLeft,
                     Origin = Anchor.BottomLeft,
-                    Size = new Vector2(300f, 600f)
+                    Size = new Vector2(300f, 600f),
+                },
+                toolbar = new Container
+                {
+                    X = -90,
+                    Y = 7,
+                    Anchor = Anchor.TopRight,
+                    Origin = Anchor.TopRight,
+                    Depth = -1,
+                    Children = new Drawable[]
+                    {
+                        new Circle
+                        {
+                            Size = new Vector2(80),
+                            Colour = Color4.White,
+                            BorderColour = new Color4(85, 85, 85, 255),
+                            BorderThickness = 10,
+                            Children = new Drawable[]
+                            {
+                                new Box
+                                {
+                                    FillMode = FillMode.Fill,
+                                    Colour = colors.Magenta,
+                                },
+                                avatar = new Sprite
+                                {
+                                    Anchor = Anchor.Centre,
+                                    Origin = Anchor.Centre,
+                                    FillMode = FillMode.Fit,
+                                },
+                            }
+                        },
+                    }
                 },
                 wedgeContainer = new Container<Wedge>
                 {
@@ -59,17 +94,17 @@ namespace Lovewing.Game.Screens
                             {
                                 new Container
                                 {
-                                    X = -50f,
-                                    Y = -220f,
-                                    Padding = new MarginPadding(15f),
+                                    X = -100,
+                                    Y = -220,
+                                    Padding = new MarginPadding(15),
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
                                     Children =  new Drawable[]
                                     {
-                                        new LovewingDoubleButton(-0.4f, 140, -100, 30)
+                                        new LovewingDoubleButton(-0.4f, 140, -125, 30)
                                         {
                                             CornerRadius = 5,
-                                            Size = new Vector2(350f, 200f),
+                                            Size = new Vector2(400, 200),
                                             Text = "Story",
                                             BackgroundColour = colors.Magenta,
                                             Anchor = Anchor.TopLeft,
@@ -77,10 +112,12 @@ namespace Lovewing.Game.Screens
                                         },
                                         notifBtn = new LovewingButton
                                         {
-                                            CornerRadius = 5,
-                                            Size = new Vector2(250f, 200f),
-                                            Text = "Notifications",
-                                            BackgroundColour = colors.Magenta,
+                                            CornerRadius = 100,
+                                            Size = new Vector2(200, 200),
+                                            Text = "Inbox",
+                                            BackgroundColour = Color4.White,
+                                            HoverColor = colors.Magenta,
+                                            TextColor = colors.Magenta,
                                             Anchor = Anchor.TopRight,
                                             Origin = Anchor.TopRight,
                                             Children = new Drawable[]
@@ -88,16 +125,16 @@ namespace Lovewing.Game.Screens
                                                 notifIcon = new Sprite
                                                 {
                                                     Y = -10,
-                                                    Scale = new Vector2(200),
+                                                    Scale = new Vector2(70),
                                                     Anchor = Anchor.Centre,
                                                     Origin = Anchor.Centre,
-                                                    Colour = Color4.White,
+                                                    Colour = colors.Magenta,
                                                 },
                                                 new Circle
                                                 {
-                                                    Y = -45,
-                                                    X = 35,
-                                                    Size = new Vector2(30, 30),
+                                                    Y = -40,
+                                                    X = 40,
+                                                    Size = new Vector2(25, 25),
                                                     Colour = Color4.Red,
                                                     Origin = Anchor.Centre,
                                                     Anchor = Anchor.Centre,
@@ -136,8 +173,8 @@ namespace Lovewing.Game.Screens
                 },
             };
 
-            management.StateChanged += SelectWedge;
             home.StateChanged += SelectWedge;
+            management.StateChanged += SelectWedge;
 
             Add(new[]
             {
@@ -163,11 +200,11 @@ namespace Lovewing.Game.Screens
         [BackgroundDependencyLoader]
         private void load(TextureStore texStore, FontStore fontStore)
         {
-            background.Texture = texStore.Get(@"Backgrounds/mainmenu");
-
             idol.Texture = texStore.Get(@"Idols/kotori");
             
-            notifIcon.Texture = fontStore.Get(((char)FontAwesome.fa_inbox).ToString());
+            notifIcon.Texture = fontStore.Get(((char)FontAwesome.fa_envelope_o).ToString());
+
+            avatar.Texture = texStore.Get(@"https://owo.whats-th.is/455c65.png");
         }
 
         private void SelectWedge(VisibilityContainer con, Visibility vis)

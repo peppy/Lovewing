@@ -15,7 +15,7 @@ namespace Lovewing.Game.Graphics.UserInterface
         private readonly Box hover;
         private readonly LovewingColors colors = new LovewingColors();
 
-        public LovewingDoubleButton(float rotation = -0.7f, float x = 200f, float textX = -200f, float textSize = 40)
+        public LovewingDoubleButton(float rotation = -0.7f, float x = 200, float textX = -200, float textSize = 40)
         {
             Height = 40;
             Masking = true;

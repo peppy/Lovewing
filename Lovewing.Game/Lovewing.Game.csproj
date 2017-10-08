@@ -49,6 +49,7 @@
     <Compile Include="Graphics\Background.cs" />
     <Compile Include="Graphics\FontAwesome.cs" />
     <Compile Include="Graphics\LovewingColors.cs" />
+    <Compile Include="Graphics\UserInterface\IconButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingDoubleButton.cs" />
     <Compile Include="LovewingGame.cs" />
