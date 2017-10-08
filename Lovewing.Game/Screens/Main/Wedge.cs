@@ -3,25 +3,41 @@
 
 using OpenTK;
 using OpenTK.Graphics;
+using osu.Framework.Allocation;
 using osu.Framework.Graphics;
+using osu.Framework.Graphics.Textures;
+using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
+using osu.Framework.Extensions.Color4Extensions;
+using osu.Framework.IO.Stores;
+using Lovewing.Game.Graphics;
 using System;
+using osu.Framework.Input;
 
 namespace Lovewing.Game.Screens.Main
 {
     public abstract class Wedge : OverlayContainer
     {
         protected abstract Color4 WedgeColor { get; }
+        protected abstract Color4 ButtonColor { get; }
+        protected abstract Texture ButtonIcon { get; }
 
         private Container<Box> wedgeBackground;
         private Container content;
+        private FontStore fstore;
 
         //public override bool HandleInput => true;
 
         protected override Container<Drawable> Content => content;
 
-        private const float wedge_width = 50;
+        private const float wedgeWidth = 50;
+
+        [BackgroundDependencyLoader]
+        public void load(FontStore store)
+        {
+            fstore = store;
+        }
 
         public Wedge()
         {
@@ -59,7 +75,7 @@ namespace Lovewing.Game.Screens.Main
                             RelativeSizeAxes = Axes.Y,
                             Colour = WedgeColor,
                             Alpha = 0.29f,
-                            Width = wedge_width,
+                            Width = wedgeWidth,
                             EdgeSmoothness = Vector2.One,
                         }
                     }
@@ -91,9 +107,9 @@ namespace Lovewing.Game.Screens.Main
             content.MoveTo(new Vector2(content.DrawSize.X, 0), 250, EasingTypes.InQuad);
         }
 
-        public Drawable CreateButton()
+        public Drawable CreateButton(string text = "")
         {
-            WedgeButton button = new WedgeButton(WedgeColor)
+            WedgeButton button = new WedgeButton(WedgeColor, text)
             {
                 Action = Show,
                 RelativeSizeAxes = Axes.Both,
@@ -102,12 +118,15 @@ namespace Lovewing.Game.Screens.Main
                 Origin = Origin,
                 Margin = Margin,
             };
+
             StateChanged += (con, vis) => button.Active = vis == Visibility.Visible;
+
             if (!IsLoaded)
                 OnLoadComplete += drawable =>
                 {
-                    button.ActiveColor = WedgeColor;
+                    button.ActiveColor = ButtonColor;
                     button.Active = State == Visibility.Visible;
+                    button.buttonIcon.Texture = ButtonIcon;
                 };
             return button;
         }
@@ -115,6 +134,9 @@ namespace Lovewing.Game.Screens.Main
         private class WedgeButton : Container
         {
             public Color4 ActiveColor;
+            public readonly SpriteText buttonText;
+            public readonly Sprite buttonIcon;
+            public readonly Box hover;
             private readonly Box background;
             private readonly ClickableContainer clickCon;
 
@@ -123,13 +145,19 @@ namespace Lovewing.Game.Screens.Main
                 set
                 {
                     background.FadeColour(value ? ActiveColor : Color4.Gray, 250);
-                    clickCon.ResizeHeightTo(value ? 75 : 50, 250, value ? EasingTypes.OutQuad : EasingTypes.InQuad);
+                    clickCon.ResizeHeightTo(value ? 75 : 60, 250, value ? EasingTypes.OutQuad : EasingTypes.InQuad);
+                    buttonIcon.MoveToY(value ? -10 : 0, 250, value ? EasingTypes.OutQuad : EasingTypes.InQuad);
+                    buttonIcon.ScaleTo(value ? 0.6f : 0.7f, 250, value ? EasingTypes.OutQuad : EasingTypes.InQuad);
+                    if (value)
+                        buttonText.FadeIn(250, EasingTypes.OutQuad);
+                    else
+                        buttonText.FadeOut(250, EasingTypes.InQuad);
                 }
             }
 
             public Action Action;
 
-            public WedgeButton(Color4 activeColor)
+            public WedgeButton(Color4 activeColor, string text = "")
             {
                 ActiveColor = activeColor;
 
@@ -146,7 +174,7 @@ namespace Lovewing.Game.Screens.Main
                         Shear = new Vector2(0.1f, 0),
                         Anchor = Anchor.BottomRight,
                         Origin = Anchor.BottomRight,
-                        Size = new Vector2(wedge_width * 1.1f),
+                        Size = new Vector2(wedgeWidth * 1.1f),
                         Action = () => Action?.Invoke(),
                         Children = new Drawable[]
                         {
@@ -160,9 +188,40 @@ namespace Lovewing.Game.Screens.Main
                                 Colour = activeColor,
                                 EdgeSmoothness = Vector2.One,
                             },
+                            hover = new Box
+                            {
+                                Anchor = Anchor.BottomRight,
+                                Origin = Anchor.BottomRight,
+                                RelativeSizeAxes = Axes.Both,
+                                Shear = new Vector2(-0.05f, 0.05f),
+                                Width = 0.95f,
+                                Colour = Color4.White.Opacity(0.1f),
+                                Alpha = 0,
+                                BlendingMode = BlendingMode.Additive,
+                            },
+                            buttonIcon = new Sprite
+                            {
+                                Y = -10,
+                                Anchor = Anchor.Centre,
+                                Origin = Anchor.Centre,
+                                FillMode = FillMode.Fit,
+                                Colour = Color4.White,
+                            },
+                            buttonText = new SpriteText
+                            {
+                                Y = 25,
+                                Shadow = true,
+                                AllowMultiline = false,
+                                Anchor = Anchor.Centre,
+                                Origin = Anchor.Centre,
+                                TextSize = 20,
+                                Text = text,
+                            },
                         }
                     },
                 };
+
+                buttonText.Hide();
             }
         }
     }
