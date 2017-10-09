@@ -1,4 +1,7 @@
-﻿using osu.Framework.Graphics;
+﻿// Copyright (c) 2017 Clara.
+// Licensed under the EPL-1.0 License
+
+using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;

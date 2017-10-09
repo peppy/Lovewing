@@ -1,5 +1,5 @@
-﻿// Copyright (c) 2007-2017 Clara.
-// Licensed under the MIT License
+﻿// Copyright (c) 2017 Clara.
+// Licensed under the EPL-1.0 License
 
 using Lovewing.Game.Graphics;
 using Lovewing.Game.Graphics.UserInterface;

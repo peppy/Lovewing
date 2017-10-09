@@ -1,4 +1,7 @@
-﻿using Lovewing.Game.Graphics;
+﻿// Copyright (c) 2017 Clara.
+// Licensed under the EPL-1.0 License
+
+using Lovewing.Game.Graphics;
 using osu.Framework.Screens;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
