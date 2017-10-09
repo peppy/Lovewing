@@ -112,7 +112,7 @@
     <EmbeddedResource Include="Tracks\mainmenu_muse.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Tracks\mainmenu_aqours.mp3" />
+    <EmbeddedResource Include="Tracks\mainmenu_aqours.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

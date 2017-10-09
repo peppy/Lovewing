@@ -101,9 +101,12 @@ namespace Lovewing.Game.Screens
                                     {
                                         CornerRadius = 5,
                                         Size = new Vector2(630, 200),
-                                        Text = "aye its a button",
+                                        Text = "Test",
                                         Anchor = Anchor.BottomCentre,
                                         Origin = Anchor.BottomCentre,
+                                        Colour = Color4.Yellow,
+                                        TextColor = Color4.White,
+                                        HoverColor = colors.Yellow
                                     }
                                 }
                             }
