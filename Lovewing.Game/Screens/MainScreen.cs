@@ -52,14 +52,6 @@ namespace Lovewing.Game.Screens
                     RelativeSizeAxes = Axes.Both,
                     Children = new Wedge[]
                     {
-                        management = new IdolManagementWedge
-                        {
-                            Anchor = Anchor.BottomRight,
-                            Origin = Anchor.BottomRight,
-                            RelativeSizeAxes = Axes.Both,
-                            Width = 0.5f,
-                            Margin = new MarginPadding { Right = 50 }
-                        },
                         liveshow = new LiveShowWedge
                         {
                             Anchor = Anchor.BottomRight,
@@ -86,6 +78,32 @@ namespace Lovewing.Game.Screens
                                             HoverColor = colors.Blue,
                                             TextColor = Color4.White,
                                         }
+                                    }
+                                }
+                            }
+                        },
+                        management = new IdolManagementWedge
+                        {
+                            Anchor = Anchor.BottomRight,
+                            Origin = Anchor.BottomRight,
+                            RelativeSizeAxes = Axes.Both,
+                            Width = 0.5f,
+                            Margin = new MarginPadding { Right = 50 },
+                            Children = new Drawable []
+                            {
+                                new Container
+                                {
+                                    Y = 235,
+                                    Padding = new MarginPadding(15),
+                                    Anchor = Anchor.Centre,
+                                    Origin = Anchor.Centre,
+                                    Child = new LovewingButton
+                                    {
+                                        CornerRadius = 5,
+                                        Size = new Vector2(630, 200),
+                                        Text = "aye its a button",
+                                        Anchor = Anchor.BottomCentre,
+                                        Origin = Anchor.BottomCentre,
                                     }
                                 }
                             }

@@ -1,5 +1,8 @@
 ![LovewingLogo](LovewingLogo.png)
 
+
+[![Build status](https://ci.appveyor.com/api/projects/status/838a3fvg62djv93f?svg=true)](https://ci.appveyor.com/project/sr229/lovewing)
+
 ### What's this repo about?
 
 This repository would contain Project Lovewing. We would accept contributions here.
