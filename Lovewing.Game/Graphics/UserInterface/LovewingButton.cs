@@ -18,19 +18,13 @@ namespace Lovewing.Game.Graphics.UserInterface
     {
         private readonly Box hover;
 
-        public Color4 BackgroundColor
-        {
-            get { return Background.Colour; }
-            set { Background.FadeColour(value); }
-        }
-
-        public Color4 HoverColor
+        public Color4 HoverColour
         {
             get { return hover.Colour; }
             set { hover.FadeColour(value); }
         }
 
-        public Color4 TextColor
+        public Color4 TextColour
         {
             get { return SpriteText.Colour; }
             set { SpriteText.FadeColour(value); }
@@ -54,7 +48,6 @@ namespace Lovewing.Game.Graphics.UserInterface
                     RelativeSizeAxes = Axes.Both,
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
-                    Depth = 5,
                 },
                 SpriteText = CreateText(),
                 hover = new Box

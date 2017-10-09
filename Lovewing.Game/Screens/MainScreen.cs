@@ -59,6 +59,7 @@ namespace Lovewing.Game.Screens
                             RelativeSizeAxes = Axes.Both,
                             Width = 0.5f,
                             Margin = new MarginPadding { Right = 100 },
+                            Depth = 2,
                             Children = new[]
                             {
                                 new Container
@@ -74,9 +75,9 @@ namespace Lovewing.Game.Screens
                                         {
                                             Text = "test",
                                             Size = new Vector2(300, 200),
-                                            BackgroundColour = colors.Blue,
-                                            HoverColor = colors.Blue,
-                                            TextColor = Color4.White,
+                                            Colour = colors.Blue,
+                                            HoverColour = colors.Blue,
+                                            TextColour = Color4.White,
                                         }
                                     }
                                 }
@@ -102,6 +103,9 @@ namespace Lovewing.Game.Screens
                                         CornerRadius = 5,
                                         Size = new Vector2(630, 200),
                                         Text = "aye its a button",
+                                        BackgroundColour = colors.Yellow,
+                                        TextColour = Color4.White,
+                                        HoverColour = Color4.White,
                                         Anchor = Anchor.BottomCentre,
                                         Origin = Anchor.BottomCentre,
                                     }
@@ -140,8 +144,8 @@ namespace Lovewing.Game.Screens
                                             Size = new Vector2(200, 200),
                                             Text = "Inbox",
                                             BackgroundColour = Color4.White,
-                                            HoverColor = colors.Magenta,
-                                            TextColor = colors.Magenta,
+                                            HoverColour = colors.Magenta,
+                                            TextColour = colors.Magenta,
                                             Anchor = Anchor.TopRight,
                                             Origin = Anchor.TopRight,
                                             Children = new Drawable[]
