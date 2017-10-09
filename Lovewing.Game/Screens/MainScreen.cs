@@ -105,12 +105,9 @@ namespace Lovewing.Game.Screens
                                         Text = "Test",
                                         BackgroundColour = colors.Yellow,
                                         TextColour = Color4.White,
-                                        HoverColour = Color4.White,
+                                        HoverColour = Color4.Yellow,
                                         Anchor = Anchor.BottomCentre,
                                         Origin = Anchor.BottomCentre,
-                                        Colour = Color4.Yellow,
-                                        TextColor = Color4.White,
-                                        HoverColor = colors.Yellow
                                     }
                                 }
                             }
