@@ -7,11 +7,14 @@ namespace Lovewing.Game
 {
     public class LovewingGame : LovewingGameBase
     {
+
+        private readonly MainScreen mainScreen = new MainScreen();
+
         protected override void LoadComplete()
         {
             base.LoadComplete();
 
-            Add(new MainScreen());
+            Add(mainScreen);
         }
     }
 }

@@ -81,7 +81,7 @@ namespace Lovewing.Game.Graphics.UserInterface
         {
             set
             {
-                this.FadeTo(value ? 1 : 0);
+                FadeTo(value ? 1 : 0);
             }
         }
     }

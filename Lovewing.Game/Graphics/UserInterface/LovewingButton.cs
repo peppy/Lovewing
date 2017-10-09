@@ -60,15 +60,9 @@ namespace Lovewing.Game.Graphics.UserInterface
             });
 
             SpriteText.X = textX;
-            SpriteText.Y = 60;
+            SpriteText.Y = textY;
             SpriteText.TextSize = textSize;
             SpriteText.Shadow = true;
-        }
-
-        [BackgroundDependencyLoader]
-        public void load(LovewingColors colors)
-        {
-            BackgroundColour = colors.Magenta;
         }
 
         protected override bool OnClick(InputState state)
@@ -100,7 +94,7 @@ namespace Lovewing.Game.Graphics.UserInterface
         {
             set
             {
-                this.FadeTo(value ? 1 : 0);
+                FadeTo(value ? 1 : 0);
             }
         }
     }

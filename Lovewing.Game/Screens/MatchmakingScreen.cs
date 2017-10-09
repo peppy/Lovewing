@@ -1,28 +1,23 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
-using Lovewing.Game.Graphics;
+using Lovewing.Game.Graphics.UserInterface;
 using osu.Framework.Screens;
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Shapes;
-using OpenTK;
 using OpenTK.Graphics;
 
 namespace Lovewing.Game.Screens
 {
     class MatchmakingScreen : Screen
     {
-        private readonly LovewingColors colors = new LovewingColors();
 
         public MatchmakingScreen()
         {
+            Colour = new Color4(54, 54, 54, 255);
+
             Children = new Drawable[]
             {
-                new Box
-                {
-                    RelativeSizeAxes = Axes.Both,
-                    Colour = new Color4(54, 54, 54, 255),
-                }
+                new Toolbar(),
             };
         }
 

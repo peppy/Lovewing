@@ -12,6 +12,7 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
 using osu.Framework.IO.Stores;
+using osu.Framework.Input;
 using OpenTK;
 using OpenTK.Graphics;
 using System.Linq;
@@ -23,10 +24,22 @@ namespace Lovewing.Game.Screens
         private readonly Background background;
         private readonly Sprite idol;
         private readonly Sprite notifIcon;
+        private readonly LovewingButton soloBtn;
+        private readonly LovewingButton mpBtn;
         private readonly LovewingButton notifBtn;
         private readonly Container toolbar;
         private readonly Container<Wedge> wedgeContainer;
         private readonly LovewingColors colors = new LovewingColors();
+
+        private void Solo()
+        {
+
+        }
+
+        private void Matchmaking()
+        {
+
+        }
 
         public MainScreen()
         {
@@ -64,20 +77,30 @@ namespace Lovewing.Game.Screens
                             {
                                 new Container
                                 {
-                                    X = -100,
-                                    Y = -220,
                                     Padding = new MarginPadding(15),
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
                                     Children = new Drawable[]
                                     {
-                                        new LovewingButton
+                                        soloBtn = new LovewingButton(0, 0, 75)
                                         {
-                                            Text = "test",
-                                            Size = new Vector2(300, 200),
-                                            Colour = colors.Blue,
+                                            Action = Solo,
+                                            Anchor = Anchor.BottomCentre,
+                                            Origin = Anchor.BottomCentre,
+                                            Text = "Solo",
+                                            Size = new Vector2(500, 200),
+                                            BackgroundColour = colors.Blue,
                                             HoverColour = colors.Blue,
-                                            TextColour = Color4.White,
+                                        },
+                                        mpBtn = new LovewingButton(0, 0, 75)
+                                        {
+                                            Action = Matchmaking,
+                                            Anchor = Anchor.TopCentre,
+                                            Origin = Anchor.TopCentre,
+                                            Text = "Multiplayer",
+                                            Size = new Vector2(500, 200),
+                                            BackgroundColour = colors.Blue,
+                                            HoverColour = colors.Blue,
                                         }
                                     }
                                 }
@@ -94,20 +117,29 @@ namespace Lovewing.Game.Screens
                             {
                                 new Container
                                 {
-                                    Y = 235,
                                     Padding = new MarginPadding(15),
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
-                                    Child = new LovewingButton
+                                    Children = new Drawable[]
                                     {
-                                        CornerRadius = 5,
-                                        Size = new Vector2(630, 200),
-                                        Text = "Test",
-                                        BackgroundColour = colors.Yellow,
-                                        TextColour = Color4.White,
-                                        HoverColour = Color4.Yellow,
-                                        Anchor = Anchor.BottomCentre,
-                                        Origin = Anchor.BottomCentre,
+                                        new LovewingButton(0, 0, 60)
+                                        {
+                                            Size = new Vector2(630, 200),
+                                            Text = "Button",
+                                            BackgroundColour = colors.Yellow,
+                                            HoverColour = colors.Yellow,
+                                            Anchor = Anchor.BottomCentre,
+                                            Origin = Anchor.BottomCentre,
+                                        },
+                                        new LovewingButton(0, 0, 60)
+                                        {
+                                            Size = new Vector2(630, 200),
+                                            Text = "Another Button",
+                                            BackgroundColour = colors.Yellow,
+                                            HoverColour = colors.Yellow,
+                                            Anchor = Anchor.TopCentre,
+                                            Origin = Anchor.TopCentre,
+                                        }
                                     }
                                 }
                             }
