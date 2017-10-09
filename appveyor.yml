@@ -21,3 +21,8 @@ build:
 after_build:
   - cmd: inspectcode /o="inspectcodereport.xml" /caches-home="inspectcode" Lovewing.sln
   - cmd: NVika parsereport "inspectcodereport.xml" --treatwarningsaserrors
+
+notifications:
+  - provider: Webhook
+    url: https://claraio-circledisc.herokuapp.com/hooks/appveyor
+    method: POST
