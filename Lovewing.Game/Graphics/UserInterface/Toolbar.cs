@@ -98,13 +98,13 @@ namespace Lovewing.Game.Graphics.UserInterface
                             Y = 25,
                             X = 25,
                             IconSize = new Vector2(20),
-                            Colour = colors.Yellow,
+                            Colour = Color4.LightGreen,
                         },
                     }
                 },
                 new Container
                 {
-                    X = -220,
+                    X = -240,
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
                     Children = new Drawable[]
@@ -149,7 +149,7 @@ namespace Lovewing.Game.Graphics.UserInterface
                             Y = 25,
                             X = 25,
                             IconSize = new Vector2(20),
-                            Colour = colors.Yellow,
+                            Colour = Color4.LightGreen,
                         },
                     }
                 }
