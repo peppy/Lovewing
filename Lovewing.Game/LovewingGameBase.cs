@@ -23,7 +23,9 @@ namespace Lovewing.Game
             var t = Audio.Track.Get(@"mainmenu_aqours");
 
             t?.Start();
-            t.Looping = true;
+            
+            if (t != null)
+                t.Looping = true;
         }
 
         public override void SetHost(GameHost host)

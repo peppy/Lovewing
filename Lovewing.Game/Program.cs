@@ -1,7 +1,6 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
-using System;
 using osu.Framework.Desktop;
 using osu.Framework.Platform;
 
