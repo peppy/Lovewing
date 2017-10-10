@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
+using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
@@ -8,6 +9,7 @@ using osu.Framework.Graphics.Textures;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Input;
+using osu.Framework.IO.Stores;
 using OpenTK;
 using OpenTK.Graphics;
 
@@ -27,6 +29,8 @@ namespace Lovewing.Game.Graphics.UserInterface
             get { return Sprite.Texture; }
             set { Sprite.Texture = value; }
         }
+
+        public FontAwesome Icon;
 
         protected Sprite Sprite;
 
@@ -48,6 +52,12 @@ namespace Lovewing.Game.Graphics.UserInterface
                     Colour = Color4.White,
                 }
             });
+        }
+
+        [BackgroundDependencyLoader]
+        private void load(FontStore fontStore)
+        {
+            Texture = fontStore.Get(((char) Icon).ToString());
         }
 
         protected override bool OnHover(InputState state)

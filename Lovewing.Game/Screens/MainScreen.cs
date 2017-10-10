@@ -16,6 +16,7 @@ using osu.Framework.Input;
 using OpenTK;
 using OpenTK.Graphics;
 using System.Linq;
+using OpenTK.Graphics.OpenGL;
 
 namespace Lovewing.Game.Screens
 {
@@ -30,7 +31,7 @@ namespace Lovewing.Game.Screens
         private readonly Container toolbar;
         private readonly Container<Wedge> wedgeContainer;
         private readonly LovewingColors colors = new LovewingColors();
-
+        
         private void Solo()
         {
 
@@ -38,7 +39,7 @@ namespace Lovewing.Game.Screens
 
         private void Matchmaking()
         {
-
+            Push(new MatchmakingScreen());
         }
 
         public MainScreen()
