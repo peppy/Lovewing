@@ -11,7 +11,7 @@ namespace Lovewing.Game
 {
     public class LovewingGameBase : osu.Framework.Game
     {
-        protected override string MainResourceFile => "Lovewing.Game.exe";
+        protected override string MainResourceFile => "Lovewing.Game.Resources.dll";
 
         [BackgroundDependencyLoader]
         private void load()
