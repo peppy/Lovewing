@@ -66,6 +66,9 @@
     <Compile Include="Screens\MatchmakingScreen.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Lovewing.licenseheader">
+      <Link>Lovewing.licenseheader</Link>
+    </None>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
