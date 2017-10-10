@@ -13,7 +13,7 @@ using Lovewing.Game.Screens.Main;
 using osu.Framework.Graphics.Shapes;
 using OpenTK;
 
-namespace Lovewing.VisualTests.Tests
+namespace Lovewing.Tests.Tests
 {
     internal class TestCaseLovewingButton : TestCase
     {

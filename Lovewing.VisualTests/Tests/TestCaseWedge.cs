@@ -8,10 +8,15 @@ using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using System.Linq;
+using Lovewing.Game.Graphics;
+using osu.Framework.Allocation;
 using osu.Framework.Graphics.Shapes;
+using osu.Framework.Graphics.Textures;
+using osu.Framework.Graphics.UserInterface;
+using osu.Framework.IO.Stores;
 using OpenTK;
 
-namespace Lovewing.VisualTests.Tests
+namespace Lovewing.Tests.Tests
 {
     internal class TestCaseWedge : TestCase
     {
@@ -19,7 +24,7 @@ namespace Lovewing.VisualTests.Tests
         {
             base.Reset();
 
-            List<Color4> colors = new List<Color4>
+            var colors = new List<Color4>
             {
                 Color4.Red,
                 Color4.Green,
@@ -28,18 +33,18 @@ namespace Lovewing.VisualTests.Tests
                 Color4.Aquamarine,
             };
 
-            for(int i = colors.Count - 1; i >= 0; i--)
+            for(var i = colors.Count - 1; i >= 0; i--)
             {
-                CustomWedge wedge = new CustomWedge(colors[i])
+                var wedge = new CustomWedge(colors[i])
                 {
                     Origin = Anchor.BottomRight,
                     Anchor = Anchor.BottomRight,
                     RelativeSizeAxes = Axes.Both,
                     Width = 0.5f,
                     Depth = i,
-                    Margin = new MarginPadding { Right = i * 50 },
+                    Margin = new MarginPadding { Right = i * 50 }
                 };
-                wedge.StateChanged += selectWedge;
+                wedge.StateChanged += SelectWedge;
 
                 wedge.Add(new Box
                 {
@@ -47,7 +52,7 @@ namespace Lovewing.VisualTests.Tests
                     Size = new Vector2(0.5f),
                     Colour = colors[i],
                     Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
+                    Origin = Anchor.Centre
                 });
 
                 Add(wedge);
@@ -55,21 +60,29 @@ namespace Lovewing.VisualTests.Tests
             }
         }
 
-        private void selectWedge(VisibilityContainer con, Visibility vis)
+        private void SelectWedge(VisibilityContainer con, Visibility vis)
         {
             if (vis == Visibility.Visible)
-            {
                 Children.Where(child => child != con).OfType<Wedge>().ToList().ForEach(wedge => wedge.Hide());
-            }
         }
 
         private class CustomWedge : Wedge
         {
-            protected override Color4 WedgeColor { get; } = Color4.Wheat;
-
+            private Color4 wedgeColor = Color4.Wheat;
+            private Texture icon;
+            protected override Color4 WedgeColor => wedgeColor;
+            protected override Color4 ButtonColor => wedgeColor;
+            protected override Texture ButtonIcon => icon;
+            
             public CustomWedge(Color4 color)
             {
-                WedgeColor = color;
+                wedgeColor = color;
+            }
+
+            [BackgroundDependencyLoader]
+            private void load(FontStore fontStore)
+            {
+                icon = fontStore.Get(((char) FontAwesome.fa_home).ToString());
             }
         }
     }

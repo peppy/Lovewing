@@ -13,6 +13,8 @@ namespace Lovewing.Tests
 {
     internal class LovewingTests : LovewingGameBase
     {
+        protected override string MainResourceFile => "Lovewing.Game.Resources.dll";
+
         //before we add stuff to the actual game, we need to write scratchpad tests for it.
         [BackgroundDependencyLoader]
         private void load ()

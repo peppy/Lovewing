@@ -91,7 +91,7 @@ namespace Lovewing.Game.Screens
                                             Text = "Solo",
                                             Size = new Vector2(500, 200),
                                             BackgroundColour = colors.Blue,
-                                            HoverColour = colors.Blue,
+                                            HoverColour = colors.Blue
                                         },
                                         mpBtn = new LovewingButton(0, 0, 75)
                                         {
@@ -101,7 +101,7 @@ namespace Lovewing.Game.Screens
                                             Text = "Multiplayer",
                                             Size = new Vector2(500, 200),
                                             BackgroundColour = colors.Blue,
-                                            HoverColour = colors.Blue,
+                                            HoverColour = colors.Blue
                                         }
                                     }
                                 }
@@ -114,7 +114,7 @@ namespace Lovewing.Game.Screens
                             RelativeSizeAxes = Axes.Both,
                             Width = 0.5f,
                             Margin = new MarginPadding { Right = 50 },
-                            Children = new Drawable []
+                            Children = new Drawable[]
                             {
                                 new Container
                                 {
@@ -130,7 +130,7 @@ namespace Lovewing.Game.Screens
                                             BackgroundColour = colors.Yellow,
                                             HoverColour = colors.Yellow,
                                             Anchor = Anchor.BottomCentre,
-                                            Origin = Anchor.BottomCentre,
+                                            Origin = Anchor.BottomCentre
                                         },
                                         new LovewingButton(0, 0, 60)
                                         {
@@ -139,7 +139,7 @@ namespace Lovewing.Game.Screens
                                             BackgroundColour = colors.Yellow,
                                             HoverColour = colors.Yellow,
                                             Anchor = Anchor.TopCentre,
-                                            Origin = Anchor.TopCentre,
+                                            Origin = Anchor.TopCentre
                                         }
                                     }
                                 }
@@ -169,7 +169,7 @@ namespace Lovewing.Game.Screens
                                             Text = "Story",
                                             BackgroundColour = colors.Magenta,
                                             Anchor = Anchor.TopLeft,
-                                            Origin = Anchor.TopLeft,
+                                            Origin = Anchor.TopLeft
                                         },
                                         notifBtn = new LovewingButton
                                         {
@@ -189,7 +189,7 @@ namespace Lovewing.Game.Screens
                                                     Scale = new Vector2(70),
                                                     Anchor = Anchor.Centre,
                                                     Origin = Anchor.Centre,
-                                                    Colour = colors.Magenta,
+                                                    Colour = colors.Magenta
                                                 },
                                                 new Circle
                                                 {
@@ -198,11 +198,11 @@ namespace Lovewing.Game.Screens
                                                     Size = new Vector2(25, 25),
                                                     Colour = Color4.Red,
                                                     Origin = Anchor.Centre,
-                                                    Anchor = Anchor.Centre,
+                                                    Anchor = Anchor.Centre
                                                 }
                                             }
-                                        },
-                                    },
+                                        }
+                                    }
                                 },
                                 new Container
                                 {
@@ -217,13 +217,13 @@ namespace Lovewing.Game.Screens
                                         Text = "Events",
                                         BackgroundColour = colors.Magenta,
                                         Anchor = Anchor.BottomCentre,
-                                        Origin = Anchor.BottomCentre,
+                                        Origin = Anchor.BottomCentre
                                     }
                                 }
                             }
-                        },   
+                        }
                     }
-                },
+                }
             };
 
             home.StateChanged += SelectWedge;
@@ -234,7 +234,7 @@ namespace Lovewing.Game.Screens
             {
                 management.CreateButton("Idols"),
                 home.CreateButton("Home"),
-                liveshow.CreateButton("Liveshow"),
+                liveshow.CreateButton("Liveshow")
             });
         }
 
@@ -262,10 +262,8 @@ namespace Lovewing.Game.Screens
 
         private void SelectWedge(VisibilityContainer con, Visibility vis)
         {
-            if(vis == Visibility.Visible)
-            {
+            if (vis == Visibility.Visible)
                 wedgeContainer.Children.Where(child => child != con).ToList().ForEach(wedge => wedge.Hide());
-            }
         }
     }
 }

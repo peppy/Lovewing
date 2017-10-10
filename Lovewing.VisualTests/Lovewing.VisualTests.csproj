@@ -60,6 +60,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lovewing.Resources\Lovewing.Game.Resources\Lovewing.Game.Resources.csproj">
+      <Project>{7ae5d1f5-77a5-4478-8d6e-32d06c7060b9}</Project>
+      <Name>Lovewing.Game.Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lovewing.Game\Lovewing.Game.csproj">
       <Project>{eb1cce53-53a0-44a0-ad58-459608687511}</Project>
       <Name>Lovewing.Game</Name>
