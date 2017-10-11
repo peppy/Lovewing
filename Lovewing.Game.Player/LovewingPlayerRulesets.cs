@@ -3,7 +3,7 @@
 
 namespace Lovewing.Game.Player
 {
-    public class PlayerRulesets
+    public class LovewingPlayerRulesets
     {
 
     }
