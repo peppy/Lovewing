@@ -231,7 +231,7 @@ namespace Lovewing.Game.Screens
 
             Add(new[]
             {
-                liveshow.CreateButton("Liveshow"),
+                liveshow.CreateButton("Shows"),
                 management.CreateButton("Idols"),
                 home.CreateButton("Home")
             });
