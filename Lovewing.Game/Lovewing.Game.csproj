@@ -87,7 +87,6 @@
     <Compile Include="Screens\Main\Wedge.cs" />
     <Compile Include="Screens\LovewingScreen.cs" />
     <Compile Include="Screens\MatchmakingScreen.cs" />
-    <Compile Include="Tests\Visual\TestCaseLovewingButton.cs" />
     <Compile Include="Tests\Visual\TestCaseToolbar.cs" />
     <Compile Include="Tests\Visual\TestCaseWedge.cs" />
   </ItemGroup>
