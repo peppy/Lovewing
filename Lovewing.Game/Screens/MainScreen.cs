@@ -23,18 +23,16 @@ namespace Lovewing.Game.Screens
     public class MainScreen : LovewingScreen
     {
         private readonly Background background;
-        private readonly Sprite idol;
-        private readonly Sprite notifIcon;
-        private readonly LovewingButton soloBtn;
-        private readonly LovewingButton mpBtn;
-        private readonly LovewingButton notifBtn;
+        private readonly Sprite idol, notifIcon;
+        private readonly LovewingButton soloBtn, mpBtn, notifBtn;
         private readonly Container toolbar;
         private readonly Container<Wedge> wedgeContainer;
         private readonly LovewingColors colors = new LovewingColors();
+        private readonly Wedge home, management, liveshow;
         
         private void Solo()
         {
-
+            liveshow.Expand();
         }
 
         private void Matchmaking()
@@ -44,27 +42,28 @@ namespace Lovewing.Game.Screens
 
         public MainScreen()
         {
-            Wedge home, management, liveshow;
+            // Wedge home, management, liveshow;
             Children = new Drawable[]
             {
                 background = new Background(@"Backgrounds/mainmenu")
                 {
                     FillMode = FillMode.Fill,
                     Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
+                    Origin = Anchor.Centre
                 },
                 idol = new Sprite
                 {
                     X = 50,
                     Anchor = Anchor.BottomLeft,
                     Origin = Anchor.BottomLeft,
-                    Size = new Vector2(300f, 600f),
+                    FillMode = FillMode.Fit,
+                    Scale = new Vector2(0.75f)
                 },
                 toolbar = new Toolbar(),
                 wedgeContainer = new Container<Wedge>
                 {
                     RelativeSizeAxes = Axes.Both,
-                    Children = new Wedge[]
+                    Children = new[]
                     {
                         liveshow = new LiveShowWedge
                         {
@@ -232,9 +231,9 @@ namespace Lovewing.Game.Screens
 
             Add(new[]
             {
+                liveshow.CreateButton("Liveshow"),
                 management.CreateButton("Idols"),
-                home.CreateButton("Home"),
-                liveshow.CreateButton("Liveshow")
+                home.CreateButton("Home")
             });
         }
 

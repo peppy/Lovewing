@@ -32,9 +32,14 @@ namespace Lovewing.Game.Screens.Main
         private const float wedgeWidth = 50;
 
         [BackgroundDependencyLoader]
-        public void load(FontStore store)
+        private void load(FontStore store)
         {
             fstore = store;
+        }
+
+        public void Expand()
+        {
+            wedgeBackground?.MoveTo(new Vector2(-0.75f, 0), 250, EasingTypes.InQuad);
         }
 
         public Wedge()
@@ -43,7 +48,7 @@ namespace Lovewing.Game.Screens.Main
             {
                 RelativeSizeAxes = Axes.Both,
                 AlwaysPresent = true,
-                Depth = -1,
+                Depth = -1
             });
         }
 
@@ -62,22 +67,22 @@ namespace Lovewing.Game.Screens.Main
                     Colour = WedgeColor,
                     Children = new[]
                     {
-                        new Box()
+                        new Box
                         {
                             RelativeSizeAxes = Axes.Both,
                             Alpha = 0.29f,
-                            EdgeSmoothness = Vector2.One,
+                            EdgeSmoothness = Vector2.One
                         },
-                        new Box()
+                        new Box
                         {
                             RelativeSizeAxes = Axes.Y,
                             Colour = WedgeColor,
                             Alpha = 0.29f,
                             Width = wedgeWidth,
-                            EdgeSmoothness = Vector2.One,
+                            EdgeSmoothness = Vector2.One
                         }
                     }
-                },
+                }
             });
 
             State = Visibility.Visible;
@@ -85,10 +90,8 @@ namespace Lovewing.Game.Screens.Main
 
         public override bool Invalidate(Invalidation invalidation = Invalidation.All, Drawable source = null, bool shallPropagate = true)
         {
-            if((invalidation & (Invalidation.DrawSize | Invalidation.MiscGeometry)) > 0)
-            {
+            if ((invalidation & (Invalidation.DrawSize | Invalidation.MiscGeometry)) > 0)
                 content.Size = Vector2.Divide(LayoutSize, DrawSize);
-            }
 
             return base.Invalidate(invalidation, source, shallPropagate);
         }
@@ -107,7 +110,7 @@ namespace Lovewing.Game.Screens.Main
 
         public Drawable CreateButton(string text = "")
         {
-            WedgeButton button = new WedgeButton(WedgeColor, text)
+            var button = new WedgeButton(WedgeColor, text)
             {
                 Action = Show,
                 RelativeSizeAxes = Axes.Both,
@@ -132,10 +135,9 @@ namespace Lovewing.Game.Screens.Main
         private class WedgeButton : Container
         {
             public Color4 ActiveColor;
-            public readonly SpriteText buttonText;
+            private readonly SpriteText buttonText;
             public readonly Sprite buttonIcon;
-            public readonly Box hover;
-            private readonly Box background;
+            private readonly Box hover, background;
             private readonly ClickableContainer clickCon;
 
             public bool Active
@@ -179,7 +181,7 @@ namespace Lovewing.Game.Screens.Main
                         {
                             Colour = Color4.Black.Opacity(0.05f),
                             Type = EdgeEffectType.Shadow,
-                            Radius = 10,
+                            Radius = 10
                         },
                         Children = new Drawable[]
                         {
@@ -191,7 +193,7 @@ namespace Lovewing.Game.Screens.Main
                                 Shear = new Vector2(-0.05f, 0.05f),
                                 Width = 0.95f,
                                 Colour = activeColor,
-                                EdgeSmoothness = Vector2.One,
+                                EdgeSmoothness = Vector2.One
                             },
                             hover = new Box
                             {
@@ -202,7 +204,7 @@ namespace Lovewing.Game.Screens.Main
                                 Width = 0.95f,
                                 Colour = Color4.White.Opacity(0.1f),
                                 Alpha = 0,
-                                BlendingMode = BlendingMode.Additive,
+                                BlendingMode = BlendingMode.Additive
                             },
                             buttonIcon = new Sprite
                             {
@@ -210,7 +212,7 @@ namespace Lovewing.Game.Screens.Main
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
                                 FillMode = FillMode.Fit,
-                                Colour = Color4.White,
+                                Colour = Color4.White
                             },
                             buttonText = new SpriteText
                             {
@@ -220,10 +222,10 @@ namespace Lovewing.Game.Screens.Main
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
                                 TextSize = 20,
-                                Text = text,
-                            },
+                                Text = text
+                            }
                         }
-                    },
+                    }
                 };
 
                 buttonText.Hide();
