@@ -12,18 +12,15 @@ using Lovewing.Game.Graphics;
 using osu.Framework.Allocation;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Textures;
-using osu.Framework.Graphics.UserInterface;
 using osu.Framework.IO.Stores;
 using OpenTK;
 
-namespace Lovewing.Tests.Tests
+namespace Lovewing.Game.Tests.Visual
 {
     internal class TestCaseWedge : TestCase
     {
-        public override void Reset()
+        public TestCaseWedge()
         {
-            base.Reset();
-
             var colors = new List<Color4>
             {
                 Color4.Red,
@@ -44,7 +41,7 @@ namespace Lovewing.Tests.Tests
                     Depth = i,
                     Margin = new MarginPadding { Right = i * 50 }
                 };
-                wedge.StateChanged += SelectWedge;
+                wedge.StateChanged += vis => SelectWedge(wedge, vis);
 
                 wedge.Add(new Box
                 {
@@ -73,7 +70,7 @@ namespace Lovewing.Tests.Tests
             protected override Color4 WedgeColor => wedgeColor;
             protected override Color4 ButtonColor => wedgeColor;
             protected override Texture ButtonIcon => icon;
-            
+
             public CustomWedge(Color4 color)
             {
                 wedgeColor = color;

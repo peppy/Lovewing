@@ -25,11 +25,11 @@ namespace Lovewing.Game.Screens
         private readonly Background background;
         private readonly Sprite idol, notifIcon;
         private readonly LovewingButton soloBtn, mpBtn, notifBtn;
-        private readonly Container toolbar;
+        private readonly Toolbar toolbar;
         private readonly Container<Wedge> wedgeContainer;
         private readonly LovewingColors colors = new LovewingColors();
         private readonly Wedge home, management, liveshow;
-        
+
         private void Solo()
         {
             liveshow.Expand();
@@ -59,7 +59,14 @@ namespace Lovewing.Game.Screens
                     FillMode = FillMode.Fit,
                     Scale = new Vector2(0.75f)
                 },
-                toolbar = new Toolbar(),
+                toolbar = new Toolbar()
+                {
+                    Origin = Anchor.TopRight,
+                    Anchor = Anchor.TopRight,
+                    RelativeSizeAxes = Axes.X,
+                    Height = 100,
+                    Depth = -1,
+                },
                 wedgeContainer = new Container<Wedge>
                 {
                     RelativeSizeAxes = Axes.Both,
@@ -225,11 +232,11 @@ namespace Lovewing.Game.Screens
                 }
             };
 
-            home.StateChanged += SelectWedge;
-            management.StateChanged += SelectWedge;
-            liveshow.StateChanged += SelectWedge;
+            home.StateChanged += vis => SelectWedge(home, vis);
+            management.StateChanged += vis => SelectWedge(management, vis);
+            liveshow.StateChanged += vis => SelectWedge(liveshow, vis);
 
-            Add(new[]
+            AddRange(new[]
             {
                 liveshow.CreateButton("Liveshow"),
                 management.CreateButton("Idols"),
@@ -255,7 +262,7 @@ namespace Lovewing.Game.Screens
         private void load(TextureStore texStore, FontStore fontStore)
         {
             idol.Texture = texStore.Get(@"Idols/kotori");
-            
+
             notifIcon.Texture = fontStore.Get(((char)FontAwesome.fa_envelope_o).ToString());
         }
 

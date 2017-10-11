@@ -31,17 +31,6 @@ namespace Lovewing.Game.Screens.Main
 
         private const float wedgeWidth = 50;
 
-        [BackgroundDependencyLoader]
-        private void load(FontStore store)
-        {
-            fstore = store;
-        }
-
-        public void Expand()
-        {
-            wedgeBackground?.MoveTo(new Vector2(-0.75f, 0), 250, EasingTypes.InQuad);
-        }
-
         public Wedge()
         {
             AddInternal(content = new Container
@@ -54,7 +43,8 @@ namespace Lovewing.Game.Screens.Main
 
         protected override void LoadComplete()
         {
-            AddInternal(new Drawable[] {
+            AddRangeInternal(new Drawable[]
+            {
                 wedgeBackground = new Container<Box>
                 {
                     AlwaysPresent = true,
@@ -98,14 +88,14 @@ namespace Lovewing.Game.Screens.Main
 
         protected override void PopIn()
         {
-            wedgeBackground.MoveTo(new Vector2(0, 0), 250, EasingTypes.OutQuad);
-            content.MoveTo(new Vector2(0, 0), 250, EasingTypes.OutQuad);
+            wedgeBackground.MoveTo(new Vector2(0, 0), 250, Easing.OutQuad);
+            content.MoveTo(new Vector2(0, 0), 250, Easing.OutQuad);
         }
 
         protected override void PopOut()
         {
-            wedgeBackground.MoveTo(new Vector2(2, 0), 250, EasingTypes.InQuad);
-            content.MoveTo(new Vector2(content.DrawSize.X, 0), 250, EasingTypes.InQuad);
+            wedgeBackground.MoveTo(new Vector2(2, 0), 250, Easing.InQuad);
+            content.MoveTo(new Vector2(content.DrawSize.X, 0), 250, Easing.InQuad);
         }
 
         public Drawable CreateButton(string text = "")
@@ -120,7 +110,7 @@ namespace Lovewing.Game.Screens.Main
                 Margin = Margin,
             };
 
-            StateChanged += (con, vis) => button.Active = vis == Visibility.Visible;
+            StateChanged += vis => button.Active = vis == Visibility.Visible;
 
             if (!IsLoaded)
                 OnLoadComplete += drawable =>
@@ -130,6 +120,17 @@ namespace Lovewing.Game.Screens.Main
                     button.buttonIcon.Texture = ButtonIcon;
                 };
             return button;
+        }
+
+        [BackgroundDependencyLoader]
+        private void load(FontStore store)
+        {
+            fstore = store;
+        }
+
+        public void Expand()
+        {
+            wedgeBackground?.MoveTo(new Vector2(-0.75f, 0), 250, Easing.InQuad);
         }
 
         private class WedgeButton : Container
@@ -145,13 +146,13 @@ namespace Lovewing.Game.Screens.Main
                 set
                 {
                     background.FadeColour(value ? ActiveColor : Color4.Gray, 250);
-                    clickCon.ResizeHeightTo(value ? 75 : 60, 250, value ? EasingTypes.OutQuad : EasingTypes.InQuad);
-                    buttonIcon.MoveToY(value ? -10 : 0, 250, value ? EasingTypes.OutQuad : EasingTypes.InQuad);
-                    buttonIcon.ScaleTo(value ? 0.6f : 0.7f, 250, value ? EasingTypes.OutQuad : EasingTypes.InQuad);
+                    clickCon.ResizeHeightTo(value ? 75 : 60, 250, value ? Easing.OutQuad : Easing.InQuad);
+                    buttonIcon.MoveToY(value ? -10 : 0, 250, value ? Easing.OutQuad : Easing.InQuad);
+                    buttonIcon.ScaleTo(value ? 0.6f : 0.7f, 250, value ? Easing.OutQuad : Easing.InQuad);
                     if (value)
-                        buttonText.FadeIn(250, EasingTypes.OutQuad);
+                        buttonText.FadeIn(250, Easing.OutQuad);
                     else
-                        buttonText.FadeOut(250, EasingTypes.InQuad);
+                        buttonText.FadeOut(250, Easing.InQuad);
                 }
             }
 
@@ -204,10 +205,10 @@ namespace Lovewing.Game.Screens.Main
                                 Width = 0.95f,
                                 Colour = Color4.White.Opacity(0.1f),
                                 Alpha = 0,
-                                BlendingMode = BlendingMode.Additive
                             },
                             buttonIcon = new Sprite
                             {
+                                RelativeSizeAxes = Axes.Both,
                                 Y = -10,
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,

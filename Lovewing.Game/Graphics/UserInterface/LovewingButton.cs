@@ -11,10 +11,11 @@ using osu.Framework.Input;
 using osu.Framework.Extensions.Color4Extensions;
 using OpenTK;
 using OpenTK.Graphics;
+using System.Collections.Generic;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
-    class LovewingButton : Button, IFilterable
+    public class LovewingButton : Button, IFilterable
     {
         private readonly Box hover;
 
@@ -41,7 +42,7 @@ namespace Lovewing.Game.Graphics.UserInterface
             Height = 40;
             Masking = true;
             CornerRadius = 5;
-            AddInternal(new Drawable[]
+            AddRangeInternal(new Drawable[]
             {
                 Background = new Box
                 {
@@ -53,7 +54,6 @@ namespace Lovewing.Game.Graphics.UserInterface
                 hover = new Box
                 {
                     RelativeSizeAxes = Axes.Both,
-                    BlendingMode = BlendingMode.Additive,
                     Colour = Color4.White.Opacity(0.1f),
                     Alpha = 0,
                 },
@@ -84,17 +84,17 @@ namespace Lovewing.Game.Graphics.UserInterface
 
         protected override bool OnMouseUp(InputState state, MouseUpEventArgs args)
         {
-            Content.ScaleTo(1.1f, 1000, EasingTypes.OutElastic);
+            Content.ScaleTo(1.1f, 1000, Easing.OutElastic);
             return base.OnMouseUp(state, args);
         }
 
-        public string[] FilterTerms => new[] { Text };
+        public IEnumerable<string> FilterTerms => new[] { Text };
 
         public bool MatchingFilter
         {
             set
             {
-                FadeTo(value ? 1 : 0);
+                this.FadeTo(value ? 1 : 0);
             }
         }
     }

@@ -10,10 +10,11 @@ using osu.Framework.Input;
 using osu.Framework.Extensions.Color4Extensions;
 using OpenTK;
 using OpenTK.Graphics;
+using System.Collections.Generic;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
-    class LovewingDoubleButton : Button, IFilterable
+    public class LovewingDoubleButton : Button, IFilterable
     {
         private readonly Box hover;
         private readonly LovewingColors colors = new LovewingColors();
@@ -29,12 +30,11 @@ namespace Lovewing.Game.Graphics.UserInterface
             SpriteText.Shadow = true;
             BackgroundColour = colors.Magenta;
 
-            Add(new Drawable[]
+            AddRange(new Drawable[]
             {
                 hover = new Box
                 {
                     RelativeSizeAxes = Axes.Both,
-                    BlendingMode = BlendingMode.Additive,
                     Colour = Color4.White.Opacity(0.1f),
                     Alpha = 0,
                 },
@@ -44,7 +44,6 @@ namespace Lovewing.Game.Graphics.UserInterface
                     RelativeSizeAxes = Axes.Both,
                     Origin = Anchor.CentreRight,
                     Anchor = Anchor.CentreRight,
-                    BlendingMode = BlendingMode.Additive,
                     Colour = colors.LightMagenta,
                     Shear = new Vector2(rotation, 0),
                     Alpha = 0.3f,
@@ -71,17 +70,17 @@ namespace Lovewing.Game.Graphics.UserInterface
 
         protected override bool OnMouseUp(InputState state, MouseUpEventArgs args)
         {
-            Content.ScaleTo(1, 1000, EasingTypes.OutElastic);
+            Content.ScaleTo(1, 1000, Easing.OutElastic);
             return base.OnMouseUp(state, args);
         }
 
-        public string[] FilterTerms => new[] { Text };
+        public IEnumerable<string> FilterTerms => new[] { Text };
 
         public bool MatchingFilter
         {
             set
             {
-                FadeTo(value ? 1 : 0);
+                this.FadeTo(value ? 1 : 0);
             }
         }
     }
