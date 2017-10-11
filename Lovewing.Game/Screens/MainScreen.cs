@@ -23,7 +23,7 @@ namespace Lovewing.Game.Screens
         private readonly Sprite idol, notifIcon;
         private readonly Container<Wedge> wedgeContainer;
         private readonly LovewingColors colors = new LovewingColors();
-        private readonly Wedge home, management, liveshow;
+        private readonly Wedge liveshow;
 
         private void solo()
         {
@@ -38,6 +38,9 @@ namespace Lovewing.Game.Screens
         public MainScreen()
         {
             // Wedge home, management, liveshow;
+
+            Wedge home, management; //switch back to field if needed. just for appveyor rn
+
             Children = new Drawable[]
             {
                 new Background(@"Backgrounds/mainmenu")

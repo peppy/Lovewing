@@ -9,10 +9,7 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using System.Linq;
 using Lovewing.Game.Graphics;
-using osu.Framework.Allocation;
 using osu.Framework.Graphics.Shapes;
-using osu.Framework.Graphics.Textures;
-using osu.Framework.IO.Stores;
 using OpenTK;
 
 namespace Lovewing.Game.Tests.Visual

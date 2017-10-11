@@ -2,7 +2,6 @@
 // Licensed under the EPL-1.0 License
 
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.UserInterface;
 using osu.Framework.Graphics.Containers;

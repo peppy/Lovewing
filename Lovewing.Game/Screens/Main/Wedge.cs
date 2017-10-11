@@ -20,7 +20,7 @@ namespace Lovewing.Game.Screens.Main
         protected abstract FontAwesome ButtonIcon { get; }
 
         private Container<Box> wedgeBackground;
-        private Container content;
+        private readonly Container content;
 
         //public override bool HandleInput => true;
 
@@ -28,7 +28,7 @@ namespace Lovewing.Game.Screens.Main
 
         private const float wedge_width = 50;
 
-        public Wedge()
+        protected Wedge()
         {
             AddInternal(content = new Container
             {
