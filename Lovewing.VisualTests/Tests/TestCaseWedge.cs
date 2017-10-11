@@ -80,7 +80,7 @@ namespace Lovewing.Tests.Tests
             }
 
             [BackgroundDependencyLoader]
-            private void load(FontStore fontStore)
+            private void Load(FontStore fontStore)
             {
                 icon = fontStore.Get(((char) FontAwesome.fa_home).ToString());
             }
