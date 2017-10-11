@@ -27,7 +27,7 @@ namespace Lovewing.Game
             var t = Audio.Track.Get(@"mainmenu_aqours");
 
             t?.Start();
-            
+
             if (t != null)
                 t.Looping = true;
         }

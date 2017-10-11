@@ -12,7 +12,7 @@ namespace Lovewing.Game.Graphics
     public class SpriteIcon : CompositeDrawable
     {
         private FontStore fonts;
-        private Sprite iconSprite;
+        private readonly Sprite iconSprite;
 
 
         private FontAwesome icon;

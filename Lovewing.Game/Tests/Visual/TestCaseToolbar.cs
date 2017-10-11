@@ -11,7 +11,7 @@ namespace Lovewing.Game.Tests.Visual
 {
     internal class TestCaseToolbar : TestCase
     {
-        public override IReadOnlyList<Type> RequiredTypes => new Type[] { typeof(Toolbar) };
+        public override IReadOnlyList<Type> RequiredTypes => new [] { typeof(Toolbar) };
 
         public TestCaseToolbar()
         {

@@ -41,7 +41,7 @@ namespace Lovewing.Game.Tests.Visual
                     Depth = i,
                     Margin = new MarginPadding { Right = i * 50 }
                 };
-                wedge.StateChanged += vis => SelectWedge(wedge, vis);
+                wedge.StateChanged += vis => selectWedge(wedge, vis);
 
                 wedge.Add(new Box
                 {
@@ -57,7 +57,7 @@ namespace Lovewing.Game.Tests.Visual
             }
         }
 
-        private void SelectWedge(VisibilityContainer con, Visibility vis)
+        private void selectWedge(VisibilityContainer con, Visibility vis)
         {
             if (vis == Visibility.Visible)
                 Children.Where(child => child != con).OfType<Wedge>().ToList().ForEach(wedge => wedge.Hide());
@@ -65,21 +65,14 @@ namespace Lovewing.Game.Tests.Visual
 
         private class CustomWedge : Wedge
         {
-            private Color4 wedgeColor = Color4.Wheat;
-            private Texture icon;
+            private readonly Color4 wedgeColor;
             protected override Color4 WedgeColor => wedgeColor;
             protected override Color4 ButtonColor => wedgeColor;
-            protected override Texture ButtonIcon => icon;
+            protected override FontAwesome ButtonIcon => FontAwesome.fa_home;
 
             public CustomWedge(Color4 color)
             {
                 wedgeColor = color;
-            }
-
-            [BackgroundDependencyLoader]
-            private void load(FontStore fontStore)
-            {
-                icon = fontStore.Get(((char) FontAwesome.fa_home).ToString());
             }
         }
     }

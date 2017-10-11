@@ -4,8 +4,6 @@
 using Lovewing.Game.Graphics;
 using OpenTK.Graphics;
 using osu.Framework.Allocation;
-using osu.Framework.Graphics.Textures;
-using osu.Framework.IO.Stores;
 
 namespace Lovewing.Game.Screens.Main
 {
@@ -13,18 +11,15 @@ namespace Lovewing.Game.Screens.Main
     {
         private Color4 wedgeColor;
         private Color4 buttonColor;
-        private Texture icon;
         protected override Color4 WedgeColor => wedgeColor;
         protected override Color4 ButtonColor => buttonColor;
-        protected override Texture ButtonIcon => icon;
+        protected override FontAwesome ButtonIcon => FontAwesome.fa_music;
 
         [BackgroundDependencyLoader]
-        private void load(LovewingColors colors, TextureStore texStore, FontStore fontStore)
+        private void load(LovewingColors colors)
         {
             wedgeColor = colors.DarkBlue;
             buttonColor = colors.Blue;
-
-            icon = fontStore.Get(((char)FontAwesome.fa_music).ToString());
         }
     }
 }

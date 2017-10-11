@@ -51,11 +51,6 @@ namespace Lovewing.Game.Graphics.UserInterface
             });
         }
 
-        protected override bool OnClick(InputState state)
-        {
-            return base.OnClick(state);
-        }
-
         protected override bool OnHover(InputState state)
         {
             hover.FadeIn(200);

@@ -12,30 +12,25 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
 using osu.Framework.IO.Stores;
-using osu.Framework.Input;
 using OpenTK;
 using OpenTK.Graphics;
 using System.Linq;
-using OpenTK.Graphics.OpenGL;
 
 namespace Lovewing.Game.Screens
 {
     public class MainScreen : LovewingScreen
     {
-        private readonly Background background;
         private readonly Sprite idol, notifIcon;
-        private readonly LovewingButton soloBtn, mpBtn, notifBtn;
-        private readonly Toolbar toolbar;
         private readonly Container<Wedge> wedgeContainer;
         private readonly LovewingColors colors = new LovewingColors();
         private readonly Wedge home, management, liveshow;
 
-        private void Solo()
+        private void solo()
         {
             liveshow.Expand();
         }
 
-        private void Matchmaking()
+        private void matchmaking()
         {
             Push(new MatchmakingScreen());
         }
@@ -45,7 +40,7 @@ namespace Lovewing.Game.Screens
             // Wedge home, management, liveshow;
             Children = new Drawable[]
             {
-                background = new Background(@"Backgrounds/mainmenu")
+                new Background(@"Backgrounds/mainmenu")
                 {
                     FillMode = FillMode.Fill,
                     Anchor = Anchor.Centre,
@@ -59,7 +54,7 @@ namespace Lovewing.Game.Screens
                     FillMode = FillMode.Fit,
                     Scale = new Vector2(0.75f)
                 },
-                toolbar = new Toolbar()
+                new Toolbar
                 {
                     Origin = Anchor.TopRight,
                     Anchor = Anchor.TopRight,
@@ -89,9 +84,9 @@ namespace Lovewing.Game.Screens
                                     Origin = Anchor.Centre,
                                     Children = new Drawable[]
                                     {
-                                        soloBtn = new LovewingButton(0, 0, 75)
+                                        new LovewingButton(0, 0, 75)
                                         {
-                                            Action = Solo,
+                                            Action = solo,
                                             Anchor = Anchor.BottomCentre,
                                             Origin = Anchor.BottomCentre,
                                             Text = "Solo",
@@ -99,9 +94,9 @@ namespace Lovewing.Game.Screens
                                             BackgroundColour = colors.Blue,
                                             HoverColour = colors.Blue
                                         },
-                                        mpBtn = new LovewingButton(0, 0, 75)
+                                        new LovewingButton(0, 0, 75)
                                         {
-                                            Action = Matchmaking,
+                                            Action = matchmaking,
                                             Anchor = Anchor.TopCentre,
                                             Origin = Anchor.TopCentre,
                                             Text = "Multiplayer",
@@ -177,7 +172,7 @@ namespace Lovewing.Game.Screens
                                             Anchor = Anchor.TopLeft,
                                             Origin = Anchor.TopLeft
                                         },
-                                        notifBtn = new LovewingButton
+                                        new LovewingButton
                                         {
                                             CornerRadius = 100,
                                             Size = new Vector2(200, 200),
@@ -232,9 +227,9 @@ namespace Lovewing.Game.Screens
                 }
             };
 
-            home.StateChanged += vis => SelectWedge(home, vis);
-            management.StateChanged += vis => SelectWedge(management, vis);
-            liveshow.StateChanged += vis => SelectWedge(liveshow, vis);
+            home.StateChanged += vis => selectWedge(home, vis);
+            management.StateChanged += vis => selectWedge(management, vis);
+            liveshow.StateChanged += vis => selectWedge(liveshow, vis);
 
             AddRange(new[]
             {
@@ -266,7 +261,7 @@ namespace Lovewing.Game.Screens
             notifIcon.Texture = fontStore.Get(((char)FontAwesome.fa_envelope_o).ToString());
         }
 
-        private void SelectWedge(VisibilityContainer con, Visibility vis)
+        private void selectWedge(VisibilityContainer con, Visibility vis)
         {
             if (vis == Visibility.Visible)
                 wedgeContainer.Children.Where(child => child != con).ToList().ForEach(wedge => wedge.Hide());

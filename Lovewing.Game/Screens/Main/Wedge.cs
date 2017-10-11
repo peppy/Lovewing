@@ -3,15 +3,13 @@
 
 using OpenTK;
 using OpenTK.Graphics;
-using osu.Framework.Allocation;
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Textures;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Extensions.Color4Extensions;
-using osu.Framework.IO.Stores;
 using System;
+using Lovewing.Game.Graphics;
 
 namespace Lovewing.Game.Screens.Main
 {
@@ -19,17 +17,16 @@ namespace Lovewing.Game.Screens.Main
     {
         protected abstract Color4 WedgeColor { get; }
         protected abstract Color4 ButtonColor { get; }
-        protected abstract Texture ButtonIcon { get; }
+        protected abstract FontAwesome ButtonIcon { get; }
 
         private Container<Box> wedgeBackground;
         private Container content;
-        private FontStore fstore;
 
         //public override bool HandleInput => true;
 
         protected override Container<Drawable> Content => content;
 
-        private const float wedgeWidth = 50;
+        private const float wedge_width = 50;
 
         public Wedge()
         {
@@ -68,7 +65,7 @@ namespace Lovewing.Game.Screens.Main
                             RelativeSizeAxes = Axes.Y,
                             Colour = WedgeColor,
                             Alpha = 0.29f,
-                            Width = wedgeWidth,
+                            Width = wedge_width,
                             EdgeSmoothness = Vector2.One
                         }
                     }
@@ -117,15 +114,9 @@ namespace Lovewing.Game.Screens.Main
                 {
                     button.ActiveColor = ButtonColor;
                     button.Active = State == Visibility.Visible;
-                    button.buttonIcon.Texture = ButtonIcon;
+                    button.ButtonIcon.Icon = ButtonIcon;
                 };
             return button;
-        }
-
-        [BackgroundDependencyLoader]
-        private void load(FontStore store)
-        {
-            fstore = store;
         }
 
         public void Expand()
@@ -137,8 +128,8 @@ namespace Lovewing.Game.Screens.Main
         {
             public Color4 ActiveColor;
             private readonly SpriteText buttonText;
-            public readonly Sprite buttonIcon;
-            private readonly Box hover, background;
+            public readonly SpriteIcon ButtonIcon;
+            private readonly Box background;
             private readonly ClickableContainer clickCon;
 
             public bool Active
@@ -147,8 +138,8 @@ namespace Lovewing.Game.Screens.Main
                 {
                     background.FadeColour(value ? ActiveColor : Color4.Gray, 250);
                     clickCon.ResizeHeightTo(value ? 75 : 60, 250, value ? Easing.OutQuad : Easing.InQuad);
-                    buttonIcon.MoveToY(value ? -10 : 0, 250, value ? Easing.OutQuad : Easing.InQuad);
-                    buttonIcon.ScaleTo(value ? 0.6f : 0.7f, 250, value ? Easing.OutQuad : Easing.InQuad);
+                    ButtonIcon.MoveToY(value ? -10 : 0, 250, value ? Easing.OutQuad : Easing.InQuad);
+                    ButtonIcon.ScaleTo(value ? 0.6f : 0.7f, 250, value ? Easing.OutQuad : Easing.InQuad);
                     if (value)
                         buttonText.FadeIn(250, Easing.OutQuad);
                     else
@@ -175,7 +166,7 @@ namespace Lovewing.Game.Screens.Main
                         Shear = new Vector2(0.1f, 0),
                         Anchor = Anchor.BottomRight,
                         Origin = Anchor.BottomRight,
-                        Size = new Vector2(wedgeWidth * 1.1f),
+                        Size = new Vector2(wedge_width * 1.1f),
                         Action = () => Action?.Invoke(),
                         Masking = true,
                         EdgeEffect = new EdgeEffectParameters
@@ -196,7 +187,7 @@ namespace Lovewing.Game.Screens.Main
                                 Colour = activeColor,
                                 EdgeSmoothness = Vector2.One
                             },
-                            hover = new Box
+                            new Box
                             {
                                 Anchor = Anchor.BottomRight,
                                 Origin = Anchor.BottomRight,
@@ -206,7 +197,7 @@ namespace Lovewing.Game.Screens.Main
                                 Colour = Color4.White.Opacity(0.1f),
                                 Alpha = 0,
                             },
-                            buttonIcon = new Sprite
+                            ButtonIcon = new SpriteIcon
                             {
                                 RelativeSizeAxes = Axes.Both,
                                 Y = -10,

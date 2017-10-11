@@ -1,7 +1,6 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
-using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.UserInterface;
@@ -9,7 +8,6 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Input;
 using osu.Framework.Extensions.Color4Extensions;
-using OpenTK;
 using OpenTK.Graphics;
 using System.Collections.Generic;
 
@@ -63,11 +61,6 @@ namespace Lovewing.Game.Graphics.UserInterface
             SpriteText.Y = textY;
             SpriteText.TextSize = textSize;
             SpriteText.Shadow = true;
-        }
-
-        protected override bool OnClick(InputState state)
-        {
-            return base.OnClick(state);
         }
 
         protected override bool OnHover(InputState state)
