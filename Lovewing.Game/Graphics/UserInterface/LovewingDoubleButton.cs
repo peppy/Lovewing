@@ -29,7 +29,7 @@ namespace Lovewing.Game.Graphics.UserInterface
             SpriteText.Shadow = true;
             BackgroundColour = colors.Magenta;
 
-            AddRange(new Drawable[]
+            AddRangeInternal(new Drawable[]
             {
                 hover = new Box
                 {
@@ -66,6 +66,32 @@ namespace Lovewing.Game.Graphics.UserInterface
         {
             Content.ScaleTo(1, 1000, Easing.OutElastic);
             return base.OnMouseUp(state, args);
+        }
+
+        protected override bool OnClick(InputState state)
+        {
+
+            var x = state.Mouse.LastPosition.X;
+            var y = state.Mouse.LastPosition.Y;
+            Circle ripple;
+
+            Add(ripple = new Circle
+            {
+                Anchor = Anchor.Centre,
+                Origin = Anchor.Centre,
+                X = x,
+                Y = y,
+                Height = 10,
+                Width = 10,
+                Colour = Color4.Gray,
+                Blending = BlendingMode.Additive
+            });
+
+            ripple.ScaleTo(100, 450, Easing.OutCirc);
+            ripple.FadeOut(450);
+            ripple.Expire();
+
+            return base.OnClick(state);
         }
 
         public IEnumerable<string> FilterTerms => new[] { Text };
