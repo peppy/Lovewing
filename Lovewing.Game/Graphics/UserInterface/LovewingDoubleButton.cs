@@ -87,9 +87,9 @@ namespace Lovewing.Game.Graphics.UserInterface
                 Blending = BlendingMode.Additive
             });
 
-            ripple.ScaleTo(100, 450, Easing.OutCirc);
-            ripple.FadeOut(450);
-            ripple.Expire();
+            ripple.ScaleTo(100, 450, Easing.OutCirc)
+                .FadeOut(450)
+                .Expire();
 
             return base.OnClick(state);
         }
