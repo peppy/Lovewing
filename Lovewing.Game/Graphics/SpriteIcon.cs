@@ -33,7 +33,7 @@ namespace Lovewing.Game.Graphics
         {
             AddInternal(iconSprite = new Sprite
             {
-                RelativeSizeAxes = Axes.Both,
+                RelativeSizeAxes = Axes.Both
             });
         }
 

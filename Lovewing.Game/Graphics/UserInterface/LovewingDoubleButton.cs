@@ -71,8 +71,8 @@ namespace Lovewing.Game.Graphics.UserInterface
         protected override bool OnClick(InputState state)
         {
 
-            var x = state.Mouse.LastPosition.X;
-            var y = state.Mouse.LastPosition.Y;
+            var x = state.Mouse.Position.X;
+            var y = state.Mouse.Position.Y;
             Circle ripple;
 
             Add(ripple = new Circle

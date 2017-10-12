@@ -132,7 +132,6 @@ namespace Lovewing.Game.Screens
                                             Size = new Vector2(630, 200),
                                             Text = "Button",
                                             BackgroundColour = colors.Yellow,
-                                            HoverColour = colors.Yellow,
                                             Anchor = Anchor.BottomCentre,
                                             Origin = Anchor.BottomCentre
                                         },
@@ -141,7 +140,6 @@ namespace Lovewing.Game.Screens
                                             Size = new Vector2(630, 200),
                                             Text = "Another Button",
                                             BackgroundColour = colors.Yellow,
-                                            HoverColour = colors.Yellow,
                                             Anchor = Anchor.TopCentre,
                                             Origin = Anchor.TopCentre
                                         }

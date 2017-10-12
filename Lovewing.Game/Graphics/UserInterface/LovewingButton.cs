@@ -9,6 +9,7 @@ using osu.Framework.Input;
 using osu.Framework.Extensions.Color4Extensions;
 using OpenTK.Graphics;
 using System.Collections.Generic;
+using OpenTK;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
@@ -39,21 +40,15 @@ namespace Lovewing.Game.Graphics.UserInterface
             Height = 40;
             Masking = true;
             CornerRadius = 5;
+
             AddRangeInternal(new Drawable[]
             {
-                Background = new Box
-                {
-                    RelativeSizeAxes = Axes.Both,
-                    Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
-                },
-                SpriteText = CreateText(),
                 hover = new Box
                 {
                     RelativeSizeAxes = Axes.Both,
                     Colour = Color4.White.Opacity(0.1f),
-                    Alpha = 0,
-                },
+                    Alpha = 0
+                }
             });
 
             SpriteText.X = textX;
@@ -76,8 +71,34 @@ namespace Lovewing.Game.Graphics.UserInterface
 
         protected override bool OnMouseUp(InputState state, MouseUpEventArgs args)
         {
-            Content.ScaleTo(1.1f, 1000, Easing.OutElastic);
+            Content.ScaleTo(1, 1000, Easing.OutElastic);
             return base.OnMouseUp(state, args);
+        }
+
+        protected override bool OnClick(InputState state)
+        {
+
+            var x = state.Mouse.Position.X;
+            var y = state.Mouse.Position.Y;
+            Circle ripple;
+
+            Add(ripple = new Circle
+            {
+                Anchor = Anchor.Centre,
+                Origin = Anchor.Centre,
+                X = x,
+                Y = y,
+                Height = 10,
+                Width = 10,
+                Colour = Color4.Gray,
+                Blending = BlendingMode.Additive
+            });
+
+            ripple.ScaleTo(100, 450, Easing.OutCirc);
+            ripple.FadeOut(450);
+            ripple.Expire();
+
+            return base.OnClick(state);
         }
 
         public IEnumerable<string> FilterTerms => new[] { Text };
