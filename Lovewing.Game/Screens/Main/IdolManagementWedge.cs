@@ -4,7 +4,6 @@
 using Lovewing.Game.Graphics;
 using OpenTK.Graphics;
 using osu.Framework.Allocation;
-using osu.Framework.Graphics.Textures;
 
 namespace Lovewing.Game.Screens.Main
 {
@@ -12,17 +11,15 @@ namespace Lovewing.Game.Screens.Main
     {
         private Color4 wedgeColor;
         private Color4 buttonColor;
-        private Texture icon;
         protected override Color4 WedgeColor => wedgeColor;
         protected override Color4 ButtonColor => buttonColor;
-        protected override Texture ButtonIcon => icon;
+        protected override FontAwesome ButtonIcon => FontAwesome.fa_group; //The idols icon needs to be added to the fonts
 
         [BackgroundDependencyLoader]
-        private void load(LovewingColors colors, TextureStore texStore)
+        private void load(LovewingColors colors)
         {
             wedgeColor = colors.LightYellow;
             buttonColor = colors.Yellow;
-            icon = texStore.Get(@"Icons/you");
         }
     }
 }

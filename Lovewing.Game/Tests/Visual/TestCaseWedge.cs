@@ -9,21 +9,15 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using System.Linq;
 using Lovewing.Game.Graphics;
-using osu.Framework.Allocation;
 using osu.Framework.Graphics.Shapes;
-using osu.Framework.Graphics.Textures;
-using osu.Framework.Graphics.UserInterface;
-using osu.Framework.IO.Stores;
 using OpenTK;
 
-namespace Lovewing.Tests.Tests
+namespace Lovewing.Game.Tests.Visual
 {
     internal class TestCaseWedge : TestCase
     {
-        public override void Reset()
+        public TestCaseWedge()
         {
-            base.Reset();
-
             var colors = new List<Color4>
             {
                 Color4.Red,
@@ -44,7 +38,7 @@ namespace Lovewing.Tests.Tests
                     Depth = i,
                     Margin = new MarginPadding { Right = i * 50 }
                 };
-                wedge.StateChanged += SelectWedge;
+                wedge.StateChanged += vis => selectWedge(wedge, vis);
 
                 wedge.Add(new Box
                 {
@@ -60,7 +54,7 @@ namespace Lovewing.Tests.Tests
             }
         }
 
-        private void SelectWedge(VisibilityContainer con, Visibility vis)
+        private void selectWedge(VisibilityContainer con, Visibility vis)
         {
             if (vis == Visibility.Visible)
                 Children.Where(child => child != con).OfType<Wedge>().ToList().ForEach(wedge => wedge.Hide());
@@ -68,21 +62,14 @@ namespace Lovewing.Tests.Tests
 
         private class CustomWedge : Wedge
         {
-            private Color4 wedgeColor = Color4.Wheat;
-            private Texture icon;
+            private readonly Color4 wedgeColor;
             protected override Color4 WedgeColor => wedgeColor;
             protected override Color4 ButtonColor => wedgeColor;
-            protected override Texture ButtonIcon => icon;
-            
+            protected override FontAwesome ButtonIcon => FontAwesome.fa_home;
+
             public CustomWedge(Color4 color)
             {
                 wedgeColor = color;
-            }
-
-            [BackgroundDependencyLoader]
-            private void load(FontStore fontStore)
-            {
-                icon = fontStore.Get(((char) FontAwesome.fa_home).ToString());
             }
         }
     }

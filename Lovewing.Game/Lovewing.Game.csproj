@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Lovewing.Game</RootNamespace>
     <AssemblyName>Lovewing.Game</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +35,26 @@
   <PropertyGroup>
     <StartupObject>Lovewing.Game.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Visual Tests %28Debug%29|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Visual Tests %28Debug%29\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Visual Tests %28Release%29|AnyCPU'">
+    <OutputPath>bin\Visual Tests %28Release%29\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="OpenTK, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4" />
     <Reference Include="System" />
@@ -49,12 +70,14 @@
     <Compile Include="Graphics\Background.cs" />
     <Compile Include="Graphics\FontAwesome.cs" />
     <Compile Include="Graphics\LovewingColors.cs" />
+    <Compile Include="Graphics\SpriteIcon.cs" />
     <Compile Include="Graphics\UserInterface\IconButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingDoubleButton.cs" />
     <Compile Include="Graphics\UserInterface\Toolbar.cs" />
     <Compile Include="LovewingGame.cs" />
     <Compile Include="LovewingGameBase.cs" />
+    <Compile Include="LovewingTests.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\MainScreen.cs" />
@@ -64,6 +87,8 @@
     <Compile Include="Screens\Main\Wedge.cs" />
     <Compile Include="Screens\LovewingScreen.cs" />
     <Compile Include="Screens\MatchmakingScreen.cs" />
+    <Compile Include="Tests\Visual\TestCaseToolbar.cs" />
+    <Compile Include="Tests\Visual\TestCaseWedge.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Lovewing.licenseheader">
@@ -78,9 +103,9 @@
       <Project>{7ae5d1f5-77a5-4478-8d6e-32d06c7060b9}</Project>
       <Name>Lovewing.Game.Resources</Name>
     </ProjectReference>
-    <ProjectReference Include="..\osu.Framework\osu.Framework.Desktop\osu.Framework.Desktop.csproj">
-      <Project>{65dc628f-a640-4111-ab35-3a5652bc1e17}</Project>
-      <Name>osu.Framework.Desktop</Name>
+    <ProjectReference Include="..\osu.Framework\osu.Framework.Tests\osu.Framework.Tests.csproj">
+      <Project>{79803407-6f50-484f-93f5-641911eabd8a}</Project>
+      <Name>osu.Framework.Tests</Name>
     </ProjectReference>
     <ProjectReference Include="..\osu.Framework\osu.Framework\osu.Framework.csproj">
       <Project>{c76bf5b3-985e-4d39-95fe-97c9c879b83a}</Project>

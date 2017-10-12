@@ -1,5 +1,7 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿// Copyright (c) 2017 Clara.
+// Licensed under the EPL-1.0 License
+
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following

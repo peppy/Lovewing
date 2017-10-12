@@ -1,7 +1,7 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
-using osu.Framework.Desktop;
+using osu.Framework;
 using osu.Framework.Platform;
 
 namespace Lovewing.Game
@@ -12,7 +12,10 @@ namespace Lovewing.Game
         {
             using (GameHost host = Host.GetSuitableHost(""))
             {
-                host.Run(new LovewingGame());
+                if (args.Length > 0 && args[0] == "--tests")
+                    host.Run(new LovewingTests());
+                else
+                    host.Run(new LovewingGame());
             }
         }
     }

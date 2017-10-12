@@ -7,7 +7,6 @@ namespace Lovewing.Game
 {
     public class LovewingGame : LovewingGameBase
     {
-
         private readonly MainScreen mainScreen = new MainScreen();
 
         protected override void LoadComplete()
@@ -15,6 +14,8 @@ namespace Lovewing.Game
             base.LoadComplete();
 
             Add(mainScreen);
+
+            mainScreen.Exited += _ => Scheduler.AddDelayed(Exit, 2000);
         }
     }
 }

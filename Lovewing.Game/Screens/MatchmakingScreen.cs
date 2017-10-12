@@ -1,7 +1,6 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
-using Lovewing.Game.Graphics;
 using Lovewing.Game.Graphics.UserInterface;
 using osu.Framework.Screens;
 using osu.Framework.Graphics;
@@ -11,7 +10,7 @@ using OpenTK.Graphics;
 
 namespace Lovewing.Game.Screens
 {
-    class MatchmakingScreen : Screen
+    public class MatchmakingScreen : Screen
     {
 
         public MatchmakingScreen()

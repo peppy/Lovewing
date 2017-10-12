@@ -16,7 +16,7 @@ namespace Lovewing.Game.Graphics
 
         private readonly string textureName;
 
-        public Background(string textureName = @"")
+        public Background(string textureName)
         {
             CacheDrawnFrameBuffer = true;
 
@@ -29,6 +29,7 @@ namespace Lovewing.Game.Graphics
                 Anchor = Anchor.Centre,
                 Origin = Anchor.Centre,
                 Colour = Color4.DarkGray,
+                RelativeSizeAxes = Axes.Both,
                 FillMode = FillMode.Fill,
             });
         }

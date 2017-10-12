@@ -13,10 +13,10 @@ namespace Lovewing.Game.Player.Judgements
         /// for example, if Easy diff, use [hitWindow]_max
         /// </summary>
 
-        #region Constants 
-            
+        #region Constants
+
         /// <summary>
-        /// Perfect hit 
+        /// Perfect hit
         ///</summary>
 
         private const double perfect_min = 27.8;
@@ -27,7 +27,7 @@ namespace Lovewing.Game.Player.Judgements
         /// Great Hit
         /// </summary>
 
-        private const double great_min = 68; 
+        private const double great_min = 68;
         private const double great_mid = 98;
         private const double great_max = 128;
 
@@ -39,8 +39,8 @@ namespace Lovewing.Game.Player.Judgements
         private const double good_mid = 164;
         private const double good_max = 194;
 
-        /// <summary> 
-        /// OK Hit 
+        /// <summary>
+        /// OK Hit
         /// </summary>
 
         private const double ok_min = 194;
@@ -77,12 +77,13 @@ namespace Lovewing.Game.Player.Judgements
         public double Bad = bad_mid;
         public double Miss = miss_mid;
 
-        /// <summary>
-        /// constructs the hit windows 
-        /// </summary>
-        public HitWindows () 
-        {
-        }
+        //This is redundant for now
+        ///// <summary>
+        ///// constructs the hit windows
+        ///// </summary>
+        //public HitWindows()
+        //{
+        //}
 
         /*
         /// <summary>

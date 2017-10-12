@@ -1,47 +1,33 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
-using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
-using osu.Framework.Graphics.Sprites;
-using osu.Framework.Graphics.Textures;
 using osu.Framework.Graphics.Containers;
-using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Input;
-using osu.Framework.IO.Stores;
-using OpenTK;
 using OpenTK.Graphics;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
-    class IconButton : ClickableContainer
+    public class IconButton : ClickableContainer
     {
-
-        public Vector2 IconSize
+        public FontAwesome Icon
         {
-            get { return Sprite.Size; }
-            set { Sprite.Size = value; hover.Size = value; }
+            get { return SpriteIcon.Icon; }
+            set { SpriteIcon.Icon = value; }
         }
 
-        public Texture Texture
-        {
-            get { return Sprite.Texture; }
-            set { Sprite.Texture = value; }
-        }
-
-        public FontAwesome Icon;
-
-        protected Sprite Sprite;
+        protected SpriteIcon SpriteIcon;
 
         private readonly Box hover;
 
         public IconButton()
         {
-            AddInternal(new Drawable[]
+            AddRangeInternal(new Drawable[]
             {
-                Sprite = new Sprite
+                SpriteIcon = new SpriteIcon
                 {
+                    RelativeSizeAxes = Axes.Both,
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
                 },
@@ -52,12 +38,6 @@ namespace Lovewing.Game.Graphics.UserInterface
                     Colour = Color4.White,
                 }
             });
-        }
-
-        [BackgroundDependencyLoader]
-        private void load(FontStore fontStore)
-        {
-            Texture = fontStore.Get(((char) Icon).ToString());
         }
 
         protected override bool OnHover(InputState state)
