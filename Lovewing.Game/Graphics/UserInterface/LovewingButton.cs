@@ -9,7 +9,6 @@ using osu.Framework.Input;
 using osu.Framework.Extensions.Color4Extensions;
 using OpenTK.Graphics;
 using System.Collections.Generic;
-using OpenTK;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
