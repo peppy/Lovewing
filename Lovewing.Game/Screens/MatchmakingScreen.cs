@@ -37,14 +37,14 @@ namespace Lovewing.Game.Screens
 
         protected override void OnEntering(Screen last)
         {
-            Content.FadeOut();
-            Content.FadeIn(2000);
+            Content.FadeOut()
+            .FadeIn(400);
             base.OnEntering(last);
         }
 
         protected override bool OnExiting(Screen next)
         {
-            Content.FadeOut(2000);
+            Content.FadeOut(200);
             return base.OnExiting(next);
         }
     }
