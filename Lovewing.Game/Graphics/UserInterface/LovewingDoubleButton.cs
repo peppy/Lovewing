@@ -4,6 +4,7 @@
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.UserInterface;
+using osu.Framework.Graphics.Containers;
 using osu.Framework.Input;
 using osu.Framework.Extensions.Color4Extensions;
 using OpenTK;
@@ -54,6 +55,12 @@ namespace Lovewing.Game.Graphics.UserInterface
             CornerRadius = 5;
             SpriteText.Y = 50;
             SpriteText.Shadow = true;
+            EdgeEffect = new EdgeEffectParameters
+            {
+                Type = EdgeEffectType.Shadow,
+                Radius = 10,
+                Colour = Color4.Black.Opacity(0.2f),
+            };
 
             AddRangeInternal(new Drawable[]
             {

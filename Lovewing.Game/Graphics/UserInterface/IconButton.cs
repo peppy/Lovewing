@@ -14,22 +14,21 @@ namespace Lovewing.Game.Graphics.UserInterface
     public class IconButton : ClickableContainer
     {
         private readonly SpriteIcon hover;
+        private readonly SpriteIcon spriteIcon;
 
         public FontAwesome Icon
         {
-            get { return SpriteIcon.Icon; }
-            set { SpriteIcon.Icon = value; hover.Icon = value; }
+            get { return spriteIcon.Icon; }
+            set { spriteIcon.Icon = value; hover.Icon = value; }
         }
 
         public Color4 HoverColour { get; set; } = Color4.Gray;
-
-        protected SpriteIcon SpriteIcon;
 
         public IconButton()
         {
             AddRangeInternal(new Drawable[]
             {
-                SpriteIcon = new SpriteIcon
+                spriteIcon = new SpriteIcon
                 {
                     RelativeSizeAxes = Axes.Both,
                     Anchor = Anchor.Centre,

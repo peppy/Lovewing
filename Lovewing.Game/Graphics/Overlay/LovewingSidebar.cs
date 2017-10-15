@@ -2,6 +2,7 @@
 // Licensed under the EPL-1.0 License
 
 using Lovewing.Game.Online;
+using Lovewing.Game.Graphics.UserInterface;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
@@ -175,6 +176,101 @@ namespace Lovewing.Game.Graphics.Overlay
                                     Origin = Anchor.Centre,
                                     TextSize = 30,
                                     Text = user.Level.ToString(),
+                                }
+                            }
+                        },
+                        new ScrollContainer
+                        {
+                            Anchor = Anchor.TopCentre,
+                            Origin = Anchor.TopCentre,
+                            RelativeSizeAxes = Axes.Both,
+                            Margin = new MarginPadding
+                            {
+                                Top = 350,
+                            },
+                            Child = new FillFlowContainer
+                            {
+                                Spacing = new Vector2(10),
+                                Anchor = Anchor.Centre,
+                                Origin = Anchor.Centre,
+                                RelativeSizeAxes = Axes.Both,
+                                Direction = FillDirection.Vertical,
+                                Margin = new MarginPadding
+                                {
+                                    Top = 300,
+                                },
+                                Children = new Drawable[]
+                                {
+                                    new LovewingHollowButton
+                                    {
+                                        Anchor = Anchor.Centre,
+                                        Origin = Anchor.Centre,
+                                        BackgroundColour = colours.White,
+                                        BorderColour = colours.Magenta,
+                                        TextColour = colours.Magenta,
+                                        IconColour = colours.Magenta,
+                                        BorderThickness = 3,
+                                        CornerRadius = 7,
+                                        Size = new Vector2(250, 50),
+                                        Text = "Friends",
+                                        Icon = FontAwesome.fa_users,
+                                    },
+                                    new LovewingHollowButton
+                                    {
+                                        Anchor = Anchor.Centre,
+                                        Origin = Anchor.Centre,
+                                        BackgroundColour = colours.White,
+                                        BorderColour = colours.Magenta,
+                                        TextColour = colours.Magenta,
+                                        IconColour = colours.Magenta,
+                                        BorderThickness = 3,
+                                        CornerRadius = 7,
+                                        Size = new Vector2(250, 50),
+                                        Text = "Profile",
+                                        Icon = FontAwesome.fa_user,
+                                    },
+                                    new LovewingHollowButton
+                                    {
+                                        Anchor = Anchor.Centre,
+                                        Origin = Anchor.Centre,
+                                        BackgroundColour = colours.White,
+                                        BorderColour = colours.Magenta,
+                                        TextColour = colours.Magenta,
+                                        IconColour = colours.Magenta,
+                                        BorderThickness = 3,
+                                        CornerRadius = 7,
+                                        Size = new Vector2(250, 50),
+                                        Text = "Events",
+                                        Icon = FontAwesome.fa_clock_o,
+                                    },
+                                    new LovewingHollowButton
+                                    {
+                                        Anchor = Anchor.Centre,
+                                        Origin = Anchor.Centre,
+                                        BackgroundColour = colours.White,
+                                        BorderColour = colours.Magenta,
+                                        TextColour = colours.Magenta,
+                                        IconColour = colours.Magenta,
+                                        BorderThickness = 3,
+                                        CornerRadius = 7,
+                                        Size = new Vector2(250, 50),
+                                        Text = "Shoutout!",
+                                        Icon = FontAwesome.fa_bullhorn,
+                                    },
+                                    new LovewingHollowButton
+                                    {
+                                        Anchor = Anchor.Centre,
+                                        Origin = Anchor.Centre,
+                                        BackgroundColour = colours.White,
+                                        BorderColour = colours.Magenta,
+                                        TextColour = colours.Magenta,
+                                        IconColour = colours.Magenta,
+                                        BorderThickness = 3,
+                                        CornerRadius = 7,
+                                        Size = new Vector2(250, 50),
+                                        Text = "Settings",
+                                        Icon = FontAwesome.fa_wrench,
+                                    },
                                 }
                             }
                         }
