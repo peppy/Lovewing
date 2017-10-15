@@ -4,7 +4,6 @@
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.UserInterface;
-using osu.Framework.Graphics.Containers;
 using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Input;
 using OpenTK;
