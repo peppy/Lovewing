@@ -43,7 +43,6 @@ namespace Lovewing.Game.Graphics.Overlay
         [BackgroundDependencyLoader]
         private void load(LovewingColors colors, UserData user, TextureStore texStore)
         {
-
             FillFlowContainer badges;
 
             AddRange(new Drawable[]
