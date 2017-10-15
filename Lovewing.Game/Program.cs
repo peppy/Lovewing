@@ -10,7 +10,7 @@ namespace Lovewing.Game
     {
         public static void Main(string[] args)
         {
-            using (GameHost host = Host.GetSuitableHost(""))
+            using (GameHost host = Host.GetSuitableHost(@"Lovewing"))
             {
                 if (args.Length > 0 && args[0] == "--tests")
                     host.Run(new LovewingTests());

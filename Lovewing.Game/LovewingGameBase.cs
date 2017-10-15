@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
+using Lovewing.Game.Online;
 using Lovewing.Game.Graphics;
 using osu.Framework.Allocation;
 using osu.Framework.Platform;
@@ -21,12 +22,13 @@ namespace Lovewing.Game
         private void load()
         {
             dependencies.Cache(new LovewingColors());
+            dependencies.Cache(new UserData());
 
             Fonts.AddStore(new GlyphStore(Resources, @"Fonts/FontAwesome"));
 
-            var t = Audio.Track.Get(@"mainmenu_aqours");
+            var t = Audio.Track.Get(@"mainmenu_muse");
 
-            t?.Start();
+            // t?.Start();
 
             if (t != null)
                 t.Looping = true;
@@ -35,7 +37,7 @@ namespace Lovewing.Game
         public override void SetHost(GameHost host)
         {
             base.SetHost(host);
-
+            
             Window.SetTitle(@"Lovewing");
         }
     }

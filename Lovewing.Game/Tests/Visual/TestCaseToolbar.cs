@@ -11,11 +11,11 @@ namespace Lovewing.Game.Tests.Visual
 {
     internal class TestCaseToolbar : TestCase
     {
-        public override IReadOnlyList<Type> RequiredTypes => new [] { typeof(Toolbar) };
+        public override IReadOnlyList<Type> RequiredTypes => new [] { typeof(LovewingToolbar) };
 
         public TestCaseToolbar()
         {
-            Add(new Toolbar
+            Add(new LovewingToolbar
             {
                 Origin = Anchor.TopRight,
                 Anchor = Anchor.TopRight,

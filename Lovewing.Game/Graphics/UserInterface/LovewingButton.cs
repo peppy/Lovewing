@@ -7,19 +7,22 @@ using osu.Framework.Graphics.UserInterface;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Input;
 using osu.Framework.Extensions.Color4Extensions;
+using OpenTK;
 using OpenTK.Graphics;
 using System.Collections.Generic;
+using System;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
     public class LovewingButton : Button, IFilterable
     {
         private readonly Box hover;
+        private readonly SpriteIcon icon;
 
         public Color4 HoverColour
         {
             get { return hover.Colour; }
-            set { hover.FadeColour(value); }
+            set { hover.Colour = value.Opacity(0.5f); }
         }
 
         public Color4 TextColour
@@ -28,13 +31,55 @@ namespace Lovewing.Game.Graphics.UserInterface
             set { SpriteText.FadeColour(value); }
         }
 
+        public float TextX
+        {
+            get { return SpriteText.X; }
+            set { SpriteText.MoveToX(value); }
+        }
+
         public float TextY
         {
             get { return SpriteText.Y; }
             set { SpriteText.MoveToY(value); }
         }
 
-        public LovewingButton(float textX = 0, float textY = 60, float textSize = 30)
+        public float TextSize
+        {
+            get { return SpriteText.TextSize; }
+            set { SpriteText.TextSize = value; }
+        }
+
+        public FontAwesome Icon
+        {
+            get { return icon.Icon; }
+            set { icon.Icon = value; }
+        }
+
+        public Color4 IconColour
+        {
+            get { return icon.Colour; }
+            set { icon.Colour = value; }
+        }
+
+        public float IconX
+        {
+            get { return icon.X; }
+            set { icon.MoveToX(value); }
+        }
+
+        public float IconY
+        {
+            get { return icon.Y; }
+            set { icon.MoveToY(value); }
+        }
+
+        public Vector2 IconSize
+        {
+            get { return icon.Size; }
+            set { icon.Size = value; }
+        }
+
+        public LovewingButton()
         {
             Height = 40;
             Masking = true;
@@ -42,17 +87,19 @@ namespace Lovewing.Game.Graphics.UserInterface
 
             AddRangeInternal(new Drawable[]
             {
+                icon = new SpriteIcon
+                {
+                    Anchor = Anchor.Centre,
+                    Origin = Anchor.Centre,
+                },
                 hover = new Box
                 {
                     RelativeSizeAxes = Axes.Both,
-                    Colour = Color4.White.Opacity(0.1f),
-                    Alpha = 0
+                    Colour = Color4.White.Opacity(0.5f),
+                    Alpha = 0,
                 }
             });
 
-            SpriteText.X = textX;
-            SpriteText.Y = textY;
-            SpriteText.TextSize = textSize;
             SpriteText.Shadow = true;
         }
 
@@ -93,7 +140,8 @@ namespace Lovewing.Game.Graphics.UserInterface
                 Blending = BlendingMode.Additive
             });
 
-            ripple.ScaleTo(100, 450, Easing.OutCirc)
+            ripple
+                .ScaleTo(Math.Max(Size.X, Size.Y) / 5, 450, Easing.OutCirc)
                 .FadeOut(450)
                 .Expire();
 

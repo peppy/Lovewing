@@ -10,17 +10,21 @@ using osu.Framework.Graphics.Shapes;
 using osu.Framework.Extensions.Color4Extensions;
 using System;
 using Lovewing.Game.Graphics;
+using osu.Framework.Input;
 
 namespace Lovewing.Game.Screens.Main
 {
     public abstract class Wedge : OverlayContainer
     {
-        protected abstract Color4 WedgeColor { get; }
-        protected abstract Color4 ButtonColor { get; }
+        protected abstract Color4 WedgeColour { get; }
+        protected abstract Color4 ButtonColour { get; }
         protected abstract FontAwesome ButtonIcon { get; }
+        protected abstract string ButtonText { get; }
 
         private Container<Box> wedgeBackground;
         private readonly Container content;
+
+        public Action WedgeClick { get; set; }
 
         //public override bool HandleInput => true;
 
@@ -34,7 +38,7 @@ namespace Lovewing.Game.Screens.Main
             {
                 RelativeSizeAxes = Axes.Both,
                 AlwaysPresent = true,
-                Depth = -1
+                Depth = -1,
             });
         }
 
@@ -45,13 +49,14 @@ namespace Lovewing.Game.Screens.Main
                 wedgeBackground = new Container<Box>
                 {
                     AlwaysPresent = true,
+                    Alpha = 0,
                     Anchor = Anchor.BottomRight,
                     Origin = Anchor.BottomCentre,
                     RelativeSizeAxes = Axes.Both,
                     RelativePositionAxes = Axes.Both,
                     Width = 2,
                     Shear = new Vector2(-0.1f, 0),
-                    Colour = WedgeColor,
+                    Colour = WedgeColour,
                     Children = new[]
                     {
                         new Box
@@ -63,13 +68,13 @@ namespace Lovewing.Game.Screens.Main
                         new Box
                         {
                             RelativeSizeAxes = Axes.Y,
-                            Colour = WedgeColor,
+                            Colour = WedgeColour,
                             Alpha = 0.29f,
                             Width = wedge_width,
                             EdgeSmoothness = Vector2.One
                         }
                     }
-                }
+                },
             });
 
             State = Visibility.Visible;
@@ -85,26 +90,38 @@ namespace Lovewing.Game.Screens.Main
 
         protected override void PopIn()
         {
-            wedgeBackground.MoveTo(new Vector2(0, 0), 250, Easing.OutQuad);
-            content.MoveTo(new Vector2(0, 0), 250, Easing.OutQuad);
+            wedgeBackground.MoveTo(new Vector2(0), 250, Easing.OutQuad);
+            content.MoveTo(new Vector2(0), 250, Easing.OutQuad);
         }
 
         protected override void PopOut()
         {
-            wedgeBackground.MoveTo(new Vector2(2, 0), 250, Easing.InQuad);
+            wedgeBackground
+                .MoveTo(new Vector2(2, 0), 250, Easing.InQuad)
+                .FadeOut(250);
+
             content.MoveTo(new Vector2(content.DrawSize.X, 0), 250, Easing.InQuad);
         }
 
-        public Drawable CreateButton(string text = "")
+        protected override bool OnClick(InputState state)
         {
-            var button = new WedgeButton(WedgeColor, text)
+            WedgeClick?.Invoke();
+            return base.OnClick(state);
+        }
+
+        public Drawable CreateButton()
+        {
+            var button = new WedgeButton
             {
+                ActiveColour = WedgeColour,
+                Text = ButtonText,
                 Action = Show,
                 RelativeSizeAxes = Axes.Both,
                 Width = Width,
                 Anchor = Anchor,
                 Origin = Origin,
                 Margin = Margin,
+                
             };
 
             StateChanged += vis => button.Active = vis == Visibility.Visible;
@@ -112,7 +129,7 @@ namespace Lovewing.Game.Screens.Main
             if (!IsLoaded)
                 OnLoadComplete += drawable =>
                 {
-                    button.ActiveColor = ButtonColor;
+                    button.ActiveColour = ButtonColour;
                     button.Active = State == Visibility.Visible;
                     button.ButtonIcon.Icon = ButtonIcon;
                 };
@@ -121,22 +138,34 @@ namespace Lovewing.Game.Screens.Main
 
         public void Expand()
         {
-            wedgeBackground?.MoveTo(new Vector2(-0.75f, 0), 250, Easing.InQuad);
+            wedgeBackground?
+                .MoveTo(new Vector2(-0.75f, 0), 250, Easing.InQuad)
+                .FadeInFromZero(250);
+
+            content
+                .MoveTo(new Vector2(content.DrawSize.X, 0), 250, Easing.InQuad)
+                .FadeInFromZero(250);
         }
 
         private class WedgeButton : Container
         {
-            public Color4 ActiveColor;
             private readonly SpriteText buttonText;
             public readonly SpriteIcon ButtonIcon;
             private readonly Box background;
             private readonly ClickableContainer clickCon;
 
+            public Color4 ActiveColour { get; set; }
+            public string Text
+            {
+                get { return buttonText.Text; }
+                set { buttonText.Text = value; }
+            }
+
             public bool Active
             {
                 set
                 {
-                    background.FadeColour(value ? ActiveColor : Color4.Gray, 250);
+                    background.FadeColour(value ? ActiveColour : Color4.Gray, 250);
                     clickCon.ResizeHeightTo(value ? 75 : 60, 250, value ? Easing.OutQuad : Easing.InQuad);
                     ButtonIcon.MoveToY(value ? -10 : 0, 250, value ? Easing.OutQuad : Easing.InQuad);
                     ButtonIcon.ScaleTo(value ? 0.6f : 0.7f, 250, value ? Easing.OutQuad : Easing.InQuad);
@@ -149,9 +178,8 @@ namespace Lovewing.Game.Screens.Main
 
             public Action Action;
 
-            public WedgeButton(Color4 activeColor, string text = "")
+            public WedgeButton()
             {
-                ActiveColor = activeColor;
 
                 Child = new Container
                 {
@@ -184,7 +212,7 @@ namespace Lovewing.Game.Screens.Main
                                 RelativeSizeAxes = Axes.Both,
                                 Shear = new Vector2(-0.05f, 0.05f),
                                 Width = 0.95f,
-                                Colour = activeColor,
+                                Colour = ActiveColour,
                                 EdgeSmoothness = Vector2.One
                             },
                             new Box
@@ -214,7 +242,6 @@ namespace Lovewing.Game.Screens.Main
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
                                 TextSize = 20,
-                                Text = text
                             }
                         }
                     }

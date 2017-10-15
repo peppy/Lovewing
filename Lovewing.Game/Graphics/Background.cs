@@ -12,19 +12,18 @@ namespace Lovewing.Game.Graphics
 {
     public class Background : BufferedContainer
     {
-        public Sprite Sprite;
 
-        private readonly string textureName;
+        private readonly Sprite bg;
 
-        public Background(string textureName)
+        public string TextureName { get; set; }
+
+        public Background()
         {
             CacheDrawnFrameBuffer = true;
-
-            this.textureName = textureName;
             RelativeSizeAxes = Axes.Both;
             Depth = float.MaxValue;
 
-            Add(Sprite = new Sprite
+            Add(bg = new Sprite
             {
                 Anchor = Anchor.Centre,
                 Origin = Anchor.Centre,
@@ -37,8 +36,8 @@ namespace Lovewing.Game.Graphics
         [BackgroundDependencyLoader]
         private void load(TextureStore textures)
         {
-            if (!string.IsNullOrEmpty(textureName))
-                Sprite.Texture = textures.Get(textureName);
+            if (!string.IsNullOrEmpty(TextureName))
+                bg.Texture = textures.Get(TextureName);
         }
     }
 }

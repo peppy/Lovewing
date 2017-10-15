@@ -9,17 +9,18 @@ namespace Lovewing.Game.Screens.Main
 {
     public class IdolManagementWedge : Wedge
     {
-        private Color4 wedgeColor;
-        private Color4 buttonColor;
-        protected override Color4 WedgeColor => wedgeColor;
-        protected override Color4 ButtonColor => buttonColor;
+        private Color4 wedgeColour;
+        private Color4 buttonColour;
+        protected override Color4 WedgeColour => wedgeColour;
+        protected override Color4 ButtonColour => buttonColour;
         protected override FontAwesome ButtonIcon => FontAwesome.fa_group; //The idols icon needs to be added to the fonts
+        protected override string ButtonText => @"Idols";
 
         [BackgroundDependencyLoader]
         private void load(LovewingColors colors)
         {
-            wedgeColor = colors.LightYellow;
-            buttonColor = colors.Yellow;
+            wedgeColour = colors.LightYellow;
+            buttonColour = colors.Yellow;
         }
     }
 }

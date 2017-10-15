@@ -10,41 +10,74 @@ using osu.Framework.Extensions.Color4Extensions;
 using OpenTK;
 using OpenTK.Graphics;
 using System.Collections.Generic;
+using System;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
     public class LovewingDoubleButton : Button, IFilterable
     {
         private readonly Box hover;
+        private readonly Box shearBox;
         private readonly LovewingColors colors = new LovewingColors();
 
-        public LovewingDoubleButton(float rotation = -0.7f, float x = 200, float textX = -200, float textSize = 40)
+        public float ShearRotation
+        {
+            get { return shearBox.Shear.X; }
+            set { shearBox.Shear = new Vector2(value, 0); }
+        }
+
+        public float ShearX
+        {
+            get { return shearBox.X; }
+            set { shearBox.MoveToX(value); }
+        }
+
+        public float TextX
+        {
+            get { return SpriteText.X; }
+            set { SpriteText.MoveToX(value); }
+        }
+
+        public float TextY
+        {
+            get { return SpriteText.Y; }
+            set { SpriteText.MoveToY(value); }
+        }
+
+        public float TextSize
+        {
+            get { return SpriteText.TextSize; }
+            set { SpriteText.TextSize = value; }
+        }
+
+        public Color4 ShearColour
+        {
+            get { return shearBox.Colour; }
+            set { shearBox.FadeColour(value); }
+        }
+
+        public LovewingDoubleButton()
         {
             Height = 40;
             Masking = true;
             CornerRadius = 5;
-            SpriteText.X = textX;
             SpriteText.Y = 50f;
-            SpriteText.TextSize = textSize;
             SpriteText.Shadow = true;
-            BackgroundColour = colors.Magenta;
 
             AddRangeInternal(new Drawable[]
             {
                 hover = new Box
                 {
                     RelativeSizeAxes = Axes.Both,
-                    Colour = Color4.White.Opacity(0.1f),
+                    Colour = Color4.White.Opacity(0.5f),
                     Alpha = 0,
                 },
-                new Box
+                shearBox = new Box
                 {
-                    X = x,
                     RelativeSizeAxes = Axes.Both,
                     Origin = Anchor.CentreRight,
                     Anchor = Anchor.CentreRight,
-                    Colour = colors.LightMagenta,
-                    Shear = new Vector2(rotation, 0),
+                    Shear = new Vector2(0, 0),
                     Alpha = 0.3f,
                 },
             });
@@ -87,7 +120,8 @@ namespace Lovewing.Game.Graphics.UserInterface
                 Blending = BlendingMode.Additive
             });
 
-            ripple.ScaleTo(100, 450, Easing.OutCirc)
+            ripple
+                .ScaleTo(Math.Max(Size.X, Size.Y) / 5, 450, Easing.OutCirc)
                 .FadeOut(450)
                 .Expire();
 

@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
+using Lovewing.Game.Online;
 using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
@@ -9,18 +10,26 @@ using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
 using OpenTK;
 using OpenTK.Graphics;
+using System;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
-    public class Toolbar : FillFlowContainer
+    public class LovewingToolbar : FillFlowContainer
     {
-        public Toolbar()
+        public Action ButtonAction;
+
+        public LovewingToolbar()
         {
             Direction = FillDirection.Horizontal;
+            Origin = Anchor.TopRight;
+            Anchor = Anchor.TopRight;
+            RelativeSizeAxes = Axes.X;
+            Height = 100;
+            Depth = -1;
         }
 
         [BackgroundDependencyLoader]
-        private void load(TextureStore texStore, LovewingColors colors)
+        private void load(TextureStore texStore, LovewingColors colors, UserData user)
         {
             Padding = new MarginPadding { Right = 75, Top = 5 };
             Spacing = new Vector2(75, 0);
@@ -29,6 +38,16 @@ namespace Lovewing.Game.Graphics.UserInterface
 
             Children = new Drawable[]
             {
+                new IconButton
+                {
+                    Icon = FontAwesome.fa_ellipsis_v,
+                    Action = ButtonAction,
+                    Margin = new MarginPadding { Top = 17.5f },
+                    Size = new Vector2(15, 55),
+                    Origin = Anchor.TopRight,
+                    Anchor = Anchor.TopRight,
+                    Colour = Color4.White,
+                },
                 new CircularContainer
                 {
                     Anchor = Anchor.TopRight,
@@ -47,6 +66,7 @@ namespace Lovewing.Game.Graphics.UserInterface
                             Origin = Anchor.Centre,
                             RelativeSizeAxes = Axes.Both,
                             FillMode = FillMode.Fit,
+                            Texture = texStore.Get(user.Avatar),
                         },
                     }
                 },
@@ -73,7 +93,7 @@ namespace Lovewing.Game.Graphics.UserInterface
                         {
                             Anchor = Anchor.TopRight,
                             Origin = Anchor.TopRight,
-                            Text = @"1.337",
+                            Text = user.Loveca.ToString(),
                             TextSize = 40,
                         },
                         new CircularContainer
@@ -128,7 +148,7 @@ namespace Lovewing.Game.Graphics.UserInterface
                         {
                             Anchor = Anchor.TopRight,
                             Origin = Anchor.TopRight,
-                            Text = @"1.201.102",
+                            Text = user.Coins.ToString(),
                             TextSize = 40,
                         },
                         new CircularContainer
@@ -161,8 +181,6 @@ namespace Lovewing.Game.Graphics.UserInterface
                     }
                 },
             };
-
-            avatar.Texture = texStore.Get(@"https://owo.whats-th.is/455c65.png");
         }
     }
 }

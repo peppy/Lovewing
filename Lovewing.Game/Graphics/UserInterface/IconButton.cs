@@ -5,21 +5,25 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Input;
+using osu.Framework.Extensions.Color4Extensions;
 using OpenTK.Graphics;
+using System;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
     public class IconButton : ClickableContainer
     {
+        private readonly SpriteIcon hover;
+
         public FontAwesome Icon
         {
             get { return SpriteIcon.Icon; }
-            set { SpriteIcon.Icon = value; }
+            set { SpriteIcon.Icon = value; hover.Icon = value; }
         }
 
-        protected SpriteIcon SpriteIcon;
+        public Color4 HoverColour { get; set; } = Color4.Gray;
 
-        private readonly Box hover;
+        protected SpriteIcon SpriteIcon;
 
         public IconButton()
         {
@@ -31,12 +35,14 @@ namespace Lovewing.Game.Graphics.UserInterface
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
                 },
-                hover = new Box
+                hover = new SpriteIcon
                 {
                     RelativeSizeAxes = Axes.Both,
+                    Anchor = Anchor.Centre,
+                    Origin = Anchor.Centre,
+                    Colour = HoverColour.Opacity(0.5f),
                     Alpha = 0,
-                    Colour = Color4.White,
-                }
+                },
             });
         }
 
@@ -50,6 +56,27 @@ namespace Lovewing.Game.Graphics.UserInterface
         {
             hover.FadeOut(200);
             base.OnHoverLost(state);
+        }
+
+        protected override bool OnClick(InputState state)
+        {
+            Circle ripple;
+
+            Add(ripple = new Circle
+            {
+                Anchor = Anchor.Centre,
+                Origin = Anchor.Centre,
+                Height = 10,
+                Width = 10,
+                Colour = Color4.Gray,
+                Blending = BlendingMode.Additive
+            });
+
+            ripple.ScaleTo(Math.Max(Size.X, Size.Y) / 5, 450, Easing.OutCirc)
+                .FadeOut(450)
+                .Expire();
+
+            return base.OnClick(state);
         }
     }
 }

@@ -68,16 +68,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Graphics\Background.cs" />
+    <Compile Include="Graphics\Cursor\LovewingCursor.cs" />
     <Compile Include="Graphics\FontAwesome.cs" />
     <Compile Include="Graphics\LovewingColors.cs" />
+    <Compile Include="Graphics\Overlay\Inbox.cs" />
     <Compile Include="Graphics\SpriteIcon.cs" />
     <Compile Include="Graphics\UserInterface\IconButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingDoubleButton.cs" />
-    <Compile Include="Graphics\UserInterface\Toolbar.cs" />
+    <Compile Include="Graphics\Overlay\LovewingSidebar.cs" />
+    <Compile Include="Graphics\Overlay\LovewingToolbar.cs" />
+    <Compile Include="Graphics\UserInterface\FocusedTextBox.cs" />
+    <Compile Include="Graphics\UserInterface\LovewingSearchBox.cs" />
+    <Compile Include="Graphics\UserInterface\LovewingTextBox.cs" />
     <Compile Include="LovewingGame.cs" />
     <Compile Include="LovewingGameBase.cs" />
     <Compile Include="LovewingTests.cs" />
+    <Compile Include="Online\UserData.cs" />
+    <Compile Include="Online\User\Badge.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\MainScreen.cs" />
@@ -86,7 +94,7 @@
     <Compile Include="Screens\Main\LiveShowWedge.cs" />
     <Compile Include="Screens\Main\Wedge.cs" />
     <Compile Include="Screens\LovewingScreen.cs" />
-    <Compile Include="Screens\MatchmakingScreen.cs" />
+    <Compile Include="Screens\Matchmaking\MatchmakingScreen.cs" />
     <Compile Include="Tests\Visual\TestCaseToolbar.cs" />
     <Compile Include="Tests\Visual\TestCaseWedge.cs" />
   </ItemGroup>
