@@ -17,10 +17,10 @@ namespace Lovewing.Game.Screens.Main
         protected override string ButtonText => @"Live";
 
         [BackgroundDependencyLoader]
-        private void load(LovewingColors colors)
+        private void load(LovewingColours colours)
         {
-            wedgeColour = colors.DarkBlue;
-            buttonColour = colors.Blue;
+            wedgeColour = colours.DarkBlue;
+            buttonColour = colours.Blue;
         }
     }
 }

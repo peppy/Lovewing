@@ -70,7 +70,7 @@
     <Compile Include="Graphics\Background.cs" />
     <Compile Include="Graphics\Cursor\LovewingCursor.cs" />
     <Compile Include="Graphics\FontAwesome.cs" />
-    <Compile Include="Graphics\LovewingColors.cs" />
+    <Compile Include="Graphics\LovewingColours.cs" />
     <Compile Include="Graphics\Overlay\Inbox.cs" />
     <Compile Include="Graphics\SpriteIcon.cs" />
     <Compile Include="Graphics\UserInterface\IconButton.cs" />
