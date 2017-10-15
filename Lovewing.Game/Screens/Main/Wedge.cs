@@ -90,8 +90,8 @@ namespace Lovewing.Game.Screens.Main
 
         protected override void PopIn()
         {
-            wedgeBackground.MoveTo(new Vector2(0), 250, Easing.OutQuad);
-            content.MoveTo(new Vector2(0), 250, Easing.OutQuad);
+            wedgeBackground.MoveTo(Vector2.Zero, 250, Easing.OutQuad);
+            content.MoveTo(Vector2.Zero, 250, Easing.OutQuad);
         }
 
         protected override void PopOut()
