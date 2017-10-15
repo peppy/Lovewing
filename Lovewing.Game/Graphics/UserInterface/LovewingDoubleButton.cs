@@ -4,49 +4,29 @@
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.UserInterface;
-using osu.Framework.Graphics.Containers;
 using osu.Framework.Input;
 using osu.Framework.Extensions.Color4Extensions;
 using OpenTK;
 using OpenTK.Graphics;
-using System.Collections.Generic;
 using System;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
-    public class LovewingDoubleButton : Button, IFilterable
+    public class LovewingDoubleButton : Button
     {
         private readonly Box hover;
         private readonly Box shearBox;
 
-        public float ShearRotation
+        public float Angle
         {
             get { return shearBox.Shear.X; }
             set { shearBox.Shear = new Vector2(value, 0); }
         }
 
-        public float ShearX
+        public Vector2 ShearPosition
         {
-            get { return shearBox.X; }
-            set { shearBox.MoveToX(value); }
-        }
-
-        public float TextX
-        {
-            get { return SpriteText.X; }
-            set { SpriteText.MoveToX(value); }
-        }
-
-        public float TextY
-        {
-            get { return SpriteText.Y; }
-            set { SpriteText.MoveToY(value); }
-        }
-
-        public float TextSize
-        {
-            get { return SpriteText.TextSize; }
-            set { SpriteText.TextSize = value; }
+            get { return shearBox.Position; }
+            set { shearBox.MoveTo(value); }
         }
 
         public Color4 ShearColour
@@ -55,12 +35,24 @@ namespace Lovewing.Game.Graphics.UserInterface
             set { shearBox.FadeColour(value); }
         }
 
+        public Vector2 TextPosition
+        {
+            get { return SpriteText.Position; }
+            set { SpriteText.MoveTo(value); }
+        }
+
+        public float TextSize
+        {
+            get { return SpriteText.TextSize; }
+            set { SpriteText.TextSize = value; }
+        }
+
         public LovewingDoubleButton()
         {
             Height = 40;
             Masking = true;
             CornerRadius = 5;
-            SpriteText.Y = 50f;
+            SpriteText.Y = 50;
             SpriteText.Shadow = true;
 
             AddRangeInternal(new Drawable[]
@@ -76,7 +68,7 @@ namespace Lovewing.Game.Graphics.UserInterface
                     RelativeSizeAxes = Axes.Both,
                     Origin = Anchor.CentreRight,
                     Anchor = Anchor.CentreRight,
-                    Shear = new Vector2(0, 0),
+                    Shear = Vector2.Zero,
                     Alpha = 0.3f,
                 },
             });
@@ -125,16 +117,6 @@ namespace Lovewing.Game.Graphics.UserInterface
                 .Expire();
 
             return base.OnClick(state);
-        }
-
-        public IEnumerable<string> FilterTerms => new[] { Text };
-
-        public bool MatchingFilter
-        {
-            set
-            {
-                this.FadeTo(value ? 1 : 0);
-            }
         }
     }
 }

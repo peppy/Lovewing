@@ -189,9 +189,9 @@ namespace Lovewing.Game.Screens
                                     {
                                         new LovewingDoubleButton
                                         {
-                                            ShearRotation = -0.4f,
-                                            ShearX = 140,
-                                            TextX = -125,
+                                            Angle = -0.4f,
+                                            ShearPosition = new Vector2(140, 0),
+                                            TextPosition = new Vector2(-125, 60),
                                             TextSize = 30,
                                             CornerRadius = 5,
                                             Size = new Vector2(400, 200),
@@ -204,7 +204,7 @@ namespace Lovewing.Game.Screens
                                         new LovewingButton
                                         {
                                             Action = toggleInbox,
-                                            TextY = 60,
+                                            TextPosition = new Vector2(0, 60),
                                             TextSize = 30,
                                             CornerRadius = 100,
                                             Size = new Vector2(200, 200),
@@ -217,7 +217,7 @@ namespace Lovewing.Game.Screens
                                             Icon = FontAwesome.fa_envelope_o,
                                             IconColour = colours.Magenta,
                                             IconSize = new Vector2(80),
-                                            IconY = -10,
+                                            IconPosition = new Vector2(0, -10),
                                         }
                                     }
                                 },
@@ -229,9 +229,9 @@ namespace Lovewing.Game.Screens
                                     Origin = Anchor.Centre,
                                     Child = new LovewingDoubleButton
                                     {
-                                        ShearRotation = -0.7f,
-                                        ShearX = 200,
-                                        TextX = -200,
+                                        Angle = -0.7f,
+                                        ShearPosition = new Vector2(200, 0),
+                                        TextPosition = new Vector2(-200, 60),
                                         TextSize = 40,
                                         CornerRadius = 5,
                                         Size = new Vector2(630, 200),

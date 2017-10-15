@@ -4,17 +4,15 @@
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.UserInterface;
-using osu.Framework.Graphics.Containers;
 using osu.Framework.Input;
 using osu.Framework.Extensions.Color4Extensions;
 using OpenTK;
 using OpenTK.Graphics;
-using System.Collections.Generic;
 using System;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
-    public class LovewingButton : Button, IFilterable
+    public class LovewingButton : Button
     {
         private readonly Box hover;
         private readonly SpriteIcon icon;
@@ -31,16 +29,10 @@ namespace Lovewing.Game.Graphics.UserInterface
             set { SpriteText.FadeColour(value); }
         }
 
-        public float TextX
+        public Vector2 TextPosition
         {
-            get { return SpriteText.X; }
-            set { SpriteText.MoveToX(value); }
-        }
-
-        public float TextY
-        {
-            get { return SpriteText.Y; }
-            set { SpriteText.MoveToY(value); }
+            get { return SpriteText.Position; }
+            set { SpriteText.MoveTo(value); }
         }
 
         public float TextSize
@@ -61,16 +53,10 @@ namespace Lovewing.Game.Graphics.UserInterface
             set { icon.Colour = value; }
         }
 
-        public float IconX
+        public Vector2 IconPosition
         {
-            get { return icon.X; }
-            set { icon.MoveToX(value); }
-        }
-
-        public float IconY
-        {
-            get { return icon.Y; }
-            set { icon.MoveToY(value); }
+            get { return icon.Position; }
+            set { icon.MoveTo(value); }
         }
 
         public Vector2 IconSize
@@ -146,16 +132,6 @@ namespace Lovewing.Game.Graphics.UserInterface
                 .Expire();
 
             return base.OnClick(state);
-        }
-
-        public IEnumerable<string> FilterTerms => new[] { Text };
-
-        public bool MatchingFilter
-        {
-            set
-            {
-                this.FadeTo(value ? 1 : 0);
-            }
         }
     }
 }
