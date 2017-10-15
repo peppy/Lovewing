@@ -4,12 +4,11 @@
 using osu.Framework.Graphics;
 using osu.Framework.Input;
 using OpenTK;
-using OpenTK.Graphics;
 using OpenTK.Input;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
-    class LovewingSearchBox : FocusedTextBox
+    public class LovewingSearchBox : FocusedTextBox
     {
         protected virtual bool AllowCommit => false;
 

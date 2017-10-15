@@ -4,12 +4,11 @@
 using Lovewing.Game.Graphics;
 using Lovewing.Game.Graphics.UserInterface;
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using OpenTK;
 using OpenTK.Graphics;
 
-namespace Lovewing.Game.Screens
+namespace Lovewing.Game.Screens.Matchmaking
 {
     public class MatchmakingScreen : LovewingScreen
     {

@@ -1,7 +1,7 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
-using Lovewing.Game.Graphics.UserInterface;
+using Lovewing.Game.Graphics.Overlay;
 using osu.Framework.Testing;
 using osu.Framework.Graphics;
 using System;

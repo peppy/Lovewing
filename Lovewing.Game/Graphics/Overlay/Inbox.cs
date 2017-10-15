@@ -7,14 +7,12 @@ using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
-using osu.Framework.Input;
 using OpenTK;
 using OpenTK.Graphics;
-using OpenTK.Input;
 
 namespace Lovewing.Game.Graphics.Overlay
 {
-    class Inbox : OverlayContainer
+    public class Inbox : OverlayContainer
     {
         public Inbox()
         {

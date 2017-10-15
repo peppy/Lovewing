@@ -10,14 +10,12 @@ using osu.Framework.Graphics.Sprites;
 
 namespace Lovewing.Game.Graphics.Cursor
 {
-    class LovewingCursor : CursorContainer
+    public class LovewingCursor : CursorContainer
     {
         protected override Drawable CreateCursor() => new Cursor();
 
         public class Cursor : Container
         {
-            private Container cursor;
-
             public Cursor()
             {
                 AutoSizeAxes = Axes.Both;
@@ -28,7 +26,7 @@ namespace Lovewing.Game.Graphics.Cursor
             {
                 Children = new Drawable[]
                 {
-                    cursor = new Container
+                    new Container
                     {
                         AutoSizeAxes = Axes.Both,
                         Child = new Sprite

@@ -9,7 +9,7 @@ using osu.Framework.Graphics.UserInterface;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
-    class LovewingTextBox : TextBox
+    public class LovewingTextBox : TextBox
     {
         public Color4 CommitColour { get; set; }
         public Color4 FocusedColour { get; set; }

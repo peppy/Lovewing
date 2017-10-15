@@ -2,6 +2,7 @@
 // Licensed under the EPL-1.0 License
 
 using Lovewing.Game.Online;
+using Lovewing.Game.Graphics.UserInterface;
 using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
@@ -12,7 +13,7 @@ using OpenTK;
 using OpenTK.Graphics;
 using System;
 
-namespace Lovewing.Game.Graphics.UserInterface
+namespace Lovewing.Game.Graphics.Overlay
 {
     public class LovewingToolbar : FillFlowContainer
     {
@@ -33,8 +34,6 @@ namespace Lovewing.Game.Graphics.UserInterface
         {
             Padding = new MarginPadding { Right = 75, Top = 5 };
             Spacing = new Vector2(75, 0);
-
-            Sprite avatar;
 
             Children = new Drawable[]
             {
@@ -60,7 +59,7 @@ namespace Lovewing.Game.Graphics.UserInterface
                     BorderThickness = 10,
                     Children = new Drawable[]
                     {
-                        avatar = new Sprite
+                        new Sprite
                         {
                             Anchor = Anchor.Centre,
                             Origin = Anchor.Centre,

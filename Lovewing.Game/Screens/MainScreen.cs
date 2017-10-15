@@ -6,6 +6,7 @@ using Lovewing.Game.Graphics;
 using Lovewing.Game.Graphics.UserInterface;
 using Lovewing.Game.Graphics.Overlay;
 using Lovewing.Game.Screens.Main;
+using Lovewing.Game.Screens.Matchmaking;
 using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
@@ -20,12 +21,10 @@ namespace Lovewing.Game.Screens
     public class MainScreen : LovewingScreen
     {
         private readonly Sprite idol;
-        private readonly LovewingButton inbox;   
         private readonly Container<Wedge> wedgeContainer;
         private readonly LovewingColors colors = new LovewingColors();
         private readonly LiveShowWedge liveshow;
-
-        private Inbox inboxOverlay;
+        private readonly Inbox inboxOverlay;
 
         private void hideOverlays()
         {
@@ -203,7 +202,7 @@ namespace Lovewing.Game.Screens
                                             Anchor = Anchor.TopLeft,
                                             Origin = Anchor.TopLeft,
                                         },
-                                        inbox = new LovewingButton
+                                        new LovewingButton
                                         {
                                             Action = toggleInbox,
                                             TextY = 60,

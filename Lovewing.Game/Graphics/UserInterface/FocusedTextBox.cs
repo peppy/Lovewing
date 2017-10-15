@@ -7,11 +7,11 @@ using System;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
-    class FocusedTextBox : LovewingTextBox
+    public class FocusedTextBox : LovewingTextBox
     {
         private bool focus;
 
-        public Action Exit;
+        public Action Exit => null;
         public bool HoldFocus
         {
             get { return focus; }

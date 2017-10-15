@@ -12,7 +12,7 @@ using osu.Framework.Allocation;
 using OpenTK;
 using OpenTK.Graphics;
 
-namespace Lovewing.Game.Graphics.UserInterface
+namespace Lovewing.Game.Graphics.Overlay
 {
     public class LovewingSidebar : OverlayContainer
     {
