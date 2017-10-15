@@ -34,10 +34,10 @@ namespace Lovewing.Game.Graphics
         }
 
         [BackgroundDependencyLoader]
-        private void load(TextureStore textures)
+        private void load(TextureStore texStore)
         {
             if (!string.IsNullOrEmpty(textureName))
-                bg.Texture = textures.Get(textureName);
+                bg.Texture = texStore.Get(textureName);
         }
     }
 }

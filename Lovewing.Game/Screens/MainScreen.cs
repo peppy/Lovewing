@@ -22,7 +22,7 @@ namespace Lovewing.Game.Screens
     {
         private readonly Sprite idol;
         private readonly Container<Wedge> wedgeContainer;
-        private readonly LovewingColors colors = new LovewingColors();
+        private readonly LovewingColours colours = new LovewingColours();
         private readonly LiveShowWedge liveshow;
         private readonly Inbox inboxOverlay;
 
@@ -113,8 +113,8 @@ namespace Lovewing.Game.Screens
                                             Origin = Anchor.BottomCentre,
                                             Text = "Solo",
                                             Size = new Vector2(500, 200),
-                                            BackgroundColour = colors.Blue,
-                                            HoverColour = colors.Blue,
+                                            BackgroundColour = colours.Blue,
+                                            HoverColour = colours.Blue,
                                         },
                                         new LovewingButton
                                         {
@@ -124,8 +124,8 @@ namespace Lovewing.Game.Screens
                                             Origin = Anchor.TopCentre,
                                             Text = "Multiplayer",
                                             Size = new Vector2(500, 200),
-                                            BackgroundColour = colors.Blue,
-                                            HoverColour = colors.Blue,
+                                            BackgroundColour = colours.Blue,
+                                            HoverColour = colours.Blue,
                                         }
                                     }
                                 }
@@ -152,7 +152,7 @@ namespace Lovewing.Game.Screens
                                             TextSize = 60,
                                             Size = new Vector2(630, 200),
                                             Text = "Button",
-                                            BackgroundColour = colors.Yellow,
+                                            BackgroundColour = colours.Yellow,
                                             Anchor = Anchor.BottomCentre,
                                             Origin = Anchor.BottomCentre,
                                         },
@@ -161,7 +161,7 @@ namespace Lovewing.Game.Screens
                                             TextSize = 60,
                                             Size = new Vector2(630, 200),
                                             Text = "Another Button",
-                                            BackgroundColour = colors.Yellow,
+                                            BackgroundColour = colours.Yellow,
                                             Anchor = Anchor.TopCentre,
                                             Origin = Anchor.TopCentre,
                                         }
@@ -196,8 +196,8 @@ namespace Lovewing.Game.Screens
                                             CornerRadius = 5,
                                             Size = new Vector2(400, 200),
                                             Text = "Story",
-                                            BackgroundColour = colors.Magenta,
-                                            ShearColour = colors.LightMagenta,
+                                            BackgroundColour = colours.Magenta,
+                                            ShearColour = colours.LightMagenta,
                                             Anchor = Anchor.TopLeft,
                                             Origin = Anchor.TopLeft,
                                         },
@@ -209,13 +209,13 @@ namespace Lovewing.Game.Screens
                                             CornerRadius = 100,
                                             Size = new Vector2(200, 200),
                                             Text = "Inbox",
-                                            BackgroundColour = colors.White,
-                                            HoverColour = colors.Magenta,
-                                            TextColour = colors.Magenta,
+                                            BackgroundColour = colours.White,
+                                            HoverColour = colours.Magenta,
+                                            TextColour = colours.Magenta,
                                             Anchor = Anchor.TopRight,
                                             Origin = Anchor.TopRight,
                                             Icon = FontAwesome.fa_envelope_o,
-                                            IconColour = colors.Magenta,
+                                            IconColour = colours.Magenta,
                                             IconSize = new Vector2(80),
                                             IconY = -10,
                                         }
@@ -236,8 +236,8 @@ namespace Lovewing.Game.Screens
                                         CornerRadius = 5,
                                         Size = new Vector2(630, 200),
                                         Text = "Events",
-                                        BackgroundColour = colors.Magenta,
-                                        ShearColour = colors.LightMagenta,
+                                        BackgroundColour = colours.Magenta,
+                                        ShearColour = colours.LightMagenta,
                                         Anchor = Anchor.BottomCentre,
                                         Origin = Anchor.BottomCentre,
                                     }

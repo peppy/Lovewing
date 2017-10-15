@@ -18,7 +18,6 @@ namespace Lovewing.Game.Graphics.UserInterface
     {
         private readonly Box hover;
         private readonly Box shearBox;
-        private readonly LovewingColors colors = new LovewingColors();
 
         public float ShearRotation
         {

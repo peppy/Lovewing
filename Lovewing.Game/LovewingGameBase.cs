@@ -21,7 +21,7 @@ namespace Lovewing.Game
         [BackgroundDependencyLoader]
         private void load()
         {
-            dependencies.Cache(new LovewingColors());
+            dependencies.Cache(new LovewingColours());
             dependencies.Cache(new UserData());
 
             Fonts.AddStore(new GlyphStore(Resources, @"Fonts/FontAwesome"));
@@ -37,7 +37,7 @@ namespace Lovewing.Game
         public override void SetHost(GameHost host)
         {
             base.SetHost(host);
-            
+
             Window.SetTitle(@"Lovewing");
         }
     }

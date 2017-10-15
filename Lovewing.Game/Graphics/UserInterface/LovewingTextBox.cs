@@ -38,10 +38,7 @@ namespace Lovewing.Game.Graphics.UserInterface
         }
 
         [BackgroundDependencyLoader]
-        private void load (LovewingColors colors)
-        {
-            BorderColour = colors.Magenta;
-        }
+        private void load (LovewingColours colours) => BorderColour = colours.Magenta;
 
         protected override Drawable GetDrawableCharacter(char c) => new SpriteText
         {

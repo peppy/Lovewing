@@ -30,7 +30,7 @@ namespace Lovewing.Game.Graphics.Overlay
         }
 
         [BackgroundDependencyLoader]
-        private void load(TextureStore texStore, LovewingColors colors, UserData user)
+        private void load(TextureStore texStore, LovewingColours colours, UserData user)
         {
             Padding = new MarginPadding { Right = 75, Top = 5 };
             Spacing = new Vector2(75, 0);
@@ -101,7 +101,7 @@ namespace Lovewing.Game.Graphics.Overlay
                             Origin = Anchor.BottomRight,
                             RelativeSizeAxes = Axes.Both,
                             FillMode = FillMode.Fit,
-                            BorderColour = colors.Magenta,
+                            BorderColour = colours.Magenta,
                             BorderThickness = 6,
                             Masking = true,
                             Children = new Drawable[]
@@ -115,7 +115,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                 {
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
-                                    Colour = colors.Magenta,
+                                    Colour = colours.Magenta,
                                     RelativeSizeAxes = Axes.Both,
                                     Size = new Vector2(0.5f),
                                     Icon = FontAwesome.fa_heart,
@@ -156,7 +156,7 @@ namespace Lovewing.Game.Graphics.Overlay
                             Origin = Anchor.BottomRight,
                             RelativeSizeAxes = Axes.Both,
                             FillMode = FillMode.Fit,
-                            BorderColour = colors.Yellow,
+                            BorderColour = colours.Yellow,
                             BorderThickness = 6,
                             Masking = true,
                             Children = new Drawable[]
@@ -170,7 +170,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                 {
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
-                                    Colour = colors.Yellow,
+                                    Colour = colours.Yellow,
                                     RelativeSizeAxes = Axes.Both,
                                     Size = new Vector2(0.5f),
                                     Icon = FontAwesome.fa_star,

@@ -41,7 +41,7 @@ namespace Lovewing.Game.Graphics.Overlay
         }
 
         [BackgroundDependencyLoader]
-        private void load(LovewingColors colors, UserData user, TextureStore texStore)
+        private void load(LovewingColours colours, UserData user, TextureStore texStore)
         {
             FillFlowContainer badges;
 
@@ -49,7 +49,7 @@ namespace Lovewing.Game.Graphics.Overlay
             {
                 new Box
                 {
-                    Colour = colors.White,
+                    Colour = colours.White,
                     RelativeSizeAxes = Axes.Both,
                 },
                 new Container
@@ -164,7 +164,7 @@ namespace Lovewing.Game.Graphics.Overlay
                             {
                                 new Box
                                 {
-                                    Colour = colors.Blue,
+                                    Colour = colours.Blue,
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
                                     RelativeSizeAxes = Axes.Both,

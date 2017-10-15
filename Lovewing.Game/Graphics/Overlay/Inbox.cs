@@ -31,7 +31,7 @@ namespace Lovewing.Game.Graphics.Overlay
         }
 
         [BackgroundDependencyLoader]
-        private void load(LovewingColors colors)
+        private void load(LovewingColours colours)
         {
 
             AddRangeInternal(new Drawable[]
@@ -39,7 +39,7 @@ namespace Lovewing.Game.Graphics.Overlay
                 new IconButton
                 {
                     Icon = FontAwesome.fa_server,
-                    Colour = colors.Magenta,
+                    Colour = colours.Magenta,
                     Size = new Vector2(20),
                     Anchor = Anchor.TopLeft,
                     Origin = Anchor.TopLeft,
@@ -51,23 +51,23 @@ namespace Lovewing.Game.Graphics.Overlay
                 },
                 new LovewingSearchBox
                 {
-                    CommitColour = colors.LightMagenta,
-                    UnfocusedColour = colors.White,
-                    FocusedColour = colors.LightMagenta,
-                    PlaceholderColour = colors.Magenta,
-                    TextColour = colors.Magenta,
+                    CommitColour = colours.LightMagenta,
+                    UnfocusedColour = colours.White,
+                    FocusedColour = colours.LightMagenta,
+                    PlaceholderColour = colours.Magenta,
+                    TextColour = colours.Magenta,
                     Margin = new MarginPadding { Top = 25 },
                     Anchor = Anchor.TopCentre,
                     Origin = Anchor.TopCentre,
                     Size = new Vector2(200, 50),
-                    Colour = colors.White,
-                    BorderColour = colors.Magenta,
+                    Colour = colours.White,
+                    BorderColour = colours.Magenta,
                     BorderThickness = 5,
                 },
                 new Box
                 {
                     RelativeSizeAxes = Axes.Both,
-                    Colour = colors.White,
+                    Colour = colours.White,
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
                     Depth = 5,
