@@ -15,7 +15,7 @@ namespace Lovewing.Game.Graphics
         private readonly string textureName;
         private readonly Sprite bg;
 
-        public Background(string textureName = @"")
+        public Background(string textureName)
         {
             this.textureName = textureName;
 
