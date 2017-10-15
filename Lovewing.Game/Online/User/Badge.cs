@@ -6,7 +6,7 @@ using OpenTK.Graphics;
 
 namespace Lovewing.Game.Online.User
 {
-    class Badge
+    public class Badge
     {
         public string Name { get; set; } = @"Badge";
         public string Description { get; set; } = @"This is a badge";

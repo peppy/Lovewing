@@ -6,7 +6,7 @@ using Lovewing.Game.Online.User;
 
 namespace Lovewing.Game.Online
 {
-    class UserData
+    public class UserData
     {
         public string Username { get; set; } = @"Guest";
         public string Token { get; set; } = @"secret.guest";
@@ -18,6 +18,6 @@ namespace Lovewing.Game.Online
         public int Coins { get; set; } = 0;
         public int Lives { get; set; } = 0;
         public int Level { get; set; } = 1;
-        public float XP { get; set; } = 0;
+        public float Experience { get; set; } = 0;
     }
 }
