@@ -25,6 +25,7 @@ namespace Lovewing.Game
             dependencies.Cache(new UserData());
 
             Fonts.AddStore(new GlyphStore(Resources, @"Fonts/FontAwesome"));
+            Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Muli_Light"));
 
             var t = Audio.Track.Get(@"mainmenu_muse");
 

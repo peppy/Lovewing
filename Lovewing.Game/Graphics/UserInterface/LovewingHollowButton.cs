@@ -23,6 +23,18 @@ namespace Lovewing.Game.Graphics.UserInterface
             set { icon.Icon = value; }
         }
 
+        public float TextSize
+        {
+            get { return SpriteText.TextSize; }
+            set { SpriteText.TextSize = value; }
+        }
+
+        public string Font
+        {
+            get { return SpriteText.Font; }
+            set { SpriteText.Font = value; }
+        }
+
         public Color4 TextColour
         {
             get { return SpriteText.Colour; }
@@ -41,6 +53,7 @@ namespace Lovewing.Game.Graphics.UserInterface
             Masking = true;
             BorderThickness = 5;
             CornerRadius = 5;
+            SpriteText.Font = @"Noto Sans CJK JP Regular";
 
             AddRangeInternal(new Drawable[]
             {
