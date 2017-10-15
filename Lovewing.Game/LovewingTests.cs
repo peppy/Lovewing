@@ -22,7 +22,7 @@ namespace Lovewing.Game
                 new CursorContainer(),
             };
 
-            LoadComponentAsync(new Background { TextureName = @"Backgrounds/mainmenu", Depth = 10 }, AddInternal);
+            LoadComponentAsync(new Background(@"Backgrounds/mainmenu") { Depth = 10 }, AddInternal);
         }
 
         public override void SetHost(GameHost host)
