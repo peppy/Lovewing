@@ -31,7 +31,7 @@ namespace Lovewing.Game.Graphics.Cursor
                         AutoSizeAxes = Axes.Both,
                         Child = new Sprite
                         {
-                            Texture = texStore.Get(@"http://vignette4.wikia.nocookie.net/emoticon-bank/images/a/ae/Ragnarok6354_-_General_Cursor_Contest_Entry.png"),
+                            Texture = texStore.Get(@"Cursor/default"),
                         }
                     },
                 };
