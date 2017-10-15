@@ -64,16 +64,15 @@ namespace Lovewing.Game.Screens
 
         public MainScreen()
         {
-            Wedge home, management; // switch back to field if needed. just for appveyor rn
+            Wedge home, management;
 
             AddRange(new Drawable[]
             {
-                new Background
+                new Background(@"Backgrounds/mainmenu")
                 {
-                    TextureName = @"Backgrounds/mainmenu",
                     FillMode = FillMode.Fill,
                     Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre
+                    Origin = Anchor.Centre,
                 },
                 idol = new Sprite
                 {
@@ -81,7 +80,7 @@ namespace Lovewing.Game.Screens
                     Anchor = Anchor.BottomLeft,
                     Origin = Anchor.BottomLeft,
                     FillMode = FillMode.Fit,
-                    Scale = new Vector2(0.9f)
+                    Scale = new Vector2(0.9f),
                 },
                 inboxOverlay = new Inbox(),
                 wedgeContainer = new Container<Wedge>
@@ -115,7 +114,7 @@ namespace Lovewing.Game.Screens
                                             Text = "Solo",
                                             Size = new Vector2(500, 200),
                                             BackgroundColour = colors.Blue,
-                                            HoverColour = colors.Blue
+                                            HoverColour = colors.Blue,
                                         },
                                         new LovewingButton
                                         {
@@ -126,7 +125,7 @@ namespace Lovewing.Game.Screens
                                             Text = "Multiplayer",
                                             Size = new Vector2(500, 200),
                                             BackgroundColour = colors.Blue,
-                                            HoverColour = colors.Blue
+                                            HoverColour = colors.Blue,
                                         }
                                     }
                                 }
@@ -155,7 +154,7 @@ namespace Lovewing.Game.Screens
                                             Text = "Button",
                                             BackgroundColour = colors.Yellow,
                                             Anchor = Anchor.BottomCentre,
-                                            Origin = Anchor.BottomCentre
+                                            Origin = Anchor.BottomCentre,
                                         },
                                         new LovewingButton
                                         {
@@ -164,7 +163,7 @@ namespace Lovewing.Game.Screens
                                             Text = "Another Button",
                                             BackgroundColour = colors.Yellow,
                                             Anchor = Anchor.TopCentre,
-                                            Origin = Anchor.TopCentre
+                                            Origin = Anchor.TopCentre,
                                         }
                                     }
                                 }
