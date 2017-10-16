@@ -23,7 +23,7 @@ jobs:
           command: mono nuget.exe restore
       - run:
           name: Build Lovewing
-          command: xbuild /p:Configuration=Release Lovewing.sln
+          command: xbuild
       # TODO: fix tests
       # - run:
       #     name: Run the tests
