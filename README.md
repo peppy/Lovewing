@@ -1,6 +1,6 @@
 ![LovewingLogo](LovewingLogo.png)
 
-[![Build status](https://ci.appveyor.com/api/projects/status/838a3fvg62djv93f?svg=true)](https://ci.appveyor.com/project/sr229/lovewing)
+[![AppVeyor Build](https://ci.appveyor.com/api/projects/status/838a3fvg62djv93f?svg=true)](https://ci.appveyor.com/project/sr229/lovewing) [![CircleCI Build](https://circleci.com/gh/ClarityMoe/Lovewing/tree/dev.png)](https://circleci.org/gh/ClarityMoe/Lovewing)
 
 ## What's this repo about?
 
