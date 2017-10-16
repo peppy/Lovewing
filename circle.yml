@@ -10,18 +10,18 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Get NuGet
-        command: wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+          name: Get NuGet
+          command: wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
       - run:
-        name: Restore NuGet packages
-        command: mono nuget.exe restore
+          name: Restore NuGet packages
+          command: mono nuget.exe restore
       - run:
-        name: Build Lovewing
-        command: xbuild /p:Configuration=Release Lovewing.sln
+          name: Build Lovewing
+          command: xbuild /p:Configuration=Release Lovewing.sln
       # TODO: fix tests
       # - run:
-      #   name: Run the tests
-      #   command: mono Lovewing.Game/bin/Release/Lovewing.Game.exe --tests
+      #     name: Run the tests
+      #     command: mono Lovewing.Game/bin/Release/Lovewing.Game.exe --tests
 
 notify:
   webhooks:
