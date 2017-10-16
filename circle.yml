@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: Get NuGet
-          command: wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+          command: curl -O https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
       - run:
           name: Restore NuGet packages
           command: mono nuget.exe restore
