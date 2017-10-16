@@ -21,6 +21,7 @@ namespace Lovewing.Game
         [BackgroundDependencyLoader]
         private void load()
         {
+            dependencies.Cache(this);
             dependencies.Cache(new LovewingColours());
             dependencies.Cache(new UserData());
 
@@ -29,7 +30,7 @@ namespace Lovewing.Game
 
             var t = Audio.Track.Get(@"mainmenu_muse");
 
-            // t?.Start();
+            t?.Start();
 
             if (t != null)
                 t.Looping = true;
