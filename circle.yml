@@ -13,8 +13,11 @@ jobs:
           name: Get submodules
           command: git submodule update --init --recursive
       - run:
+          name: Get NuGet
+          command: curl -O https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+      - run:
           name: Restore NuGet packages
-          command: nuget restore
+          command: mono nuget.exe restore
       - run:
           name: Build Lovewing
           command: xbuild
