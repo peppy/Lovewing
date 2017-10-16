@@ -1,13 +1,28 @@
-dependencies:
-  override:
-    - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-    - echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
-    - sudo apt-get update
-    - sudo apt-get install mono-complete
-    - wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
-    - mono nuget.exe restore
-    - xbuild /p:Configuration=Release
+################################
+# CircleCI config for Lovewing #
+################################
+version: 2
+jobs:
+  build:
+    docker:
+      - image: library/mono:latest
+    working_directory: ./Lovewing
+    steps:
+      - checkout
+      - run:
+        name: Get NuGet
+        command: wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+      - run:
+        name: Restore NuGet packages
+        command: mono nuget.exe restore
+      - run:
+        name: Build Lovewing
+        command: xbuild /p:Configuration=Release Lovewing.sln
+      # TODO: fix tests
+      # - run:
+      #   name: Run the tests
+      #   command: mono Lovewing.Game/bin/Release/Lovewing.Game.exe --tests
 
-test:
-  override:
-  - echo "TODO"
+notify:
+  webhooks:
+  - url: https://claraio-circledisc.herokuapp.com/hooks/circleci
