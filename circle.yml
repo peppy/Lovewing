@@ -20,7 +20,7 @@ jobs:
           command: mono nuget.exe restore
       - run:
           name: Build Lovewing
-          command: xbuild
+          command: msbuild
       # TODO: fix tests
       # - run:
       #     name: Run the tests
