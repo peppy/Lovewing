@@ -8,8 +8,10 @@ using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Textures;
+using osu.Framework.Graphics.UserInterface;
 using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Allocation;
+using osu.Framework.Audio;
 using OpenTK;
 using OpenTK.Graphics;
 
@@ -371,7 +373,41 @@ namespace Lovewing.Game.Graphics.Overlay
                                     Colour = colours.Magenta,
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
-                                    TextSize = 40,
+                                    TextSize = 20,
+                                },
+                                new ScrollContainer
+                                {
+                                    Anchor = Anchor.TopCentre,
+                                    Origin = Anchor.TopCentre,
+                                    RelativeSizeAxes = Axes.Both,
+                                    Margin = new MarginPadding
+                                    {
+                                        Top = 100,
+                                    },
+                                    Children = new Drawable[]
+                                    {
+                                        new FillFlowContainer
+                                        {
+                                            Spacing = new Vector2(10),
+                                            Anchor = Anchor.TopCentre,
+                                            Origin = Anchor.TopCentre,
+                                            RelativeSizeAxes = Axes.Both,
+                                            Direction = FillDirection.Vertical,
+                                            Margin = new MarginPadding
+                                            {
+                                                Top = 50,
+                                            },
+                                            Children = new Drawable[]
+                                            {
+                                                new VolumeSlider
+                                                {
+                                                    Anchor = Anchor.Centre,
+                                                    Origin = Anchor.Centre,
+                                                    Size = new Vector2(200, 50),
+                                                }
+                                             }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -413,6 +449,59 @@ namespace Lovewing.Game.Graphics.Overlay
                         },
                     }
                 });
+            }
+        }
+
+        private class VolumeSlider : SliderBar<double>
+        {
+            private AudioManager audio;
+
+            protected readonly Box Box;
+            protected readonly Circle SelectionBox;
+
+            public VolumeSlider()
+            {
+                CurrentNumber.MinValue = 0;
+                CurrentNumber.MaxValue = 100;
+                CurrentNumber.Value = 50;
+
+                Children = new Drawable[]
+                {
+                    new SpriteText
+                    {
+                        Text = "Volume",
+                        TextSize = 20,
+                        Font = "Noto Sans CJK JP Regular",
+                    },
+                    Box = new Box
+                    {
+                        RelativeSizeAxes = Axes.X,
+                        Height = 5,
+                        Anchor = Anchor.Centre,
+                        Origin = Anchor.Centre,
+                    },
+                    SelectionBox = new Circle
+                    {
+                        Size = new Vector2(30),
+                        Anchor = Anchor.CentreLeft,
+                        Origin = Anchor.CentreLeft,
+                    }
+                };
+            }
+
+            [BackgroundDependencyLoader]
+            private void load(AudioManager audio, LovewingColours colours)
+            {
+                SelectionBox.Colour = colours.Magenta;
+                Box.Colour = colours.LightMagenta;
+                this.audio = audio;
+            }
+
+            protected override void UpdateValue(float value)
+            {
+                if (Box != null)
+                    SelectionBox.MoveToX(value * Box.DrawWidth - 10);
+                audio?.Volume.Set(value);
             }
         }
     }

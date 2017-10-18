@@ -81,6 +81,7 @@
     <Compile Include="Graphics\UserInterface\FocusedTextBox.cs" />
     <Compile Include="Graphics\UserInterface\LovewingHollowButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingSearchBox.cs" />
+    <Compile Include="Graphics\UserInterface\LovewingSlider.cs" />
     <Compile Include="Graphics\UserInterface\LovewingTextBox.cs" />
     <Compile Include="LovewingGame.cs" />
     <Compile Include="LovewingGameBase.cs" />
