@@ -18,7 +18,7 @@ namespace Lovewing.Game
 
             Children = new Drawable[]
             {
-                new TestBrowser(),
+                new TestBrowser("Lovewing"),
                 new CursorContainer(),
             };
 
