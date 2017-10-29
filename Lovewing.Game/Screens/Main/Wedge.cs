@@ -24,6 +24,7 @@ namespace Lovewing.Game.Screens.Main
         private Container<Box> wedgeBackground;
         private readonly Container content;
 
+        public Action ButtonAction { get; set; }
         public Action WedgeClick { get; set; }
 
         //public override bool HandleInput => true;
@@ -118,13 +119,16 @@ namespace Lovewing.Game.Screens.Main
             {
                 ActiveColour = WedgeColour,
                 Text = ButtonText,
-                Action = Show,
+                Action = () =>
+                {
+                    Show();
+                    ButtonAction?.Invoke();
+                },
                 RelativeSizeAxes = Axes.Both,
                 Width = Width,
                 Anchor = Anchor,
                 Origin = Origin,
                 Margin = Margin,
-                
             };
 
             StateChanged += vis => button.Active = vis == Visibility.Visible;
@@ -137,17 +141,6 @@ namespace Lovewing.Game.Screens.Main
                     button.ButtonIcon.Icon = ButtonIcon;
                 };
             return button;
-        }
-
-        public void Expand()
-        {
-            wedgeBackground?
-                .MoveTo(new Vector2(-0.75f, 0), 250, Easing.InQuad)
-                .FadeInFromZero(250);
-
-            content
-                .MoveTo(new Vector2(content.DrawSize.X, 0), 250, Easing.InQuad)
-                .FadeInFromZero(250);
         }
 
         private class WedgeButton : Container

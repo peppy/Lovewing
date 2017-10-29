@@ -31,10 +31,11 @@ namespace Lovewing.Game
 
             var t = Audio.Track.Get(@"mainmenu_muse");
 
-            t?.Start();
+            if (t == null) return;
 
-            if (t != null)
-                t.Looping = true;
+            t.Looping = true;
+            t.Volume.Set(0);
+            t.Start();
         }
 
         public override void SetHost(GameHost host)

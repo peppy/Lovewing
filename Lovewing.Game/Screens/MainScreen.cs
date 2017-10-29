@@ -6,7 +6,7 @@ using Lovewing.Game.Graphics;
 using Lovewing.Game.Graphics.UserInterface;
 using Lovewing.Game.Graphics.Overlay;
 using Lovewing.Game.Screens.Main;
-using Lovewing.Game.Screens.Matchmaking;
+using Lovewing.Game.Screens.Liveshow;
 using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
@@ -15,33 +15,34 @@ using osu.Framework.Graphics.Textures;
 using OpenTK;
 using System.Linq;
 using osu.Framework.Input;
+using osu.Framework.Screens;
 
 namespace Lovewing.Game.Screens
 {
-    public class MainScreen : LovewingScreen
+    public class MainScreen : Screen
     {
+        private readonly LovewingToolbar toolbar;
+        private readonly LovewingSidebar sidebar;
         private readonly Sprite idol;
         private readonly Container<Wedge> wedgeContainer;
         private readonly LovewingColours colours = new LovewingColours();
-        private readonly LiveShowWedge liveshow;
         private readonly Inbox inboxOverlay;
+
+        private void toggleSideBar()
+        {
+            if (sidebar.State == Visibility.Visible)
+                sidebar.Hide();
+            else
+                sidebar.Show();
+        }
 
         private void hideOverlays()
         {
-            if (Sidebar.State == Visibility.Visible)
-                Sidebar.Hide();
+            if (sidebar.State == Visibility.Visible)
+                sidebar.Hide();
 
             if (inboxOverlay.State == Visibility.Visible)
                 inboxOverlay.Hide();
-        }
-
-        private void showOverlays()
-        {
-            if (Sidebar.State == Visibility.Hidden)
-                Sidebar.Show();
-
-            if (inboxOverlay.State == Visibility.Hidden)
-                inboxOverlay.Show();
         }
 
         private void toggleInbox()
@@ -52,19 +53,16 @@ namespace Lovewing.Game.Screens
                 inboxOverlay.Show();
         }
 
-        private void solo()
+        private void toLiveshow()
         {
-            liveshow.Expand();
-        }
+            var screen = new LiveshowScreen();
 
-        private void matchmaking()
-        {
-            Push(new MatchmakingScreen());
+            Push(screen);
         }
 
         public MainScreen()
         {
-            Wedge home, management;
+            Wedge liveshow, management, home;
 
             AddRange(new Drawable[]
             {
@@ -82,6 +80,18 @@ namespace Lovewing.Game.Screens
                     FillMode = FillMode.Fit,
                     Scale = new Vector2(0.9f),
                 },
+                sidebar = new LovewingSidebar
+                {
+                    Origin = Anchor.CentreRight,
+                    Anchor = Anchor.CentreRight,
+                    RelativeSizeAxes = Axes.Y,
+                    Depth = -2,
+                },
+                toolbar = new LovewingToolbar
+                {
+                    Depth = -1,
+                    ButtonAction = toggleSideBar,
+                },
                 inboxOverlay = new Inbox(),
                 wedgeContainer = new Container<Wedge>
                 {
@@ -96,7 +106,8 @@ namespace Lovewing.Game.Screens
                             Width = 0.5f,
                             Margin = new MarginPadding { Right = 100 },
                             Depth = 2,
-                            Children = new[]
+                            ButtonAction = toLiveshow,
+                            /*Children = new[]
                             {
                                 new Container
                                 {
@@ -108,7 +119,6 @@ namespace Lovewing.Game.Screens
                                         new LovewingButton
                                         {
                                             TextSize = 75,
-                                            Action = solo,
                                             Anchor = Anchor.BottomCentre,
                                             Origin = Anchor.BottomCentre,
                                             Text = "Solo",
@@ -129,7 +139,7 @@ namespace Lovewing.Game.Screens
                                         }
                                     }
                                 }
-                            }
+                            }*/
                         },
                         management = new IdolManagementWedge
                         {
@@ -270,10 +280,21 @@ namespace Lovewing.Game.Screens
             });
         }
 
+        protected override void OnEntering(Screen last)
+        {
+            Content.FadeIn(400);
+            base.OnEntering(last);
+        }
+
+        protected override bool OnExiting(Screen next)
+        {
+            Content.FadeOut(400);
+            return base.OnExiting(next);
+        }
+
         protected override bool OnClick(InputState state)
         {
-            if (inboxOverlay.State == Visibility.Visible)
-                inboxOverlay.Hide();
+            hideOverlays();
 
             return base.OnClick(state);
         }
