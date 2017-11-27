@@ -116,6 +116,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="OpenTK.dll.config" />
+    <None Include="libdiscord-rpc.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lovewing.Resources\Lovewing.Game.Resources\Lovewing.Game.Resources.csproj">
