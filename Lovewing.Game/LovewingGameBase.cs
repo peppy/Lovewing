@@ -15,12 +15,24 @@ namespace Lovewing.Game
 
         private DependencyContainer dependencies;
 
+        private DiscordRpc.RichPresence defaultPresence = new DiscordRpc.RichPresence
+        {
+            state = "Idle",
+            details = "Main Menu"
+        };
+
         protected override IReadOnlyDependencyContainer CreateLocalDependencies(IReadOnlyDependencyContainer parent) =>
             dependencies = new DependencyContainer(base.CreateLocalDependencies(parent));
+
+        public DiscordRpc.EventHandlers discordHandlers;
 
         [BackgroundDependencyLoader]
         private void load()
         {
+            DiscordRpc.Initialize("384734966690611202", ref discordHandlers, true, "");
+
+            DiscordRpc.UpdatePresence(ref defaultPresence);
+
             dependencies.Cache(this);
             dependencies.Cache(new LovewingColours());
             dependencies.Cache(new UserData());
