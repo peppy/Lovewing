@@ -14,7 +14,7 @@ namespace Lovewing.Game.Graphics.UserInterface
         public Action Exit => null;
         public bool HoldFocus
         {
-            get { return focus; }
+            get => focus;
             set
             {
                 focus = value;

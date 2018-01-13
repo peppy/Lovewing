@@ -1,10 +1,11 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
-using System.Security.Cryptography;
 using Lovewing.Game.Graphics;
 using Lovewing.Game.Graphics.Overlay;
 using Lovewing.Game.Graphics.UserInterface;
+using Lovewing.Game.Online;
+using Lovewing.Game.Screens.Game;
 using Lovewing.Game.Screens.Liveshow.Matchmaking;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
@@ -81,29 +82,29 @@ namespace Lovewing.Game.Screens.Liveshow
                     FillMode = FillMode.Fill,
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
-                    BlurSigma = new Vector2(5),
+                    BlurSigma = new Vector2(5)
                 },
                 sidebar = new LovewingSidebar
                 {
                     Origin = Anchor.CentreRight,
                     Anchor = Anchor.CentreRight,
                     RelativeSizeAxes = Axes.Y,
-                    Depth = -2,
+                    Depth = -2
                 },
                 toolbar = new LovewingToolbar
                 {
                     Margin = new MarginPadding
                     {
-                        Top = 10,
+                        Top = 10
                     },
                     Depth = -1,
-                    ButtonAction = toggleSideBar,
+                    ButtonAction = toggleSideBar
                 },
                 bar = new Box
                 {
                     RelativeSizeAxes = Axes.X,
                     Height = 10,
-                    Colour = Color4.Orange,
+                    Colour = Color4.Orange
                 },
                 new FillFlowContainer
                 {
@@ -121,7 +122,7 @@ namespace Lovewing.Game.Screens.Liveshow
                             Action = Exit,
                             Anchor = Anchor.CentreLeft,
                             Origin = Anchor.CentreLeft,
-                            Size = new Vector2(200, 40),
+                            Size = new Vector2(200, 40)
                         },
                         new ClickableContainer
                         {
@@ -138,7 +139,7 @@ namespace Lovewing.Game.Screens.Liveshow
                                     Size = new Vector2(30),
                                     Anchor = Anchor.CentreLeft,
                                     Origin = Anchor.CentreLeft,
-                                    Depth = 0,
+                                    Depth = 0
                                 },
                                 new SpriteText
                                 {
@@ -146,7 +147,7 @@ namespace Lovewing.Game.Screens.Liveshow
                                     Text = "Solo",
                                     Origin = Anchor.Centre,
                                     Anchor = Anchor.Centre,
-                                    Depth = 0,
+                                    Depth = 0
                                 },
                                 soloBtnBox = new Box
                                 {
@@ -155,8 +156,8 @@ namespace Lovewing.Game.Screens.Liveshow
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
                                     Colour = Color4.Blue,
-                                    Depth = 1,
-                                },
+                                    Depth = 1
+                                }
                             }
                         },
                         new ClickableContainer
@@ -174,7 +175,7 @@ namespace Lovewing.Game.Screens.Liveshow
                                     Size = new Vector2(30),
                                     Anchor = Anchor.CentreLeft,
                                     Origin = Anchor.CentreLeft,
-                                    Depth = 0,
+                                    Depth = 0
                                 },
                                 new SpriteText
                                 {
@@ -182,7 +183,7 @@ namespace Lovewing.Game.Screens.Liveshow
                                     Text = "Group Stage",
                                     Origin = Anchor.Centre,
                                     Anchor = Anchor.Centre,
-                                    Depth = 0,
+                                    Depth = 0
                                 },
                                 mmBtnBox = new Box
                                 {
@@ -190,11 +191,11 @@ namespace Lovewing.Game.Screens.Liveshow
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
                                     Colour = Color4.Orange,
-                                    Depth = 1,
-                                },
+                                    Depth = 1
+                                }
                             }
-                        },
-                    },
+                        }
+                    }
                 },
                 solo = new Container
                 {
@@ -205,11 +206,28 @@ namespace Lovewing.Game.Screens.Liveshow
                     {
                         Left = 300,
                         Top = 300,
-                        Right = 300,
+                        Right = 300
                     },
                     Children = new Drawable[]
                     {
+                        new ClickableContainer
+                        {
+                            Anchor = Anchor.Centre,
+                            Origin = Anchor.Centre,
+                            Size = new Vector2(128, 128),
+                            Child = new Box
+                            {
+                                Anchor = Anchor.Centre,
+                                Origin = Anchor.Centre,
+                                RelativeSizeAxes = Axes.Both
+                            },
+                            Action = () =>
+                            {
+                                var screen = new GameScreen();
 
+                                Push(screen);
+                            }
+                        }
                     }
                 },
                 matchmaking = new Container
@@ -221,7 +239,7 @@ namespace Lovewing.Game.Screens.Liveshow
                     {
                         Left = 300,
                         Top = 300,
-                        Right = 300,
+                        Right = 300
                     },
                     Children = new Drawable[]
                     {
@@ -230,7 +248,7 @@ namespace Lovewing.Game.Screens.Liveshow
                             Margin = new MarginPadding
                             {
                                 Left = 200,
-                                Right = 200,
+                                Right = 200
                             },
                             RelativeSizeAxes = Axes.Y,
                             Width = 825,
@@ -247,7 +265,7 @@ namespace Lovewing.Game.Screens.Liveshow
                                         tabs = new LobbyTabControl<LobbyTabs>
                                         {
                                             RelativeSizeAxes = Axes.X,
-                                            Height = 50,
+                                            Height = 50
                                         },
                                         tabContent = new ScrollContainer
                                         {
@@ -259,35 +277,35 @@ namespace Lovewing.Game.Screens.Liveshow
                                                 new LobbyCard
                                                 {
                                                     Anchor = Anchor.TopLeft,
-                                                    Origin = Anchor.TopLeft,
+                                                    Origin = Anchor.TopLeft
                                                 },
                                                 new LobbyCard
                                                 {
                                                     Anchor = Anchor.TopRight,
-                                                    Origin = Anchor.TopRight,
+                                                    Origin = Anchor.TopRight
                                                 },
                                                 new LobbyCard
                                                 {
                                                     Anchor = Anchor.CentreLeft,
-                                                    Origin = Anchor.CentreLeft,
+                                                    Origin = Anchor.CentreLeft
                                                 },
                                                 new LobbyCard
                                                 {
                                                     Anchor = Anchor.CentreRight,
-                                                    Origin = Anchor.CentreRight,
-                                                },
-                                            },
-                                        },
-                                    },
-                                },
-                            },
+                                                    Origin = Anchor.CentreRight
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         },
                         new Container
                         {
                             Margin = new MarginPadding
                             {
                                 Left = 200,
-                                Right = 200,
+                                Right = 200
                             },
                             RelativeSizeAxes = Axes.Y,
                             Width = 200,
@@ -309,7 +327,7 @@ namespace Lovewing.Game.Screens.Liveshow
                                             Origin = Anchor.CentreLeft,
                                             Icon = FontAwesome.fa_users,
                                             RelativeSizeAxes = Axes.Y,
-                                            Width = 20,
+                                            Width = 20
                                         },
                                         new SpriteText
                                         {
@@ -317,7 +335,7 @@ namespace Lovewing.Game.Screens.Liveshow
                                             Anchor = Anchor.CentreLeft,
                                             Origin = Anchor.CentreLeft,
                                             Text = "Party",
-                                            TextSize = 30,
+                                            TextSize = 30
                                         },
                                         new SpriteText
                                         {
@@ -325,14 +343,14 @@ namespace Lovewing.Game.Screens.Liveshow
                                             TextSize = 20,
                                             Text = "1/9",
                                             Anchor = Anchor.CentreRight,
-                                            Origin = Anchor.CentreRight,
+                                            Origin = Anchor.CentreRight
                                         }
                                     }
                                 }
-                            },
-                        },
-                    },
-                },
+                            }
+                        }
+                    }
+                }
             });
 
             tabs.Current.Default = LobbyTabs.All;
@@ -352,9 +370,23 @@ namespace Lovewing.Game.Screens.Liveshow
             return base.OnClick(state);
         }
 
+        protected override void LoadComplete()
+        {
+            solo.MoveToX(-DrawWidth);
+        }
+
         protected override void OnEntering(Screen last)
         {
-            Content.FadeIn(400);
+            var presence = new DiscordRpc.RichPresence
+            {
+                details = "Liveshow Selection",
+                state = "Idle",
+                largeImageKey = "logo"
+            };
+
+            DiscordRpc.UpdatePresence(ref presence);
+
+            Content.FadeInFromZero(400);
             base.OnEntering(last);
         }
 

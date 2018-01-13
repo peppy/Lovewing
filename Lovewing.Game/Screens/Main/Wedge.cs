@@ -39,7 +39,7 @@ namespace Lovewing.Game.Screens.Main
             {
                 RelativeSizeAxes = Axes.Both,
                 AlwaysPresent = true,
-                Depth = -1,
+                Depth = -1
             });
         }
 
@@ -75,19 +75,19 @@ namespace Lovewing.Game.Screens.Main
                             EdgeSmoothness = Vector2.One
                         }
                     }
-                },
+                }
             });
 
             State = Visibility.Visible;
         }
 
-        public override bool Invalidate(Invalidation invalidation = Invalidation.All, Drawable source = null, bool shallPropagate = true)
+        /*public override bool Invalidate(Invalidation invalidation = Invalidation.All, Drawable source = null, bool shallPropagate = true)
         {
             if ((invalidation & (Invalidation.DrawSize | Invalidation.MiscGeometry)) > 0)
                 content.Size = Vector2.Divide(LayoutSize, DrawSize);
 
             return base.Invalidate(invalidation, source, shallPropagate);
-        }
+        }*/
 
         protected override void PopIn()
         {
@@ -128,7 +128,7 @@ namespace Lovewing.Game.Screens.Main
                 Width = Width,
                 Anchor = Anchor,
                 Origin = Origin,
-                Margin = Margin,
+                Margin = Margin
             };
 
             StateChanged += vis => button.Active = vis == Visibility.Visible;
@@ -153,8 +153,8 @@ namespace Lovewing.Game.Screens.Main
             public Color4 ActiveColour { get; set; }
             public string Text
             {
-                get { return buttonText.Text; }
-                set { buttonText.Text = value; }
+                get => buttonText.Text;
+                set => buttonText.Text = value;
             }
 
             public bool Active
@@ -219,7 +219,7 @@ namespace Lovewing.Game.Screens.Main
                                 Shear = new Vector2(-0.05f, 0.05f),
                                 Width = 0.95f,
                                 Colour = Color4.White.Opacity(0.1f),
-                                Alpha = 0,
+                                Alpha = 0
                             },
                             ButtonIcon = new SpriteIcon
                             {
@@ -237,7 +237,7 @@ namespace Lovewing.Game.Screens.Main
                                 AllowMultiline = false,
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
-                                TextSize = 20,
+                                TextSize = 20
                             }
                         }
                     }

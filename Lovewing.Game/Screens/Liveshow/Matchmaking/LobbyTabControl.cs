@@ -43,7 +43,7 @@ namespace Lovewing.Game.Screens.Liveshow.Matchmaking
         private Color4 accentColour;
         public Color4 AccentColour
         {
-            get { return accentColour; }
+            get => accentColour;
             set
             {
                 accentColour = value;
@@ -63,7 +63,7 @@ namespace Lovewing.Game.Screens.Liveshow.Matchmaking
             private Color4 accentColour;
             public Color4 AccentColour
             {
-                get { return accentColour; }
+                get => accentColour;
                 set
                 {
                     accentColour = value;
@@ -119,7 +119,7 @@ namespace Lovewing.Game.Screens.Liveshow.Matchmaking
                         Origin = Anchor.TopLeft,
                         Anchor = Anchor.TopLeft,
                         Text = (value as Enum)?.GetDescription() ?? value.ToString(),
-                        TextSize = 30,
+                        TextSize = 30
                     },
                     Bar = new Box
                     {
@@ -129,7 +129,7 @@ namespace Lovewing.Game.Screens.Liveshow.Matchmaking
                         Alpha = 0,
                         Colour = Color4.Orange,
                         Origin = Anchor.CentreLeft,
-                        Anchor = Anchor.CentreLeft,
+                        Anchor = Anchor.CentreLeft
                     }
                 };
             }

@@ -7,6 +7,7 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Cursor;
 using osu.Framework.Graphics.Textures;
 using osu.Framework.Graphics.Sprites;
+using OpenTK;
 
 namespace Lovewing.Game.Graphics.Cursor
 {
@@ -31,9 +32,10 @@ namespace Lovewing.Game.Graphics.Cursor
                         AutoSizeAxes = Axes.Both,
                         Child = new Sprite
                         {
-                            Texture = texStore.Get(@"Cursor/default"),
+                            Size = new Vector2(25, 25),
+                            Texture = texStore.Get(@"Cursor/default")
                         }
-                    },
+                    }
                 };
             }
         }

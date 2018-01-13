@@ -6,6 +6,6 @@ namespace Lovewing.Game.Screens.Liveshow.Matchmaking
     public enum LobbyType
     {
         Normal = 0,
-        Special = 1,
+        Special = 1
     }
 }

@@ -20,32 +20,32 @@ namespace Lovewing.Game.Graphics.UserInterface
 
         public float Angle
         {
-            get { return shearBox.Shear.X; }
-            set { shearBox.Shear = new Vector2(value, 0); }
+            get => shearBox.Shear.X;
+            set => shearBox.Shear = new Vector2(value, 0);
         }
 
         public Vector2 ShearPosition
         {
-            get { return shearBox.Position; }
-            set { shearBox.MoveTo(value); }
+            get => shearBox.Position;
+            set => shearBox.MoveTo(value);
         }
 
         public Color4 ShearColour
         {
-            get { return shearBox.Colour; }
-            set { shearBox.FadeColour(value); }
+            get => shearBox.Colour;
+            set => shearBox.FadeColour(value);
         }
 
         public Vector2 TextPosition
         {
-            get { return SpriteText.Position; }
-            set { SpriteText.MoveTo(value); }
+            get => SpriteText.Position;
+            set => SpriteText.MoveTo(value);
         }
 
         public float TextSize
         {
-            get { return SpriteText.TextSize; }
-            set { SpriteText.TextSize = value; }
+            get => SpriteText.TextSize;
+            set => SpriteText.TextSize = value;
         }
 
         public LovewingDoubleButton()
@@ -59,7 +59,7 @@ namespace Lovewing.Game.Graphics.UserInterface
             {
                 Type = EdgeEffectType.Shadow,
                 Radius = 10,
-                Colour = Color4.Black.Opacity(0.2f),
+                Colour = Color4.Black.Opacity(0.2f)
             };
 
             AddRangeInternal(new Drawable[]
@@ -68,7 +68,7 @@ namespace Lovewing.Game.Graphics.UserInterface
                 {
                     RelativeSizeAxes = Axes.Both,
                     Colour = Color4.White.Opacity(0.5f),
-                    Alpha = 0,
+                    Alpha = 0
                 },
                 shearBox = new Box
                 {
@@ -76,8 +76,8 @@ namespace Lovewing.Game.Graphics.UserInterface
                     Origin = Anchor.CentreRight,
                     Anchor = Anchor.CentreRight,
                     Shear = Vector2.Zero,
-                    Alpha = 0.3f,
-                },
+                    Alpha = 0.3f
+                }
             });
         }
 

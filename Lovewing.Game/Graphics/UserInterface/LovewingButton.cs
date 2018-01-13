@@ -20,50 +20,50 @@ namespace Lovewing.Game.Graphics.UserInterface
 
         public Color4 HoverColour
         {
-            get { return hover.Colour; }
-            set { hover.Colour = value.Opacity(0.5f); }
+            get => hover.Colour;
+            set => hover.Colour = value.Opacity(0.5f);
         }
 
         public Color4 TextColour
         {
-            get { return SpriteText.Colour; }
-            set { SpriteText.FadeColour(value); }
+            get => SpriteText.Colour;
+            set => SpriteText.FadeColour(value);
         }
 
         public Vector2 TextPosition
         {
-            get { return SpriteText.Position; }
-            set { SpriteText.MoveTo(value); }
+            get => SpriteText.Position;
+            set => SpriteText.MoveTo(value);
         }
 
         public float TextSize
         {
-            get { return SpriteText.TextSize; }
-            set { SpriteText.TextSize = value; }
+            get => SpriteText.TextSize;
+            set => SpriteText.TextSize = value;
         }
 
         public FontAwesome Icon
         {
-            get { return icon.Icon; }
-            set { icon.Icon = value; }
+            get => icon.Icon;
+            set => icon.Icon = value;
         }
 
         public Color4 IconColour
         {
-            get { return icon.Colour; }
-            set { icon.Colour = value; }
+            get => icon.Colour;
+            set => icon.Colour = value;
         }
 
         public Vector2 IconPosition
         {
-            get { return icon.Position; }
-            set { icon.MoveTo(value); }
+            get => icon.Position;
+            set => icon.MoveTo(value);
         }
 
         public Vector2 IconSize
         {
-            get { return icon.Size; }
-            set { icon.Size = value; }
+            get => icon.Size;
+            set => icon.Size = value;
         }
 
         public LovewingButton()
@@ -75,7 +75,7 @@ namespace Lovewing.Game.Graphics.UserInterface
             {
                 Type = EdgeEffectType.Shadow,
                 Radius = 10,
-                Colour = Color4.Black.Opacity(0.2f),
+                Colour = Color4.Black.Opacity(0.2f)
             };
 
             AddRangeInternal(new Drawable[]
@@ -83,13 +83,13 @@ namespace Lovewing.Game.Graphics.UserInterface
                 icon = new SpriteIcon
                 {
                     Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
+                    Origin = Anchor.Centre
                 },
                 hover = new Box
                 {
                     RelativeSizeAxes = Axes.Both,
                     Colour = Color4.White.Opacity(0.5f),
-                    Alpha = 0,
+                    Alpha = 0
                 }
             });
 

@@ -18,32 +18,32 @@ namespace Lovewing.Game.Graphics.UserInterface
 
         public FontAwesome Icon
         {
-            get { return icon.Icon; }
-            set { icon.Icon = value; }
+            get => icon.Icon;
+            set => icon.Icon = value;
         }
 
         public float TextSize
         {
-            get { return SpriteText.TextSize; }
-            set { SpriteText.TextSize = value; }
+            get => SpriteText.TextSize;
+            set => SpriteText.TextSize = value;
         }
 
         public string Font
         {
-            get { return SpriteText.Font; }
-            set { SpriteText.Font = value; }
+            get => SpriteText.Font;
+            set => SpriteText.Font = value;
         }
 
         public Color4 TextColour
         {
-            get { return SpriteText.Colour; }
-            set { SpriteText.FadeColour(value); }
+            get => SpriteText.Colour;
+            set => SpriteText.FadeColour(value);
         }
 
         public Color4 IconColour
         {
-            get { return icon.Colour; }
-            set { icon.FadeColour(value); }
+            get => icon.Colour;
+            set => icon.FadeColour(value);
         }
 
         public LovewingHollowButton()
@@ -63,15 +63,15 @@ namespace Lovewing.Game.Graphics.UserInterface
                     Origin = Anchor.CentreLeft,
                     Margin = new MarginPadding
                     {
-                        Left = 10,
+                        Left = 10
                     },
-                    Size = new Vector2(Height - 10),
+                    Size = new Vector2(Height - 10)
                 },
                 hover = new Box
                 {
                     RelativeSizeAxes = Axes.Both,
                     Colour = Color4.White.Opacity(0.5f),
-                    Alpha = 0,
+                    Alpha = 0
                 }
             });
         }

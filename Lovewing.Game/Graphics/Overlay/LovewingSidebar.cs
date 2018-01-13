@@ -32,7 +32,7 @@ namespace Lovewing.Game.Graphics.Overlay
             {
                 Type = EdgeEffectType.Shadow,
                 Radius = 10,
-                Colour = Color4.Black.Opacity(0.5f),
+                Colour = Color4.Black.Opacity(0.5f)
             };
         }
 
@@ -84,7 +84,7 @@ namespace Lovewing.Game.Graphics.Overlay
                 new Box
                 {
                     Colour = colours.White,
-                    RelativeSizeAxes = Axes.Both,
+                    RelativeSizeAxes = Axes.Both
                 },
                 main = new Container
                 {
@@ -112,40 +112,40 @@ namespace Lovewing.Game.Graphics.Overlay
                                     Margin = new MarginPadding
                                     {
                                         Right = 150,
-                                        Top = -20,
+                                        Top = -20
                                     },
-                                    Texture = texStore.Get(user.UserBackground),
+                                    Texture = texStore.Get(user.UserBackground)
                                 },
                                 new Box
                                 {
                                     Anchor = Anchor.TopCentre,
                                     Origin = Anchor.TopCentre,
                                     RelativeSizeAxes = Axes.Both,
-                                    Colour = Color4.Black.Opacity(0.5f),
+                                    Colour = Color4.Black.Opacity(0.5f)
                                 }
-                            },
+                            }
                         },
                         new SpriteText
                         {
                             Margin = new MarginPadding
                             {
-                                Top = 150,
+                                Top = 150
                             },
                             Font = @"Noto Sans CJK Regular",
                             TextSize = 40,
                             Anchor = Anchor.TopCentre,
                             Origin = Anchor.TopCentre,
-                            Text = user.Username,
+                            Text = user.Username
                         },
                         new Box
                         {
                             Margin = new MarginPadding
                             {
-                                Top = 250,
+                                Top = 250
                             },
                             Height = 40,
                             RelativeSizeAxes = Axes.X,
-                            Colour = new Color4(225, 167, 42, 255),
+                            Colour = new Color4(225, 167, 42, 255)
                         },
                         new CircularContainer
                         {
@@ -155,7 +155,7 @@ namespace Lovewing.Game.Graphics.Overlay
                             Origin = Anchor.TopCentre,
                             Margin = new MarginPadding
                             {
-                                Top = 200,
+                                Top = 200
                             },
                             FillMode = FillMode.Fit,
                             Colour = Color4.White,
@@ -170,8 +170,8 @@ namespace Lovewing.Game.Graphics.Overlay
                                     Origin = Anchor.Centre,
                                     RelativeSizeAxes = Axes.Both,
                                     FillMode = FillMode.Fit,
-                                    Texture = texStore.Get(user.Avatar),
-                                },
+                                    Texture = texStore.Get(user.Avatar)
+                                }
                             }
                         },
                         badges = new FillFlowContainer
@@ -181,7 +181,7 @@ namespace Lovewing.Game.Graphics.Overlay
                             Anchor = Anchor.TopCentre,
                             Origin = Anchor.TopCentre,
                             RelativeSizeAxes = Axes.X,
-                            Height = 50,
+                            Height = 50
                         },
                         new Container
                         {
@@ -193,7 +193,7 @@ namespace Lovewing.Game.Graphics.Overlay
                             Masking = true,
                             Margin = new MarginPadding
                             {
-                                Top = 300,
+                                Top = 300
                             },
                             Children = new Drawable[]
                             {
@@ -202,7 +202,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                     Colour = colours.Blue,
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
-                                    RelativeSizeAxes = Axes.Both,
+                                    RelativeSizeAxes = Axes.Both
                                 },
                                 new SpriteText
                                 {
@@ -210,7 +210,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
                                     TextSize = 30,
-                                    Text = user.Level.ToString(),
+                                    Text = user.Level.ToString()
                                 }
                             }
                         },
@@ -221,7 +221,7 @@ namespace Lovewing.Game.Graphics.Overlay
                             RelativeSizeAxes = Axes.Both,
                             Margin = new MarginPadding
                             {
-                                Top = 350,
+                                Top = 350
                             },
                             Children = new Drawable[]
                             {
@@ -234,7 +234,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                     Direction = FillDirection.Vertical,
                                     Margin = new MarginPadding
                                     {
-                                        Top = 150,
+                                        Top = 150
                                     },
                                     Children = new Drawable[]
                                     {
@@ -250,7 +250,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                             CornerRadius = 7,
                                             Size = new Vector2(250, 50),
                                             Text = "Friends",
-                                            Icon = FontAwesome.fa_users,
+                                            Icon = FontAwesome.fa_users
                                         },
                                         new LovewingHollowButton
                                         {
@@ -264,7 +264,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                             CornerRadius = 7,
                                             Size = new Vector2(250, 50),
                                             Text = "Profile",
-                                            Icon = FontAwesome.fa_user,
+                                            Icon = FontAwesome.fa_user
                                         },
                                         new LovewingHollowButton
                                         {
@@ -278,7 +278,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                             CornerRadius = 7,
                                             Size = new Vector2(250, 50),
                                             Text = "Events",
-                                            Icon = FontAwesome.fa_clock_o,
+                                            Icon = FontAwesome.fa_clock_o
                                         },
                                         new LovewingHollowButton
                                         {
@@ -292,7 +292,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                             CornerRadius = 7,
                                             Size = new Vector2(250, 50),
                                             Text = "Shoutout!",
-                                            Icon = FontAwesome.fa_bullhorn,
+                                            Icon = FontAwesome.fa_bullhorn
                                         },
                                         new LovewingHollowButton
                                         {
@@ -307,10 +307,10 @@ namespace Lovewing.Game.Graphics.Overlay
                                             Size = new Vector2(250, 50),
                                             Text = "Settings",
                                             Icon = FontAwesome.fa_wrench,
-                                            Action = toSettings,
-                                        },
+                                            Action = toSettings
+                                        }
                                     }
-                                },
+                                }
                                 /*new FillFlowContainer
                                 {
                                     Anchor = Anchor.BottomCentre,
@@ -357,14 +357,14 @@ namespace Lovewing.Game.Graphics.Overlay
                                 {
                                     Margin = new MarginPadding
                                     {
-                                        Left = 10,
+                                        Left = 10
                                     },
                                     Icon = FontAwesome.fa_chevron_left,
                                     Size = new Vector2(20),
                                     Anchor = Anchor.CentreLeft,
                                     Origin = Anchor.CentreLeft,
                                     Action = toMain,
-                                    Colour = colours.Magenta,
+                                    Colour = colours.Magenta
                                 },
                                 new SpriteText
                                 {
@@ -373,7 +373,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                     Colour = colours.Magenta,
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
-                                    TextSize = 20,
+                                    TextSize = 20
                                 },
                                 new ScrollContainer
                                 {
@@ -382,7 +382,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                     RelativeSizeAxes = Axes.Both,
                                     Margin = new MarginPadding
                                     {
-                                        Top = 100,
+                                        Top = 100
                                     },
                                     Children = new Drawable[]
                                     {
@@ -395,7 +395,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                             Direction = FillDirection.Vertical,
                                             Margin = new MarginPadding
                                             {
-                                                Top = 50,
+                                                Top = 50
                                             },
                                             Children = new Drawable[]
                                             {
@@ -403,7 +403,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                                 {
                                                     Anchor = Anchor.Centre,
                                                     Origin = Anchor.Centre,
-                                                    Size = new Vector2(200, 50),
+                                                    Size = new Vector2(200, 50)
                                                 }
                                              }
                                         }
@@ -412,7 +412,7 @@ namespace Lovewing.Game.Graphics.Overlay
                             }
                         }
                     }
-                },
+                }
             });
 
             settings.MoveToX(Width);
@@ -436,7 +436,7 @@ namespace Lovewing.Game.Graphics.Overlay
                         new Box
                         {
                             RelativeSizeAxes = Axes.Both,
-                            Colour = Color4.Transparent,
+                            Colour = Color4.Transparent
                         },
                         new SpriteIcon
                         {
@@ -445,8 +445,8 @@ namespace Lovewing.Game.Graphics.Overlay
                             Colour = badge.Colour,
                             RelativeSizeAxes = Axes.Both,
                             Scale = new Vector2(0.5f),
-                            Icon = badge.Icon,
-                        },
+                            Icon = badge.Icon
+                        }
                     }
                 });
             }
@@ -471,20 +471,20 @@ namespace Lovewing.Game.Graphics.Overlay
                     {
                         Text = "Volume",
                         TextSize = 20,
-                        Font = "Noto Sans CJK JP Regular",
+                        Font = "Noto Sans CJK JP Regular"
                     },
                     Box = new Box
                     {
                         RelativeSizeAxes = Axes.X,
                         Height = 5,
                         Anchor = Anchor.Centre,
-                        Origin = Anchor.Centre,
+                        Origin = Anchor.Centre
                     },
                     SelectionBox = new Circle
                     {
                         Size = new Vector2(30),
                         Anchor = Anchor.CentreLeft,
-                        Origin = Anchor.CentreLeft,
+                        Origin = Anchor.CentreLeft
                     }
                 };
             }

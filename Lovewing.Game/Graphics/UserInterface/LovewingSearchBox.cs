@@ -22,7 +22,7 @@ namespace Lovewing.Game.Graphics.UserInterface
                     Origin = Anchor.CentreRight,
                     Anchor = Anchor.CentreRight,
                     Margin = new MarginPadding { Right = 10 },
-                    Size = new Vector2(20),
+                    Size = new Vector2(20)
                 }
             });
 

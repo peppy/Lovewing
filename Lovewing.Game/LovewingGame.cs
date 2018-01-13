@@ -1,7 +1,10 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
+using Lovewing.Game.Graphics.Cursor;
 using Lovewing.Game.Screens;
+using osu.Framework.Graphics;
+using OpenTK;
 
 namespace Lovewing.Game
 {
@@ -12,6 +15,11 @@ namespace Lovewing.Game
         protected override void LoadComplete()
         {
             base.LoadComplete();
+
+            Children = new Drawable[]
+            {
+                new LovewingCursor()
+            };
 
             Add(mainScreen);
 

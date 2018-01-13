@@ -45,7 +45,7 @@ namespace Lovewing.Game.Graphics.Overlay
                     Size = new Vector2(15, 55),
                     Origin = Anchor.TopRight,
                     Anchor = Anchor.TopRight,
-                    Colour = Color4.White,
+                    Colour = Color4.White
                 },
                 new CircularContainer
                 {
@@ -65,8 +65,8 @@ namespace Lovewing.Game.Graphics.Overlay
                             Origin = Anchor.Centre,
                             RelativeSizeAxes = Axes.Both,
                             FillMode = FillMode.Fit,
-                            Texture = texStore.Get(user.Avatar),
-                        },
+                            Texture = texStore.Get(user.Avatar)
+                        }
                     }
                 },
                 new FillFlowContainer
@@ -86,14 +86,14 @@ namespace Lovewing.Game.Graphics.Overlay
                             Origin = Anchor.BottomRight,
                             Size = new Vector2(20),
                             Colour = Color4.LightGreen,
-                            Icon = FontAwesome.fa_plus,
+                            Icon = FontAwesome.fa_plus
                         },
                         new SpriteText
                         {
                             Anchor = Anchor.TopRight,
                             Origin = Anchor.TopRight,
                             Text = user.Loveca.ToString(),
-                            TextSize = 40,
+                            TextSize = 40
                         },
                         new CircularContainer
                         {
@@ -109,7 +109,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                 new Box
                                 {
                                     RelativeSizeAxes = Axes.Both,
-                                    Colour = Color4.Transparent,
+                                    Colour = Color4.Transparent
                                 },
                                 new SpriteIcon
                                 {
@@ -118,10 +118,10 @@ namespace Lovewing.Game.Graphics.Overlay
                                     Colour = colours.Magenta,
                                     RelativeSizeAxes = Axes.Both,
                                     Size = new Vector2(0.5f),
-                                    Icon = FontAwesome.fa_heart,
-                                },
+                                    Icon = FontAwesome.fa_heart
+                                }
                             }
-                        },
+                        }
                     }
                 },
                 new FillFlowContainer
@@ -141,14 +141,14 @@ namespace Lovewing.Game.Graphics.Overlay
                             Origin = Anchor.BottomRight,
                             Size = new Vector2(20),
                             Colour = Color4.LightGreen,
-                            Icon = FontAwesome.fa_plus,
+                            Icon = FontAwesome.fa_plus
                         },
                         new SpriteText
                         {
                             Anchor = Anchor.TopRight,
                             Origin = Anchor.TopRight,
                             Text = user.Coins.ToString(),
-                            TextSize = 40,
+                            TextSize = 40
                         },
                         new CircularContainer
                         {
@@ -164,7 +164,7 @@ namespace Lovewing.Game.Graphics.Overlay
                                 new Box
                                 {
                                     RelativeSizeAxes = Axes.Both,
-                                    Colour = Color4.Transparent,
+                                    Colour = Color4.Transparent
                                 },
                                 new SpriteIcon
                                 {
@@ -173,12 +173,12 @@ namespace Lovewing.Game.Graphics.Overlay
                                     Colour = colours.Yellow,
                                     RelativeSizeAxes = Axes.Both,
                                     Size = new Vector2(0.5f),
-                                    Icon = FontAwesome.fa_star,
-                                },
+                                    Icon = FontAwesome.fa_star
+                                }
                             }
-                        },
+                        }
                     }
-                },
+                }
             };
         }
     }

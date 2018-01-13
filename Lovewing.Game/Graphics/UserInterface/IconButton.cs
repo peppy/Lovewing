@@ -18,7 +18,7 @@ namespace Lovewing.Game.Graphics.UserInterface
 
         public FontAwesome Icon
         {
-            get { return spriteIcon.Icon; }
+            get => spriteIcon.Icon;
             set { spriteIcon.Icon = value; hover.Icon = value; }
         }
 
@@ -32,7 +32,7 @@ namespace Lovewing.Game.Graphics.UserInterface
                 {
                     RelativeSizeAxes = Axes.Both,
                     Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
+                    Origin = Anchor.Centre
                 },
                 hover = new SpriteIcon
                 {
@@ -40,8 +40,8 @@ namespace Lovewing.Game.Graphics.UserInterface
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
                     Colour = HoverColour.Opacity(0.5f),
-                    Alpha = 0,
-                },
+                    Alpha = 0
+                }
             });
         }
 

@@ -70,6 +70,7 @@
     <Compile Include="Graphics\Background.cs" />
     <Compile Include="Graphics\Cursor\LovewingCursor.cs" />
     <Compile Include="Graphics\FontAwesome.cs" />
+    <Compile Include="Graphics\Game\HitCircle.cs" />
     <Compile Include="Graphics\IHasAccentColour.cs" />
     <Compile Include="Graphics\LovewingColours.cs" />
     <Compile Include="Graphics\Overlay\Inbox.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Online\User\Badge.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\Game\GameScreen.cs" />
     <Compile Include="Screens\Liveshow\LiveshowScreen.cs" />
     <Compile Include="Screens\Liveshow\Matchmaking\DummyLobbyCard.cs" />
     <Compile Include="Screens\Liveshow\Matchmaking\LobbyCard.cs" />
@@ -105,6 +107,8 @@
     <Compile Include="Screens\Main\LiveShowWedge.cs" />
     <Compile Include="Screens\Main\Wedge.cs" />
     <Compile Include="Screens\LovewingScreen.cs" />
+    <Compile Include="Tests\Visual\TestCaseGame.cs" />
+    <Compile Include="Tests\Visual\TestCaseHitCircle.cs" />
     <Compile Include="Tests\Visual\TestCaseToolbar.cs" />
     <Compile Include="Tests\Visual\TestCaseWedge.cs" />
   </ItemGroup>

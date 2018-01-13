@@ -24,7 +24,7 @@ namespace Lovewing.Game.Tests.Visual
                 Color4.Green,
                 Color4.Blue,
                 Color4.Wheat,
-                Color4.Aquamarine,
+                Color4.Aquamarine
             };
 
             for(var i = colors.Count - 1; i >= 0; i--)

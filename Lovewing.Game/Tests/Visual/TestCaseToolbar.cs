@@ -20,7 +20,7 @@ namespace Lovewing.Game.Tests.Visual
                 Origin = Anchor.TopRight,
                 Anchor = Anchor.TopRight,
                 RelativeSizeAxes = Axes.X,
-                Height = 100,
+                Height = 100
             });
         }
     }

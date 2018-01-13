@@ -30,7 +30,7 @@ namespace Lovewing.Game.Screens.Liveshow.Matchmaking
                     RelativeSizeAxes = Axes.Both,
                     Depth = 2,
                     Origin = Anchor.Centre,
-                    Anchor = Anchor.Centre,
+                    Anchor = Anchor.Centre
                 },
                 new Box
                 {
@@ -38,7 +38,7 @@ namespace Lovewing.Game.Screens.Liveshow.Matchmaking
                     RelativeSizeAxes = Axes.X,
                     Height = 100,
                     Anchor = Anchor.TopCentre,
-                    Origin = Anchor.TopCentre,
+                    Origin = Anchor.TopCentre
                 }
             };
         }

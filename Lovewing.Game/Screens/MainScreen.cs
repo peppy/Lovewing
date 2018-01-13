@@ -14,6 +14,7 @@ using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
 using OpenTK;
 using System.Linq;
+using Lovewing.Game.Screens.Game;
 using osu.Framework.Input;
 using osu.Framework.Screens;
 
@@ -70,7 +71,7 @@ namespace Lovewing.Game.Screens
                 {
                     FillMode = FillMode.Fill,
                     Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
+                    Origin = Anchor.Centre
                 },
                 idol = new Sprite
                 {
@@ -78,19 +79,19 @@ namespace Lovewing.Game.Screens
                     Anchor = Anchor.BottomLeft,
                     Origin = Anchor.BottomLeft,
                     FillMode = FillMode.Fit,
-                    Scale = new Vector2(0.9f),
+                    Scale = new Vector2(0.9f)
                 },
                 sidebar = new LovewingSidebar
                 {
                     Origin = Anchor.CentreRight,
                     Anchor = Anchor.CentreRight,
                     RelativeSizeAxes = Axes.Y,
-                    Depth = -2,
+                    Depth = -2
                 },
                 toolbar = new LovewingToolbar
                 {
                     Depth = -1,
-                    ButtonAction = toggleSideBar,
+                    ButtonAction = toggleSideBar
                 },
                 inboxOverlay = new Inbox(),
                 wedgeContainer = new Container<Wedge>
@@ -106,7 +107,7 @@ namespace Lovewing.Game.Screens
                             Width = 0.5f,
                             Margin = new MarginPadding { Right = 100 },
                             Depth = 2,
-                            ButtonAction = toLiveshow,
+                            ButtonAction = toLiveshow
                             /*Children = new[]
                             {
                                 new Container
@@ -161,10 +162,11 @@ namespace Lovewing.Game.Screens
                                         {
                                             TextSize = 60,
                                             Size = new Vector2(630, 200),
-                                            Text = "Button",
+                                            Text = "Game Test",
                                             BackgroundColour = colours.Yellow,
                                             Anchor = Anchor.BottomCentre,
                                             Origin = Anchor.BottomCentre,
+                                            Action = () => Push(new GameScreen())
                                         },
                                         new LovewingButton
                                         {
@@ -173,7 +175,7 @@ namespace Lovewing.Game.Screens
                                             Text = "Another Button",
                                             BackgroundColour = colours.Yellow,
                                             Anchor = Anchor.TopCentre,
-                                            Origin = Anchor.TopCentre,
+                                            Origin = Anchor.TopCentre
                                         }
                                     }
                                 }
@@ -209,7 +211,7 @@ namespace Lovewing.Game.Screens
                                             BackgroundColour = colours.Magenta,
                                             ShearColour = colours.LightMagenta,
                                             Anchor = Anchor.TopLeft,
-                                            Origin = Anchor.TopLeft,
+                                            Origin = Anchor.TopLeft
                                         },
                                         new LovewingButton
                                         {
@@ -227,7 +229,7 @@ namespace Lovewing.Game.Screens
                                             Icon = FontAwesome.fa_envelope_o,
                                             IconColour = colours.Magenta,
                                             IconSize = new Vector2(80),
-                                            IconPosition = new Vector2(0, -10),
+                                            IconPosition = new Vector2(0, -10)
                                         }
                                     }
                                 },
@@ -249,7 +251,7 @@ namespace Lovewing.Game.Screens
                                         BackgroundColour = colours.Magenta,
                                         ShearColour = colours.LightMagenta,
                                         Anchor = Anchor.BottomCentre,
-                                        Origin = Anchor.BottomCentre,
+                                        Origin = Anchor.BottomCentre
                                     }
                                 }
                             }
@@ -276,7 +278,7 @@ namespace Lovewing.Game.Screens
             {
                 liveshow.CreateButton(),
                 management.CreateButton(),
-                home.CreateButton(),
+                home.CreateButton()
             });
         }
 

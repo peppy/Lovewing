@@ -26,7 +26,7 @@ namespace Lovewing.Game.Graphics.UserInterface
         protected override SpriteText CreatePlaceholder() => new SpriteText
         {
             Colour = PlaceholderColour,
-            Margin = new MarginPadding { Left = 2 },
+            Margin = new MarginPadding { Left = 2 }
         };
 
         public LovewingTextBox()
@@ -44,7 +44,7 @@ namespace Lovewing.Game.Graphics.UserInterface
         {
             Colour = TextColour,
             Text = c.ToString(),
-            TextSize = CalculatedTextSize,
+            TextSize = CalculatedTextSize
         };
     }
 }

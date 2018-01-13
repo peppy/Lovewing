@@ -45,7 +45,7 @@ namespace Lovewing.Game.Graphics.UserInterface
         private Color4 accentColour;
         public Color4 AccentColour
         {
-            get { return accentColour; }
+            get => accentColour;
             set
             {
                 accentColour = value;
@@ -64,14 +64,14 @@ namespace Lovewing.Game.Graphics.UserInterface
 
             public Color4 BarColour
             {
-                get { return Bar.Colour; }
-                set { Bar.FadeColour(value); }
+                get => Bar.Colour;
+                set => Bar.FadeColour(value);
             }
 
             private Color4 accentColour;
             public Color4 AccentColour
             {
-                get { return accentColour; }
+                get => accentColour;
                 set
                 {
                     accentColour = value;
@@ -127,7 +127,7 @@ namespace Lovewing.Game.Graphics.UserInterface
                         Origin = Anchor.BottomLeft,
                         Anchor = Anchor.BottomLeft,
                         Text = (value as Enum)?.GetDescription() ?? value.ToString(),
-                        TextSize = 14,
+                        TextSize = 14
                     },
                     Bar = new Box
                     {
@@ -136,7 +136,7 @@ namespace Lovewing.Game.Graphics.UserInterface
                         Alpha = 0,
                         Colour = Color4.White,
                         Origin = Anchor.BottomLeft,
-                        Anchor = Anchor.BottomLeft,
+                        Anchor = Anchor.BottomLeft
                     }
                 };
             }

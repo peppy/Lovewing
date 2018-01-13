@@ -26,7 +26,7 @@ namespace Lovewing.Game.Graphics.Overlay
             {
                 Type = EdgeEffectType.Shadow,
                 Radius = 10,
-                Colour = Color4.Black.Opacity(0.5f),
+                Colour = Color4.Black.Opacity(0.5f)
             };
         }
 
@@ -46,8 +46,8 @@ namespace Lovewing.Game.Graphics.Overlay
                     Margin = new MarginPadding
                     {
                         Top = 40,
-                        Left = 90,
-                    },
+                        Left = 90
+                    }
                 },
                 new LovewingSearchBox
                 {
@@ -62,7 +62,7 @@ namespace Lovewing.Game.Graphics.Overlay
                     Size = new Vector2(200, 50),
                     Colour = colours.White,
                     BorderColour = colours.Magenta,
-                    BorderThickness = 5,
+                    BorderThickness = 5
                 },
                 new Box
                 {
@@ -70,7 +70,7 @@ namespace Lovewing.Game.Graphics.Overlay
                     Colour = colours.White,
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
-                    Depth = 5,
+                    Depth = 5
                 }
             });
         }

@@ -6,6 +6,7 @@ using osu.Framework.Graphics;
 using osu.Framework.Platform;
 using osu.Framework.Testing;
 using Lovewing.Game.Graphics;
+using Lovewing.Game.Graphics.Cursor;
 
 namespace Lovewing.Game
 {
@@ -19,7 +20,7 @@ namespace Lovewing.Game
             Children = new Drawable[]
             {
                 new TestBrowser(),
-                new CursorContainer(),
+                new LovewingCursor()
             };
 
             LoadComponentAsync(new Background(@"Backgrounds/mainmenu") { Depth = 10 }, AddInternal);

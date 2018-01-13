@@ -29,7 +29,7 @@ namespace Lovewing.Game.Graphics
                 Origin = Anchor.Centre,
                 Colour = Color4.DarkGray,
                 RelativeSizeAxes = Axes.Both,
-                FillMode = FillMode.Fill,
+                FillMode = FillMode.Fill
             });
         }
 
