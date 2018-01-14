@@ -1,4 +1,6 @@
-﻿using System.Runtime.InteropServices;
+﻿// ReSharper disable InconsistentNaming
+
+using System.Runtime.InteropServices;
 
 namespace Lovewing.Game.Online
 {
