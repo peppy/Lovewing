@@ -104,7 +104,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\Game\GameScreen.cs" />
     <Compile Include="Screens\Liveshow\LiveshowScreen.cs" />
-    <Compile Include="Screens\Liveshow\Matchmaking\DummyLobbyCard.cs" />
     <Compile Include="Screens\Liveshow\Matchmaking\LobbyCard.cs" />
     <Compile Include="Screens\Liveshow\Matchmaking\LobbyTabControl.cs" />
     <Compile Include="Screens\Liveshow\Matchmaking\LobbyTabs.cs" />

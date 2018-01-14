@@ -16,7 +16,7 @@ namespace Lovewing.Game
         protected override string MainResourceFile => "Lovewing.Game.Resources.dll";
 
         private DependencyContainer dependencies;
-        private Storage storage = new DesktopStorage("lovewing");
+        private readonly Storage storage = new DesktopStorage("lovewing");
 
         protected override IReadOnlyDependencyContainer CreateLocalDependencies(IReadOnlyDependencyContainer parent) =>
             dependencies = new DependencyContainer(base.CreateLocalDependencies(parent));

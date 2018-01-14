@@ -20,7 +20,6 @@ namespace Lovewing.Game.Screens.Liveshow
 {
     public class LiveshowScreen : Screen
     {
-        private readonly LovewingToolbar toolbar;
         private readonly LovewingSidebar sidebar;
         private readonly Box bar;
         private readonly Box mmBtnBox;
@@ -73,7 +72,6 @@ namespace Lovewing.Game.Screens.Liveshow
         {
 
             LobbyTabControl<LobbyTabs> tabs;
-            ScrollContainer tabContent;
 
             AddRangeInternal(new Drawable[]
             {
@@ -91,7 +89,7 @@ namespace Lovewing.Game.Screens.Liveshow
                     RelativeSizeAxes = Axes.Y,
                     Depth = -2
                 },
-                toolbar = new LovewingToolbar
+                new LovewingToolbar
                 {
                     Margin = new MarginPadding
                     {
@@ -267,7 +265,7 @@ namespace Lovewing.Game.Screens.Liveshow
                                             RelativeSizeAxes = Axes.X,
                                             Height = 50
                                         },
-                                        tabContent = new ScrollContainer
+                                        new ScrollContainer
                                         {
                                             ScrollbarAnchor = Anchor.TopRight,
                                             ScrollbarVisible = true,

@@ -440,7 +440,7 @@ namespace Lovewing.Game.Graphics.Overlay
         private class VolumeSlider : SliderBar<double>
         {
             private AudioManager audio;
-            private SpriteText text;
+            private readonly SpriteText text;
 
             protected readonly Box Box;
             protected readonly Circle SelectionBox;
