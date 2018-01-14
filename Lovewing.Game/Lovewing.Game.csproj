@@ -80,6 +80,7 @@
     <Compile Include="Graphics\IHasAccentColour.cs" />
     <Compile Include="Graphics\LovewingColours.cs" />
     <Compile Include="Graphics\Overlay\Inbox.cs" />
+    <Compile Include="Graphics\Overlay\PauseOverlay.cs" />
     <Compile Include="Graphics\SpriteIcon.cs" />
     <Compile Include="Graphics\UserInterface\IconButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingButton.cs" />

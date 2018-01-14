@@ -408,8 +408,8 @@ namespace Lovewing.Game.Graphics.Overlay
             {
                 badges.Add(new CircularContainer
                 {
-                    Anchor = Anchor.TopRight,
-                    Origin = Anchor.TopRight,
+                    Anchor = Anchor.TopCentre,
+                    Origin = Anchor.TopCentre,
                     FillMode = FillMode.Fit,
                     BorderColour = badge.Colour,
                     BorderThickness = 6,

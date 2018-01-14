@@ -1,14 +1,13 @@
-﻿using Lovewing.Game.Graphics;
+﻿using System;
+using Lovewing.Game.Graphics;
 using Lovewing.Game.Graphics.Game;
+using Lovewing.Game.Graphics.Overlay;
 using Lovewing.Game.Online;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
-using osu.Framework.Graphics.Shapes;
-using osu.Framework.Graphics.Sprites;
 using osu.Framework.Input;
 using osu.Framework.Screens;
 using OpenTK;
-using OpenTK.Graphics;
 using OpenTK.Input;
 
 namespace Lovewing.Game.Screens.Game
@@ -16,6 +15,7 @@ namespace Lovewing.Game.Screens.Game
     public class GameScreen : Screen
     {
         private readonly Background bg;
+        private readonly PauseOverlay pauseOverlay;
 
         private readonly HitCircle circle1;
         private readonly HitCircle circle2;
@@ -31,6 +31,20 @@ namespace Lovewing.Game.Screens.Game
         {
             AddRange(new Drawable[]
             {
+                pauseOverlay = new PauseOverlay
+                {
+                    OnContinue = () =>
+                    {
+                        pauseOverlay.Hide();
+
+                        // TODO: add countdown timer
+                    },
+                    OnRestart = () =>
+                    {
+                        // TODO
+                    },
+                    OnStop = Exit
+                },
                 bg = new Background(@"Backgrounds/game_default")
                 {
                     FillMode = FillMode.Fill,
@@ -193,6 +207,12 @@ namespace Lovewing.Game.Screens.Game
                 case Key.Number7:
                 {
                     circle9.TriggerOnClick();
+                    break;
+                }
+
+                case Key.Escape:
+                {
+                    pauseOverlay.Show();
                     break;
                 }
             }

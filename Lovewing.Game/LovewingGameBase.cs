@@ -18,13 +18,6 @@ namespace Lovewing.Game
         private DependencyContainer dependencies;
         private Storage storage = new DesktopStorage("lovewing");
 
-        private DiscordRpc.RichPresence defaultPresence = new DiscordRpc.RichPresence
-        {
-            state = "Idle",
-            details = "Main Menu",
-            largeImageKey = "logo"
-        };
-
         protected override IReadOnlyDependencyContainer CreateLocalDependencies(IReadOnlyDependencyContainer parent) =>
             dependencies = new DependencyContainer(base.CreateLocalDependencies(parent));
 
@@ -35,15 +28,13 @@ namespace Lovewing.Game
         {
             DiscordRpc.Initialize("384734966690611202", ref discordHandlers, true, "");
 
-            DiscordRpc.UpdatePresence(ref defaultPresence);
-
             dependencies.Cache(this);
             dependencies.Cache(new LovewingColours());
             dependencies.Cache(new UserData());
 
             Fonts.AddStore(new GlyphStore(Resources, @"Fonts/FontAwesome"));
             Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Muli_Light"));
-            // Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Noto_Sans_CJK_JP_Regular")); - it cant find the font for some reason
+            Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Noto_Sans_CJK_JP_Regular")); // - it cant find the font for some reason
 
             var t = Audio.Track.Get(@"mainmenu_aqours");
 

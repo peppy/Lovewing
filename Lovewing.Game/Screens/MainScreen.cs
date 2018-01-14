@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
+using System;
 using Lovewing.Game.Online;
 using Lovewing.Game.Graphics;
 using Lovewing.Game.Graphics.UserInterface;
@@ -285,6 +286,16 @@ namespace Lovewing.Game.Screens
         protected override void OnEntering(Screen last)
         {
             Content.FadeIn(400);
+
+            var presence = new DiscordRpc.RichPresence
+            {
+                state = "Idle",
+                details = "Main Menu",
+                largeImageKey = "logo"
+            };
+
+            DiscordRpc.UpdatePresence(ref presence);
+
             base.OnEntering(last);
         }
 
