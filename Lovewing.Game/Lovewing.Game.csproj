@@ -90,6 +90,7 @@
     <Compile Include="Graphics\UserInterface\LovewingHollowButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingSearchBox.cs" />
     <Compile Include="Graphics\UserInterface\LovewingSlider.cs" />
+    <Compile Include="Graphics\UserInterface\LovewingSmallButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingTabControl.cs" />
     <Compile Include="Graphics\UserInterface\LovewingTextBox.cs" />
     <Compile Include="LovewingGame.cs" />

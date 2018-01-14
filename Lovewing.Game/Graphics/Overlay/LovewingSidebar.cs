@@ -197,7 +197,7 @@ namespace Lovewing.Game.Graphics.Overlay
                             },
                             Children = new Drawable[]
                             {
-                                new Box
+                                new Circle
                                 {
                                     Colour = colours.Blue,
                                     Anchor = Anchor.Centre,
@@ -238,71 +238,56 @@ namespace Lovewing.Game.Graphics.Overlay
                                     },
                                     Children = new Drawable[]
                                     {
-                                        new LovewingHollowButton
+                                        new LovewingSmallButton
                                         {
                                             Anchor = Anchor.Centre,
                                             Origin = Anchor.Centre,
-                                            BackgroundColour = colours.White,
-                                            BorderColour = colours.Magenta,
-                                            TextColour = colours.Magenta,
-                                            IconColour = colours.Magenta,
-                                            BorderThickness = 3,
+                                            ButtonColour = colours.LightMagenta,
+                                            ShadowColour = colours.Magenta,
                                             CornerRadius = 7,
                                             Size = new Vector2(250, 50),
                                             Text = "Friends",
                                             Icon = FontAwesome.fa_users
                                         },
-                                        new LovewingHollowButton
+                                        new LovewingSmallButton
                                         {
                                             Anchor = Anchor.Centre,
                                             Origin = Anchor.Centre,
-                                            BackgroundColour = colours.White,
-                                            BorderColour = colours.Magenta,
-                                            TextColour = colours.Magenta,
-                                            IconColour = colours.Magenta,
-                                            BorderThickness = 3,
+                                            ButtonColour = colours.LightMagenta,
+                                            ShadowColour = colours.Magenta,
                                             CornerRadius = 7,
                                             Size = new Vector2(250, 50),
                                             Text = "Profile",
                                             Icon = FontAwesome.fa_user
                                         },
-                                        new LovewingHollowButton
+                                        new LovewingSmallButton
                                         {
                                             Anchor = Anchor.Centre,
                                             Origin = Anchor.Centre,
-                                            BackgroundColour = colours.White,
-                                            BorderColour = colours.Magenta,
-                                            TextColour = colours.Magenta,
-                                            IconColour = colours.Magenta,
-                                            BorderThickness = 3,
+                                            ButtonColour = colours.LightMagenta,
+                                            ShadowColour = colours.Magenta,
                                             CornerRadius = 7,
                                             Size = new Vector2(250, 50),
                                             Text = "Events",
                                             Icon = FontAwesome.fa_clock_o
                                         },
-                                        new LovewingHollowButton
+                                        new LovewingSmallButton
                                         {
                                             Anchor = Anchor.Centre,
                                             Origin = Anchor.Centre,
-                                            BackgroundColour = colours.White,
-                                            BorderColour = colours.Magenta,
-                                            TextColour = colours.Magenta,
-                                            IconColour = colours.Magenta,
-                                            BorderThickness = 3,
+                                            ButtonColour = colours.LightMagenta,
+                                            ShadowColour = colours.Magenta,
                                             CornerRadius = 7,
                                             Size = new Vector2(250, 50),
                                             Text = "Shoutout!",
                                             Icon = FontAwesome.fa_bullhorn
                                         },
-                                        new LovewingHollowButton
+                                        new LovewingSmallButton
                                         {
                                             Anchor = Anchor.Centre,
                                             Origin = Anchor.Centre,
-                                            BackgroundColour = colours.White,
-                                            BorderColour = colours.Magenta,
-                                            TextColour = colours.Magenta,
-                                            IconColour = colours.Magenta,
-                                            BorderThickness = 3,
+                                            ButtonColour = colours.LightMagenta,
+                                            ShadowColour = colours.Magenta,
                                             CornerRadius = 7,
                                             Size = new Vector2(250, 50),
                                             Text = "Settings",
@@ -455,6 +440,7 @@ namespace Lovewing.Game.Graphics.Overlay
         private class VolumeSlider : SliderBar<double>
         {
             private AudioManager audio;
+            private SpriteText text;
 
             protected readonly Box Box;
             protected readonly Circle SelectionBox;
@@ -467,7 +453,7 @@ namespace Lovewing.Game.Graphics.Overlay
 
                 Children = new Drawable[]
                 {
-                    new SpriteText
+                    text = new SpriteText
                     {
                         Text = "Volume",
                         TextSize = 20,
@@ -495,6 +481,7 @@ namespace Lovewing.Game.Graphics.Overlay
                 SelectionBox.Colour = colours.Magenta;
                 Box.Colour = colours.LightMagenta;
                 this.audio = audio;
+                text.Colour = colours.Magenta;
             }
 
             protected override void UpdateValue(float value)
