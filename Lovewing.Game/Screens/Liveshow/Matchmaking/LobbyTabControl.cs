@@ -28,7 +28,7 @@ namespace Lovewing.Game.Screens.Liveshow.Matchmaking
         {
             TabContainer.Spacing = new Vector2(10f, 0f);
 
-            if (!isEnumType) return;
+            if (!isEnumType || !(Enum.GetValues(typeof(T)) is T[])) return;
 
             foreach (var val in (T[])Enum.GetValues(typeof(T)))
                 AddItem(val);
