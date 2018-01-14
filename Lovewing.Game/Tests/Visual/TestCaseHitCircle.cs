@@ -11,9 +11,7 @@ namespace Lovewing.Game.Tests.Visual
             AddInternal(new HitCircle
             {
                 Anchor = Anchor.Centre,
-                Origin = Anchor.Centre,
-                RelativeSizeAxes = Axes.Both,
-                Height = 128
+                Origin = Anchor.Centre
             });
         }
     }

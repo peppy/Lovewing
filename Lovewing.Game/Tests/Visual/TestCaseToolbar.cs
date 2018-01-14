@@ -15,7 +15,7 @@ namespace Lovewing.Game.Tests.Visual
 
         public TestCaseToolbar()
         {
-            Add(new LovewingToolbar
+            AddInternal(new LovewingToolbar
             {
                 Origin = Anchor.TopRight,
                 Anchor = Anchor.TopRight,

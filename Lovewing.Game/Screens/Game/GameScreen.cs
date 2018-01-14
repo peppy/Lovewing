@@ -49,7 +49,7 @@ namespace Lovewing.Game.Screens.Game
                             Margin = new MarginPadding
                             {
                                 Right = 850,
-                                Bottom = 500
+                                Bottom = 410
                             }
                         },
                         circle2 = new HitCircle
@@ -58,8 +58,8 @@ namespace Lovewing.Game.Screens.Game
                             Origin = Anchor.BottomCentre,
                             Margin = new MarginPadding
                             {
-                                Right = 750,
-                                Bottom = 350
+                                Right = 760,
+                                Bottom = 260
                             }
                         },
                         circle3 = new HitCircle
@@ -69,7 +69,7 @@ namespace Lovewing.Game.Screens.Game
                             Margin = new MarginPadding
                             {
                                 Right = 545,
-                                Bottom = 225
+                                Bottom = 135
                             }
                         },
                         circle4 = new HitCircle
@@ -78,7 +78,7 @@ namespace Lovewing.Game.Screens.Game
                             Origin = Anchor.BottomCentre,
                             Margin = new MarginPadding
                             {
-                                Bottom = 125,
+                                Bottom = 35,
                                 Right = 300
                             }
                         },
@@ -88,7 +88,7 @@ namespace Lovewing.Game.Screens.Game
                             Origin = Anchor.BottomCentre,
                             Margin = new MarginPadding
                             {
-                                Bottom = 100
+                                Bottom = 10
                             }
                         },
                         circle6 = new HitCircle
@@ -97,7 +97,7 @@ namespace Lovewing.Game.Screens.Game
                             Origin = Anchor.BottomCentre,
                             Margin = new MarginPadding
                             {
-                                Bottom = 125,
+                                Bottom = 35,
                                 Left = 300
                             }
                         },
@@ -108,7 +108,7 @@ namespace Lovewing.Game.Screens.Game
                             Margin = new MarginPadding
                             {
                                 Left = 545,
-                                Bottom = 225
+                                Bottom = 135
                             }
                         },
                         circle8 = new HitCircle
@@ -117,8 +117,8 @@ namespace Lovewing.Game.Screens.Game
                             Origin = Anchor.BottomCentre,
                             Margin = new MarginPadding
                             {
-                                Left = 750,
-                                Bottom = 350
+                                Left = 760,
+                                Bottom = 260
                             }
                         },
                         circle9 = new HitCircle
@@ -128,7 +128,7 @@ namespace Lovewing.Game.Screens.Game
                             Margin = new MarginPadding
                             {
                                 Left = 850,
-                                Bottom = 500
+                                Bottom = 410
                             }
                         }
                     }

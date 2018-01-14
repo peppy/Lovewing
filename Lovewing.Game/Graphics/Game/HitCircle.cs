@@ -3,8 +3,10 @@ using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
+using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
 using osu.Framework.Input;
+using OpenTK;
 using OpenTK.Graphics;
 
 namespace Lovewing.Game.Graphics.Game
@@ -23,13 +25,20 @@ namespace Lovewing.Game.Graphics.Game
         }
 
         [BackgroundDependencyLoader]
-        private void load(TextureStore texStore, LovewingColours lovewingColours)
+        private void load(TextureStore texStore)
         {
-            AddInternal(new Circle
+            AddInternal(new CircularContainer
             {
                 RelativeSizeAxes = Axes.Both,
                 FillMode = FillMode.Fit,
-                Colour = lovewingColours.LightMagenta,
+                BorderThickness = 5,
+                BorderColour = Color4.White,
+                Masking = true,
+                Child = new Box
+                {
+                    RelativeSizeAxes = Axes.Both,
+                    Colour = new Color4(0, 0, 0, 0)
+                }
             });
         }
 
@@ -44,6 +53,7 @@ namespace Lovewing.Game.Graphics.Game
                 Height = 10,
                 Width = 10,
                 Colour = Color4.Gray,
+                Alpha = 0.5f,
                 Blending = BlendingMode.Additive
             });
 
