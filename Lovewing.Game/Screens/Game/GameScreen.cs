@@ -15,6 +15,7 @@ namespace Lovewing.Game.Screens.Game
     {
         private readonly Background bg;
         private readonly PauseOverlay pauseOverlay;
+        private readonly SongProgress songProgress;
 
         private readonly HitCircle circle1;
         private readonly HitCircle circle2;
@@ -57,6 +58,25 @@ namespace Lovewing.Game.Screens.Game
                     Origin = Anchor.Centre,
                     Children = new Drawable[]
                     {
+                        songProgress = new SongProgress
+                        {
+                            Anchor = Anchor.TopCentre,
+                            Origin = Anchor.TopCentre,
+                            Margin = new MarginPadding
+                            {
+                                Top = 100
+                            },
+                            Progress = 25
+                        },
+                        new MiddleCircle
+                        {
+                            Anchor = Anchor.BottomCentre,
+                            Origin = Anchor.BottomCentre,
+                            Margin = new MarginPadding
+                            {
+                                Bottom = 420
+                            }
+                        },
                         circle1 = new HitCircle
                         {
                             Anchor = Anchor.BottomCentre,
