@@ -2,7 +2,6 @@
 // Licensed under the EPL-1.0 License
 
 using System;
-using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using OpenTK;
 using OpenTK.Graphics;
