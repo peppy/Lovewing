@@ -21,12 +21,12 @@ namespace Lovewing.Game
         protected override IReadOnlyDependencyContainer CreateLocalDependencies(IReadOnlyDependencyContainer parent) =>
             dependencies = new DependencyContainer(base.CreateLocalDependencies(parent));
 
-        public DiscordRpc.EventHandlers discordHandlers;
+        public DiscordRpc.EventHandlers DiscordHandlers;
 
         [BackgroundDependencyLoader]
         private void load()
         {
-            DiscordRpc.Initialize("384734966690611202", ref discordHandlers, true, "");
+            DiscordRpc.Initialize("384734966690611202", ref DiscordHandlers, true, "");
 
             dependencies.Cache(this);
             dependencies.Cache(new LovewingColours());

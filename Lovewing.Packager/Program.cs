@@ -1,9 +1,6 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
-using Squirrel;
-using Newtonsoft.Json;
-
 namespace Lovewing.Game.Packager
 {
     internal class Program

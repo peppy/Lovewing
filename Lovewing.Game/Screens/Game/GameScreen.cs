@@ -1,5 +1,4 @@
-﻿using System;
-using Lovewing.Game.Graphics;
+﻿using Lovewing.Game.Graphics;
 using Lovewing.Game.Graphics.Game;
 using Lovewing.Game.Graphics.Overlay;
 using Lovewing.Game.Online;

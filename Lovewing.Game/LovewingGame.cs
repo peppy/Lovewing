@@ -4,7 +4,6 @@
 using Lovewing.Game.Graphics.Cursor;
 using Lovewing.Game.Screens;
 using osu.Framework.Graphics;
-using OpenTK;
 
 namespace Lovewing.Game
 {
