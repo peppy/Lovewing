@@ -15,21 +15,21 @@ namespace Lovewing.Game.Screens.Game
 {
     public class GameScreen : Screen
     {
-        private HitCircle circle1;
-        private HitCircle circle2;
-        private HitCircle circle3;
-        private HitCircle circle4;
-        private HitCircle circle5;
-        private HitCircle circle6;
-        private HitCircle circle7;
-        private HitCircle circle8;
-        private HitCircle circle9;
+        private readonly HitCircle circle1;
+        private readonly HitCircle circle2;
+        private readonly HitCircle circle3;
+        private readonly HitCircle circle4;
+        private readonly HitCircle circle5;
+        private readonly HitCircle circle6;
+        private readonly HitCircle circle7;
+        private readonly HitCircle circle8;
+        private readonly HitCircle circle9;
 
         public GameScreen()
         {
             AddRange(new Drawable[]
             {
-                new Background(@"Backgrounds/mainmenu")
+                new Background(@"Backgrounds/game_default")
                 {
                     FillMode = FillMode.Fill,
                     Anchor = Anchor.Centre,

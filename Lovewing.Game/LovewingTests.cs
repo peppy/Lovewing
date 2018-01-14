@@ -19,8 +19,13 @@ namespace Lovewing.Game
 
             Children = new Drawable[]
             {
+<<<<<<< HEAD
                 new TestBrowser(),
                 new LovewingCursor()
+=======
+                new TestBrowser("Lovewing"),
+                new CursorContainer(),
+>>>>>>> 6ae5b267765f13a7a5d98ada2cc3595997b215a6
             };
 
             LoadComponentAsync(new Background(@"Backgrounds/mainmenu") { Depth = 10 }, AddInternal);
