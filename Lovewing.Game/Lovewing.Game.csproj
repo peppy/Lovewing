@@ -123,6 +123,9 @@
     <None Include="libdiscord-rpc.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="libdiscord-rpc.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lovewing.Resources\Lovewing.Game.Resources\Lovewing.Game.Resources.csproj">
