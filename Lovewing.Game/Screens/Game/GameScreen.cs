@@ -15,6 +15,8 @@ namespace Lovewing.Game.Screens.Game
 {
     public class GameScreen : Screen
     {
+        private readonly Background bg;
+
         private readonly HitCircle circle1;
         private readonly HitCircle circle2;
         private readonly HitCircle circle3;
@@ -29,7 +31,7 @@ namespace Lovewing.Game.Screens.Game
         {
             AddRange(new Drawable[]
             {
-                new Background(@"Backgrounds/game_default")
+                bg = new Background(@"Backgrounds/game_default")
                 {
                     FillMode = FillMode.Fill,
                     Anchor = Anchor.Centre,
@@ -208,6 +210,8 @@ namespace Lovewing.Game.Screens.Game
             };
 
             DiscordRpc.UpdatePresence(ref presence);
+
+            bg.BlurTo(new Vector2(10));
         }
     }
 }
