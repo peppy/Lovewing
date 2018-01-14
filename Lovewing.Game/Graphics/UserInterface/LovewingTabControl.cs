@@ -2,6 +2,7 @@
 // Licensed under the EPL-1.0 License
 
 using System;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using OpenTK;
 using OpenTK.Graphics;
@@ -23,15 +24,16 @@ namespace Lovewing.Game.Graphics.UserInterface
 
         private static bool isEnumType => typeof(T).IsEnum;
 
-        public Color4 BarColour { get; set; }
+        private Color4 BarColour { get; set; }
 
         public LovewingTabControl()
         {
             TabContainer.Spacing = new Vector2(10f, 0f);
 
-            if (isEnumType)
-                foreach (var val in (T[])Enum.GetValues(typeof(T)))
-                    AddItem(val);
+            if (!isEnumType) return;
+
+            foreach (var val in (T[])Enum.GetValues(typeof(T)))
+                AddItem(val);
         }
 
         [BackgroundDependencyLoader]

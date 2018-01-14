@@ -22,7 +22,6 @@ namespace Lovewing.Game.Screens
 {
     public class MainScreen : Screen
     {
-        private readonly LovewingToolbar toolbar;
         private readonly LovewingSidebar sidebar;
         private readonly Sprite idol;
         private readonly Container<Wedge> wedgeContainer;
@@ -88,7 +87,7 @@ namespace Lovewing.Game.Screens
                     RelativeSizeAxes = Axes.Y,
                     Depth = -2
                 },
-                toolbar = new LovewingToolbar
+                new LovewingToolbar
                 {
                     Depth = -1,
                     ButtonAction = toggleSideBar
