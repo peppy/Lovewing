@@ -21,7 +21,7 @@ namespace Lovewing.Game
         protected override IReadOnlyDependencyContainer CreateLocalDependencies(IReadOnlyDependencyContainer parent) =>
             dependencies = new DependencyContainer(base.CreateLocalDependencies(parent));
 
-        public DiscordRpc.EventHandlers discordHandlers;
+        private DiscordRpc.EventHandlers discordHandlers;
 
         [BackgroundDependencyLoader]
         private void load()
