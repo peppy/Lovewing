@@ -23,7 +23,7 @@ namespace Lovewing.Game.Graphics.UserInterface
 
         private static bool isEnumType => typeof(T).IsEnum;
 
-        private Color4 BarColour { get; set; }
+        public Color4 BarColour { get; set; }
 
         public LovewingTabControl()
         {
