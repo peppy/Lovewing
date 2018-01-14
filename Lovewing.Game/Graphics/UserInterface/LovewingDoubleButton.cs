@@ -9,44 +9,75 @@ using osu.Framework.Input;
 using osu.Framework.Extensions.Color4Extensions;
 using OpenTK;
 using OpenTK.Graphics;
-using System.Collections.Generic;
+using System;
 
 namespace Lovewing.Game.Graphics.UserInterface
 {
-    public class LovewingDoubleButton : Button, IFilterable
+    public class LovewingDoubleButton : Button
     {
         private readonly Box hover;
-        private readonly LovewingColors colors = new LovewingColors();
+        private readonly Box shearBox;
 
-        public LovewingDoubleButton(float rotation = -0.7f, float x = 200, float textX = -200, float textSize = 40)
+        public float Angle
+        {
+            get => shearBox.Shear.X;
+            set => shearBox.Shear = new Vector2(value, 0);
+        }
+
+        public Vector2 ShearPosition
+        {
+            get => shearBox.Position;
+            set => shearBox.MoveTo(value);
+        }
+
+        public Color4 ShearColour
+        {
+            get => shearBox.Colour;
+            set => shearBox.FadeColour(value);
+        }
+
+        public Vector2 TextPosition
+        {
+            get => SpriteText.Position;
+            set => SpriteText.MoveTo(value);
+        }
+
+        public float TextSize
+        {
+            get => SpriteText.TextSize;
+            set => SpriteText.TextSize = value;
+        }
+
+        public LovewingDoubleButton()
         {
             Height = 40;
             Masking = true;
             CornerRadius = 5;
-            SpriteText.X = textX;
-            SpriteText.Y = 50f;
-            SpriteText.TextSize = textSize;
+            SpriteText.Y = 50;
             SpriteText.Shadow = true;
-            BackgroundColour = colors.Magenta;
+            EdgeEffect = new EdgeEffectParameters
+            {
+                Type = EdgeEffectType.Shadow,
+                Radius = 10,
+                Colour = Color4.Black.Opacity(0.2f)
+            };
 
             AddRangeInternal(new Drawable[]
             {
                 hover = new Box
                 {
                     RelativeSizeAxes = Axes.Both,
-                    Colour = Color4.White.Opacity(0.1f),
-                    Alpha = 0,
+                    Colour = Color4.White.Opacity(0.5f),
+                    Alpha = 0
                 },
-                new Box
+                shearBox = new Box
                 {
-                    X = x,
                     RelativeSizeAxes = Axes.Both,
                     Origin = Anchor.CentreRight,
                     Anchor = Anchor.CentreRight,
-                    Colour = colors.LightMagenta,
-                    Shear = new Vector2(rotation, 0),
-                    Alpha = 0.3f,
-                },
+                    Shear = Vector2.Zero,
+                    Alpha = 0.3f
+                }
             });
         }
 
@@ -87,21 +118,12 @@ namespace Lovewing.Game.Graphics.UserInterface
                 Blending = BlendingMode.Additive
             });
 
-            ripple.ScaleTo(100, 450, Easing.OutCirc)
+            ripple
+                .ScaleTo(Math.Max(Size.X, Size.Y) / 5, 450, Easing.OutCirc)
                 .FadeOut(450)
                 .Expire();
 
             return base.OnClick(state);
-        }
-
-        public IEnumerable<string> FilterTerms => new[] { Text };
-
-        public bool MatchingFilter
-        {
-            set
-            {
-                this.FadeTo(value ? 1 : 0);
-            }
         }
     }
 }

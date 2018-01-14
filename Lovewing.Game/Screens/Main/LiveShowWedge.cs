@@ -9,17 +9,18 @@ namespace Lovewing.Game.Screens.Main
 {
     public class LiveShowWedge : Wedge
     {
-        private Color4 wedgeColor;
-        private Color4 buttonColor;
-        protected override Color4 WedgeColor => wedgeColor;
-        protected override Color4 ButtonColor => buttonColor;
+        private Color4 wedgeColour;
+        private Color4 buttonColour;
+        protected override Color4 WedgeColour => wedgeColour;
+        protected override Color4 ButtonColour => buttonColour;
         protected override FontAwesome ButtonIcon => FontAwesome.fa_music;
+        protected override string ButtonText => @"Live";
 
         [BackgroundDependencyLoader]
-        private void load(LovewingColors colors)
+        private void load(LovewingColours colours)
         {
-            wedgeColor = colors.DarkBlue;
-            buttonColor = colors.Blue;
+            wedgeColour = colours.DarkBlue;
+            buttonColour = colours.Blue;
         }
     }
 }

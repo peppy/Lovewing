@@ -9,17 +9,18 @@ namespace Lovewing.Game.Screens.Main
 {
     public class HomeWedge : Wedge
     {
-        private Color4 wedgeColor;
-        private Color4 buttonColor;
-        protected override Color4 WedgeColor => wedgeColor;
-        protected override Color4 ButtonColor => buttonColor;
+        private Color4 wedgeColour;
+        private Color4 buttonColour;
+        protected override Color4 WedgeColour => wedgeColour;
+        protected override Color4 ButtonColour => buttonColour;
         protected override FontAwesome ButtonIcon => FontAwesome.fa_home;
+        protected override string ButtonText => @"Home";
 
         [BackgroundDependencyLoader]
-        private void load(LovewingColors colors)
+        private void load(LovewingColours colours)
         {
-            wedgeColor = colors.Magenta;
-            buttonColor = colors.LightMagenta;
+            wedgeColour = colours.Magenta;
+            buttonColour = colours.LightMagenta;
         }
     }
 }

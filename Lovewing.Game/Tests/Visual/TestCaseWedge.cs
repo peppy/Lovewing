@@ -24,7 +24,7 @@ namespace Lovewing.Game.Tests.Visual
                 Color4.Green,
                 Color4.Blue,
                 Color4.Wheat,
-                Color4.Aquamarine,
+                Color4.Aquamarine
             };
 
             for(var i = colors.Count - 1; i >= 0; i--)
@@ -62,14 +62,15 @@ namespace Lovewing.Game.Tests.Visual
 
         private class CustomWedge : Wedge
         {
-            private readonly Color4 wedgeColor;
-            protected override Color4 WedgeColor => wedgeColor;
-            protected override Color4 ButtonColor => wedgeColor;
+            private readonly Color4 wedgeColour;
+            protected override Color4 WedgeColour => wedgeColour;
+            protected override Color4 ButtonColour => wedgeColour;
             protected override FontAwesome ButtonIcon => FontAwesome.fa_home;
+            protected override string ButtonText => @"Text";
 
             public CustomWedge(Color4 color)
             {
-                wedgeColor = color;
+                wedgeColour = color;
             }
         }
     }

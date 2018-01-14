@@ -1,11 +1,11 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
-using osu.Framework.Graphics.Cursor;
 using osu.Framework.Graphics;
 using osu.Framework.Platform;
 using osu.Framework.Testing;
 using Lovewing.Game.Graphics;
+using Lovewing.Game.Graphics.Cursor;
 
 namespace Lovewing.Game
 {
@@ -19,10 +19,10 @@ namespace Lovewing.Game
             Children = new Drawable[]
             {
                 new TestBrowser("Lovewing"),
-                new CursorContainer(),
+                new LovewingCursor()
             };
 
-            LoadComponentAsync(new Background("Backgrounds/mainmenu") { Depth = 10 }, AddInternal);
+            LoadComponentAsync(new Background(@"Backgrounds/mainmenu") { Depth = 10 }, AddInternal);
         }
 
         public override void SetHost(GameHost host)

@@ -1,47 +1,70 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
+using Lovewing.Game.Online;
 using Lovewing.Game.Graphics;
 using Lovewing.Game.Graphics.UserInterface;
+using Lovewing.Game.Graphics.Overlay;
 using Lovewing.Game.Screens.Main;
+using Lovewing.Game.Screens.Liveshow;
 using osu.Framework.Allocation;
-using osu.Framework.Screens;
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
-using osu.Framework.IO.Stores;
 using OpenTK;
-using OpenTK.Graphics;
 using System.Linq;
+using Lovewing.Game.Screens.Game;
+using osu.Framework.Input;
+using osu.Framework.Screens;
 
 namespace Lovewing.Game.Screens
 {
-    public class MainScreen : LovewingScreen
+    public class MainScreen : Screen
     {
-        private readonly Sprite idol, notifIcon;
+        private readonly LovewingSidebar sidebar;
+        private readonly Sprite idol;
         private readonly Container<Wedge> wedgeContainer;
-        private readonly LovewingColors colors = new LovewingColors();
-        private readonly Wedge liveshow;
+        private readonly LovewingColours colours = new LovewingColours();
+        private readonly Inbox inboxOverlay;
 
-        private void solo()
+        private void toggleSideBar()
         {
-            liveshow.Expand();
+            if (sidebar.State == Visibility.Visible)
+                sidebar.Hide();
+            else
+                sidebar.Show();
         }
 
-        private void matchmaking()
+        private void hideOverlays()
         {
-            Push(new MatchmakingScreen());
+            if (sidebar.State == Visibility.Visible)
+                sidebar.Hide();
+
+            if (inboxOverlay.State == Visibility.Visible)
+                inboxOverlay.Hide();
+        }
+
+        private void toggleInbox()
+        {
+            if (inboxOverlay.State == Visibility.Visible)
+                inboxOverlay.Hide();
+            else
+                inboxOverlay.Show();
+        }
+
+        private void toLiveshow()
+        {
+            var screen = new LiveshowScreen();
+
+            Push(screen);
         }
 
         public MainScreen()
         {
-            // Wedge home, management, liveshow;
+            Wedge liveshow, management, home;
 
-            Wedge home, management; //switch back to field if needed. just for appveyor rn
-
-            Children = new Drawable[]
+            AddRange(new Drawable[]
             {
                 new Background(@"Backgrounds/mainmenu")
                 {
@@ -51,20 +74,25 @@ namespace Lovewing.Game.Screens
                 },
                 idol = new Sprite
                 {
-                    X = 50,
+                    Margin = new MarginPadding { Left = 100 },
                     Anchor = Anchor.BottomLeft,
                     Origin = Anchor.BottomLeft,
                     FillMode = FillMode.Fit,
-                    Scale = new Vector2(0.75f)
+                    Scale = new Vector2(0.9f)
                 },
-                new Toolbar
+                sidebar = new LovewingSidebar
                 {
-                    Origin = Anchor.TopRight,
-                    Anchor = Anchor.TopRight,
-                    RelativeSizeAxes = Axes.X,
-                    Height = 100,
-                    Depth = -1,
+                    Origin = Anchor.CentreRight,
+                    Anchor = Anchor.CentreRight,
+                    RelativeSizeAxes = Axes.Y,
+                    Depth = -2
                 },
+                new LovewingToolbar
+                {
+                    Depth = -1,
+                    ButtonAction = toggleSideBar
+                },
+                inboxOverlay = new Inbox(),
                 wedgeContainer = new Container<Wedge>
                 {
                     RelativeSizeAxes = Axes.Both,
@@ -78,7 +106,8 @@ namespace Lovewing.Game.Screens
                             Width = 0.5f,
                             Margin = new MarginPadding { Right = 100 },
                             Depth = 2,
-                            Children = new[]
+                            ButtonAction = toLiveshow
+                            /*Children = new[]
                             {
                                 new Container
                                 {
@@ -87,29 +116,30 @@ namespace Lovewing.Game.Screens
                                     Origin = Anchor.Centre,
                                     Children = new Drawable[]
                                     {
-                                        new LovewingButton(0, 0, 75)
+                                        new LovewingButton
                                         {
-                                            Action = solo,
+                                            TextSize = 75,
                                             Anchor = Anchor.BottomCentre,
                                             Origin = Anchor.BottomCentre,
                                             Text = "Solo",
                                             Size = new Vector2(500, 200),
-                                            BackgroundColour = colors.Blue,
-                                            HoverColour = colors.Blue
+                                            BackgroundColour = colours.Blue,
+                                            HoverColour = colours.Blue,
                                         },
-                                        new LovewingButton(0, 0, 75)
+                                        new LovewingButton
                                         {
+                                            TextSize = 75,
                                             Action = matchmaking,
                                             Anchor = Anchor.TopCentre,
                                             Origin = Anchor.TopCentre,
                                             Text = "Multiplayer",
                                             Size = new Vector2(500, 200),
-                                            BackgroundColour = colors.Blue,
-                                            HoverColour = colors.Blue
+                                            BackgroundColour = colours.Blue,
+                                            HoverColour = colours.Blue,
                                         }
                                     }
                                 }
-                            }
+                            }*/
                         },
                         management = new IdolManagementWedge
                         {
@@ -127,19 +157,22 @@ namespace Lovewing.Game.Screens
                                     Origin = Anchor.Centre,
                                     Children = new Drawable[]
                                     {
-                                        new LovewingButton(0, 0, 60)
+                                        new LovewingButton
                                         {
+                                            TextSize = 60,
                                             Size = new Vector2(630, 200),
-                                            Text = "Button",
-                                            BackgroundColour = colors.Yellow,
+                                            Text = "Game Test",
+                                            BackgroundColour = colours.Yellow,
                                             Anchor = Anchor.BottomCentre,
-                                            Origin = Anchor.BottomCentre
+                                            Origin = Anchor.BottomCentre,
+                                            Action = () => Push(new GameScreen())
                                         },
-                                        new LovewingButton(0, 0, 60)
+                                        new LovewingButton
                                         {
+                                            TextSize = 60,
                                             Size = new Vector2(630, 200),
                                             Text = "Another Button",
-                                            BackgroundColour = colors.Yellow,
+                                            BackgroundColour = colours.Yellow,
                                             Anchor = Anchor.TopCentre,
                                             Origin = Anchor.TopCentre
                                         }
@@ -149,6 +182,7 @@ namespace Lovewing.Game.Screens
                         },
                         home = new HomeWedge
                         {
+                            WedgeClick = hideOverlays,
                             Anchor = Anchor.BottomRight,
                             Origin = Anchor.BottomRight,
                             RelativeSizeAxes = Axes.Both,
@@ -164,60 +198,57 @@ namespace Lovewing.Game.Screens
                                     Origin = Anchor.Centre,
                                     Children =  new Drawable[]
                                     {
-                                        new LovewingDoubleButton(-0.4f, 140, -125, 30)
+                                        new LovewingDoubleButton
                                         {
+                                            Angle = -0.4f,
+                                            ShearPosition = new Vector2(140, 0),
+                                            TextPosition = new Vector2(-125, 60),
+                                            TextSize = 30,
                                             CornerRadius = 5,
                                             Size = new Vector2(400, 200),
                                             Text = "Story",
-                                            BackgroundColour = colors.Magenta,
+                                            BackgroundColour = colours.Magenta,
+                                            ShearColour = colours.LightMagenta,
                                             Anchor = Anchor.TopLeft,
                                             Origin = Anchor.TopLeft
                                         },
                                         new LovewingButton
                                         {
+                                            Action = toggleInbox,
+                                            TextPosition = new Vector2(0, 60),
+                                            TextSize = 30,
                                             CornerRadius = 100,
                                             Size = new Vector2(200, 200),
                                             Text = "Inbox",
-                                            BackgroundColour = Color4.White,
-                                            HoverColour = colors.Magenta,
-                                            TextColour = colors.Magenta,
+                                            BackgroundColour = colours.White,
+                                            HoverColour = colours.Magenta,
+                                            TextColour = colours.Magenta,
                                             Anchor = Anchor.TopRight,
                                             Origin = Anchor.TopRight,
-                                            Children = new Drawable[]
-                                            {
-                                                notifIcon = new Sprite
-                                                {
-                                                    Y = -10,
-                                                    Scale = new Vector2(70),
-                                                    Anchor = Anchor.Centre,
-                                                    Origin = Anchor.Centre,
-                                                    Colour = colors.Magenta
-                                                },
-                                                new Circle
-                                                {
-                                                    Y = -40,
-                                                    X = 40,
-                                                    Size = new Vector2(25, 25),
-                                                    Colour = Color4.Red,
-                                                    Origin = Anchor.Centre,
-                                                    Anchor = Anchor.Centre
-                                                }
-                                            }
+                                            Icon = FontAwesome.fa_envelope_o,
+                                            IconColour = colours.Magenta,
+                                            IconSize = new Vector2(80),
+                                            IconPosition = new Vector2(0, -10)
                                         }
                                     }
                                 },
                                 new Container
                                 {
                                     Y = 235f,
-                                    Padding = new MarginPadding(15f),
+                                    Padding = new MarginPadding(15),
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
                                     Child = new LovewingDoubleButton
                                     {
+                                        Angle = -0.7f,
+                                        ShearPosition = new Vector2(200, 0),
+                                        TextPosition = new Vector2(-200, 60),
+                                        TextSize = 40,
                                         CornerRadius = 5,
-                                        Size = new Vector2(630f, 200f),
+                                        Size = new Vector2(630, 200),
                                         Text = "Events",
-                                        BackgroundColour = colors.Magenta,
+                                        BackgroundColour = colours.Magenta,
+                                        ShearColour = colours.LightMagenta,
                                         Anchor = Anchor.BottomCentre,
                                         Origin = Anchor.BottomCentre
                                     }
@@ -226,7 +257,17 @@ namespace Lovewing.Game.Screens
                         }
                     }
                 }
-            };
+            });
+
+            /*inbox.Add(new Circle
+            {
+                Y = -40,
+                X = 40,
+                Size = new Vector2(25),
+                Colour = Color4.Red,
+                Origin = Anchor.Centre,
+                Anchor = Anchor.Centre,
+            });*/
 
             home.StateChanged += vis => selectWedge(home, vis);
             management.StateChanged += vis => selectWedge(management, vis);
@@ -234,33 +275,43 @@ namespace Lovewing.Game.Screens
 
             AddRange(new[]
             {
-                liveshow.CreateButton("Liveshow"),
-                management.CreateButton("Idols"),
-                home.CreateButton("Home")
+                liveshow.CreateButton(),
+                management.CreateButton(),
+                home.CreateButton()
             });
         }
 
         protected override void OnEntering(Screen last)
         {
-            Content.FadeOut();
+            Content.FadeIn(400);
 
-            Content.FadeIn(2000);
+            var presence = new DiscordRpc.RichPresence
+            {
+                state = "Idle",
+                details = "Main Menu",
+                largeImageKey = "logo"
+            };
+
+            DiscordRpc.UpdatePresence(ref presence);
+
             base.OnEntering(last);
         }
 
         protected override bool OnExiting(Screen next)
         {
-            Content.FadeOut(2000);
+            Content.FadeOut(400);
             return base.OnExiting(next);
         }
 
-        [BackgroundDependencyLoader]
-        private void load(TextureStore texStore, FontStore fontStore)
+        protected override bool OnClick(InputState state)
         {
-            idol.Texture = texStore.Get(@"Idols/kotori");
+            hideOverlays();
 
-            notifIcon.Texture = fontStore.Get(((char)FontAwesome.fa_envelope_o).ToString());
+            return base.OnClick(state);
         }
+
+        [BackgroundDependencyLoader]
+        private void load(TextureStore texStore, UserData user) => idol.Texture = texStore.Get(user.Idol);
 
         private void selectWedge(VisibilityContainer con, Visibility vis)
         {

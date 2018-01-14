@@ -1,0 +1,31 @@
+################################
+# CircleCI config for Lovewing #
+################################
+version: 2
+jobs:
+  build:
+    docker:
+      - image: chinodesuuu/lovewing-builder
+    working_directory: ./Lovewing
+    steps:
+      - checkout
+      - run:
+          name: Get submodules
+          command: git submodule update --init --recursive
+      - run:
+          name: Get NuGet
+          command: curl -O https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+      - run:
+          name: Restore NuGet packages
+          command: mono nuget.exe restore
+      - run:
+          name: Build Lovewing
+          command: msbuild
+      # TODO: fix tests
+      # - run:
+      #     name: Run the tests
+      #     command: mono Lovewing.Game/bin/Release/Lovewing.Game.exe --tests
+
+notify:
+  webhooks:
+  - url: https://claraio-circledisc.herokuapp.com/hooks/circleci

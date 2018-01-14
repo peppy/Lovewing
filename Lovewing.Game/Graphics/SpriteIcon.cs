@@ -18,7 +18,7 @@ namespace Lovewing.Game.Graphics
         private FontAwesome icon;
         public FontAwesome Icon
         {
-            get { return icon; }
+            get => icon;
             set
             {
                 if (icon == value) return;
@@ -33,7 +33,10 @@ namespace Lovewing.Game.Graphics
         {
             AddInternal(iconSprite = new Sprite
             {
-                RelativeSizeAxes = Axes.Both
+                RelativeSizeAxes = Axes.Both,
+                FillMode = FillMode.Fit,
+                Origin = Anchor.Centre,
+                Anchor = Anchor.Centre
             });
         }
 

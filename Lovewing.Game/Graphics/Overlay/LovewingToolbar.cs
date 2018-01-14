@@ -1,6 +1,8 @@
 ﻿// Copyright (c) 2017 Clara.
 // Licensed under the EPL-1.0 License
 
+using Lovewing.Game.Online;
+using Lovewing.Game.Graphics.UserInterface;
 using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
@@ -9,26 +11,42 @@ using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
 using OpenTK;
 using OpenTK.Graphics;
+using System;
 
-namespace Lovewing.Game.Graphics.UserInterface
+namespace Lovewing.Game.Graphics.Overlay
 {
-    public class Toolbar : FillFlowContainer
+    public class LovewingToolbar : FillFlowContainer
     {
-        public Toolbar()
+        public Action ButtonAction;
+
+        public LovewingToolbar()
         {
             Direction = FillDirection.Horizontal;
+            Origin = Anchor.TopRight;
+            Anchor = Anchor.TopRight;
+            RelativeSizeAxes = Axes.X;
+            Height = 100;
+            Depth = -1;
         }
 
         [BackgroundDependencyLoader]
-        private void load(TextureStore texStore, LovewingColors colors)
+        private void load(TextureStore texStore, LovewingColours colours, UserData user)
         {
             Padding = new MarginPadding { Right = 75, Top = 5 };
             Spacing = new Vector2(75, 0);
 
-            Sprite avatar;
-
             Children = new Drawable[]
             {
+                new IconButton
+                {
+                    Icon = FontAwesome.fa_ellipsis_v,
+                    Action = ButtonAction,
+                    Margin = new MarginPadding { Top = 17.5f },
+                    Size = new Vector2(15, 55),
+                    Origin = Anchor.TopRight,
+                    Anchor = Anchor.TopRight,
+                    Colour = Color4.White
+                },
                 new CircularContainer
                 {
                     Anchor = Anchor.TopRight,
@@ -41,13 +59,14 @@ namespace Lovewing.Game.Graphics.UserInterface
                     BorderThickness = 10,
                     Children = new Drawable[]
                     {
-                        avatar = new Sprite
+                        new Sprite
                         {
                             Anchor = Anchor.Centre,
                             Origin = Anchor.Centre,
                             RelativeSizeAxes = Axes.Both,
                             FillMode = FillMode.Fit,
-                        },
+                            Texture = texStore.Get(user.Avatar)
+                        }
                     }
                 },
                 new FillFlowContainer
@@ -67,14 +86,14 @@ namespace Lovewing.Game.Graphics.UserInterface
                             Origin = Anchor.BottomRight,
                             Size = new Vector2(20),
                             Colour = Color4.LightGreen,
-                            Icon = FontAwesome.fa_plus,
+                            Icon = FontAwesome.fa_plus
                         },
                         new SpriteText
                         {
                             Anchor = Anchor.TopRight,
                             Origin = Anchor.TopRight,
-                            Text = @"1.337",
-                            TextSize = 40,
+                            Text = user.Loveca.ToString(),
+                            TextSize = 40
                         },
                         new CircularContainer
                         {
@@ -82,7 +101,7 @@ namespace Lovewing.Game.Graphics.UserInterface
                             Origin = Anchor.BottomRight,
                             RelativeSizeAxes = Axes.Both,
                             FillMode = FillMode.Fit,
-                            BorderColour = colors.Magenta,
+                            BorderColour = colours.Magenta,
                             BorderThickness = 6,
                             Masking = true,
                             Children = new Drawable[]
@@ -90,19 +109,19 @@ namespace Lovewing.Game.Graphics.UserInterface
                                 new Box
                                 {
                                     RelativeSizeAxes = Axes.Both,
-                                    Colour = Color4.Transparent,
+                                    Colour = Color4.Transparent
                                 },
                                 new SpriteIcon
                                 {
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
-                                    Colour = colors.Magenta,
+                                    Colour = colours.Magenta,
                                     RelativeSizeAxes = Axes.Both,
                                     Size = new Vector2(0.5f),
-                                    Icon = FontAwesome.fa_heart,
-                                },
+                                    Icon = FontAwesome.fa_heart
+                                }
                             }
-                        },
+                        }
                     }
                 },
                 new FillFlowContainer
@@ -122,14 +141,14 @@ namespace Lovewing.Game.Graphics.UserInterface
                             Origin = Anchor.BottomRight,
                             Size = new Vector2(20),
                             Colour = Color4.LightGreen,
-                            Icon = FontAwesome.fa_plus,
+                            Icon = FontAwesome.fa_plus
                         },
                         new SpriteText
                         {
                             Anchor = Anchor.TopRight,
                             Origin = Anchor.TopRight,
-                            Text = @"1.201.102",
-                            TextSize = 40,
+                            Text = user.Coins.ToString(),
+                            TextSize = 40
                         },
                         new CircularContainer
                         {
@@ -137,7 +156,7 @@ namespace Lovewing.Game.Graphics.UserInterface
                             Origin = Anchor.BottomRight,
                             RelativeSizeAxes = Axes.Both,
                             FillMode = FillMode.Fit,
-                            BorderColour = colors.Yellow,
+                            BorderColour = colours.Yellow,
                             BorderThickness = 6,
                             Masking = true,
                             Children = new Drawable[]
@@ -145,24 +164,22 @@ namespace Lovewing.Game.Graphics.UserInterface
                                 new Box
                                 {
                                     RelativeSizeAxes = Axes.Both,
-                                    Colour = Color4.Transparent,
+                                    Colour = Color4.Transparent
                                 },
                                 new SpriteIcon
                                 {
                                     Anchor = Anchor.Centre,
                                     Origin = Anchor.Centre,
-                                    Colour = colors.Yellow,
+                                    Colour = colours.Yellow,
                                     RelativeSizeAxes = Axes.Both,
                                     Size = new Vector2(0.5f),
-                                    Icon = FontAwesome.fa_star,
-                                },
+                                    Icon = FontAwesome.fa_star
+                                }
                             }
-                        },
+                        }
                     }
-                },
+                }
             };
-
-            avatar.Texture = texStore.Get(@"https://owo.whats-th.is/455c65.png");
         }
     }
 }

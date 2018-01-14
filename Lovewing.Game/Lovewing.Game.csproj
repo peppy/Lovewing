@@ -55,6 +55,12 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="OpenTK, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4" />
     <Reference Include="System" />
@@ -68,25 +74,48 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Graphics\Background.cs" />
+    <Compile Include="Graphics\Cursor\LovewingCursor.cs" />
     <Compile Include="Graphics\FontAwesome.cs" />
-    <Compile Include="Graphics\LovewingColors.cs" />
+    <Compile Include="Graphics\Game\HitCircle.cs" />
+    <Compile Include="Graphics\IHasAccentColour.cs" />
+    <Compile Include="Graphics\LovewingColours.cs" />
+    <Compile Include="Graphics\Overlay\Inbox.cs" />
+    <Compile Include="Graphics\Overlay\PauseOverlay.cs" />
     <Compile Include="Graphics\SpriteIcon.cs" />
     <Compile Include="Graphics\UserInterface\IconButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingDoubleButton.cs" />
-    <Compile Include="Graphics\UserInterface\Toolbar.cs" />
+    <Compile Include="Graphics\Overlay\LovewingSidebar.cs" />
+    <Compile Include="Graphics\Overlay\LovewingToolbar.cs" />
+    <Compile Include="Graphics\UserInterface\FocusedTextBox.cs" />
+    <Compile Include="Graphics\UserInterface\LovewingHollowButton.cs" />
+    <Compile Include="Graphics\UserInterface\LovewingSearchBox.cs" />
+    <Compile Include="Graphics\UserInterface\LovewingSlider.cs" />
+    <Compile Include="Graphics\UserInterface\LovewingSmallButton.cs" />
+    <Compile Include="Graphics\UserInterface\LovewingTabControl.cs" />
+    <Compile Include="Graphics\UserInterface\LovewingTextBox.cs" />
     <Compile Include="LovewingGame.cs" />
     <Compile Include="LovewingGameBase.cs" />
     <Compile Include="LovewingTests.cs" />
+    <Compile Include="Online\DiscordRpc.cs" />
+    <Compile Include="Online\UserData.cs" />
+    <Compile Include="Online\User\Badge.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\Game\GameScreen.cs" />
+    <Compile Include="Screens\Liveshow\LiveshowScreen.cs" />
+    <Compile Include="Screens\Liveshow\Matchmaking\LobbyCard.cs" />
+    <Compile Include="Screens\Liveshow\Matchmaking\LobbyTabControl.cs" />
+    <Compile Include="Screens\Liveshow\Matchmaking\LobbyTabs.cs" />
+    <Compile Include="Screens\Liveshow\Matchmaking\LobbyType.cs" />
     <Compile Include="Screens\MainScreen.cs" />
     <Compile Include="Screens\Main\HomeWedge.cs" />
     <Compile Include="Screens\Main\IdolManagementWedge.cs" />
     <Compile Include="Screens\Main\LiveShowWedge.cs" />
     <Compile Include="Screens\Main\Wedge.cs" />
     <Compile Include="Screens\LovewingScreen.cs" />
-    <Compile Include="Screens\MatchmakingScreen.cs" />
+    <Compile Include="Tests\Visual\TestCaseGame.cs" />
+    <Compile Include="Tests\Visual\TestCaseHitCircle.cs" />
     <Compile Include="Tests\Visual\TestCaseToolbar.cs" />
     <Compile Include="Tests\Visual\TestCaseWedge.cs" />
   </ItemGroup>
@@ -96,6 +125,16 @@
     </None>
     <None Include="App.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="OpenTK.dll.config" />
+    <None Include="libdiscord-rpc.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="libdiscord-rpc.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="libdiscord-rpc.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +150,9 @@
       <Project>{c76bf5b3-985e-4d39-95fe-97c9c879b83a}</Project>
       <Name>osu.Framework</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Screens\Liveshow\Solo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
