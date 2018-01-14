@@ -36,20 +36,27 @@ namespace Lovewing.Game.Graphics.Game
 
         protected override bool OnClick(InputState state)
         {
-            Circle ripple;
+            CircularContainer ripple;
 
-            Add(ripple = new Circle
+            AddInternal(ripple = new CircularContainer
             {
                 Anchor = Anchor.Centre,
                 Origin = Anchor.Centre,
-                Height = 10,
-                Width = 10,
-                Colour = Color4.Gray,
+                Masking = true,
+                RelativeSizeAxes = Axes.Both,
+                FillMode = FillMode.Fit,
+                BorderThickness = 3,
+                BorderColour = Color4.Gray,
                 Alpha = 0.5f,
-                Blending = BlendingMode.Additive
+                Blending = BlendingMode.Additive,
+                Child = new Box
+                {
+                    RelativeSizeAxes = Axes.Both,
+                    Colour = new Color4(0, 0, 0, 0)
+                }
             });
 
-            ripple.ScaleTo(Math.Max(Size.X, Size.Y) / 5, 450, Easing.OutCirc)
+            ripple.ScaleTo(2, 450, Easing.OutCirc)
                 .FadeOut(450)
                 .Expire();
 
