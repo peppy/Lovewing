@@ -1,12 +1,16 @@
 ﻿using Lovewing.Game.Graphics;
 using Lovewing.Game.Graphics.Game;
 using Lovewing.Game.Graphics.Overlay;
+using Lovewing.Game.Graphics.UserInterface;
 using Lovewing.Game.Online;
+using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
+using osu.Framework.Graphics.Sprites;
 using osu.Framework.Input;
 using osu.Framework.Screens;
 using OpenTK;
+using OpenTK.Graphics;
 using OpenTK.Input;
 
 namespace Lovewing.Game.Screens.Game
@@ -58,6 +62,75 @@ namespace Lovewing.Game.Screens.Game
                     Origin = Anchor.Centre,
                     Children = new Drawable[]
                     {
+                        new Container
+                        {
+                            Anchor = Anchor.TopLeft,
+                            Origin = Anchor.TopLeft,
+                            RelativeSizeAxes = Axes.Both,
+                            Children = new Drawable[]
+                            {
+                                new SpriteIcon
+                                {
+                                    Icon = FontAwesome.fa_video_camera,
+                                    Height = 30,
+                                    Width = 40,
+                                    Colour = new Color4(58, 244, 102, 255),
+                                    Margin = new MarginPadding
+                                    {
+                                        Top = 50,
+                                        Left = 50
+                                    }
+                                },
+                                new SpriteText
+                                {
+                                    Text = "990",
+                                    Font = "Venera",
+                                    TextSize = 20,
+                                    Colour = new Color4(58, 244, 102, 255),
+                                    Margin = new MarginPadding
+                                    {
+                                        Top = 60,
+                                        Left = 100
+                                    }
+                                },
+                                new SpriteIcon
+                                {
+                                    Icon = FontAwesome.fa_circle,
+                                    Height = 30,
+                                    Width = 30,
+                                    Colour = Color4.Red,
+                                    Margin = new MarginPadding
+                                    {
+                                        Top = 50,
+                                        Left = 200
+                                    }
+                                },
+                                new SpriteText
+                                {
+                                    Text = "LIVE",
+                                    Font = "Venera",
+                                    TextSize = 20,
+                                    Colour = Color4.Red,
+                                    Margin = new MarginPadding
+                                    {
+                                        Top = 60,
+                                        Left = 235
+                                    }
+                                }
+                            }
+                        },
+                        new SpriteText
+                        {
+                            Text = "0123456789",
+                            Font = "Venera",
+                            TextSize = 30,
+                            Anchor = Anchor.TopCentre,
+                            Origin = Anchor.TopCentre,
+                            Margin = new MarginPadding
+                            {
+                                Top = 50
+                            }
+                        },
                         songScore = new SongScore
                         {
                             Anchor = Anchor.TopCentre,
