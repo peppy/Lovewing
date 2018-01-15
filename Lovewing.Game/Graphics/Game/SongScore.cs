@@ -8,17 +8,17 @@ using OpenTK.Graphics;
 
 namespace Lovewing.Game.Graphics.Game
 {
-    public class SongProgress : Container
+    public class SongScore : Container
     {
         private readonly Box progressBox;
 
-        public double Progress
+        public double Score
         {
             get => Math.Floor(progressBox.Width / ((GameHost.Instance.Window.Width - 100.0) / 100));
             set => progressBox.Width = (float) ((GameHost.Instance.Window.Width - 100.0) / 100 * value);
         }
 
-        public SongProgress()
+        public SongScore()
         {
             Height = 10;
             Width = GameHost.Instance.Window.Width - 100;

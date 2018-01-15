@@ -78,7 +78,7 @@
     <Compile Include="Graphics\FontAwesome.cs" />
     <Compile Include="Graphics\Game\HitCircle.cs" />
     <Compile Include="Graphics\Game\MiddleCircle.cs" />
-    <Compile Include="Graphics\Game\SongProgress.cs" />
+    <Compile Include="Graphics\Game\SongScore.cs" />
     <Compile Include="Graphics\IHasAccentColour.cs" />
     <Compile Include="Graphics\LovewingColours.cs" />
     <Compile Include="Graphics\Overlay\Inbox.cs" />
