@@ -38,26 +38,31 @@ namespace Lovewing.Game.Graphics.Game
             {
                 Type = EdgeEffectType.Glow,
                 Colour = Color4.White.Opacity(0.5f),
-                Radius = 10
+                Radius = 10,
+                Hollow = true
             };
 
             AddRangeInternal(new Drawable[]
             {
-                healthCircle = new CircularProgress
+                new CircularContainer
                 {
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
-                    RelativeSizeAxes = Axes.Both,
-                    Current = { Value = -0.75 },
-                    Colour = new Color4(58, 244, 102, 255)
-                },
-                new Circle
-                {
-                    Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
-                    Height = 120,
-                    Width = 120,
-                    Colour = Color4.White
+                    Masking = true,
+                    BorderThickness = 8,
+                    BorderColour = new Color4(58, 244, 102, 255),
+                    Height = 128,
+                    Width = 128,
+                    FillMode = FillMode.Fit,
+                    Child = healthCircle = new CircularProgress
+                    {
+                        Anchor = Anchor.Centre,
+                        Origin = Anchor.Centre,
+                        Width = 128,
+                        Height = 128,
+                        Current = { Value = -0.75 },
+                        Colour = Color4.Transparent
+                    }
                 },
                 musicIcon = new SpriteIcon
                 {
