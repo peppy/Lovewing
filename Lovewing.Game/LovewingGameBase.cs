@@ -34,7 +34,8 @@ namespace Lovewing.Game
 
             Fonts.AddStore(new GlyphStore(Resources, @"Fonts/FontAwesome"));
             Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Muli_Light"));
-            Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Noto_Sans_CJK_JP_Regular")); // - it cant find the font for some reason
+            Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Noto_Sans_CJK_JP_Regular"));
+            Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Venera"));
 
             var t = Audio.Track.Get(@"mainmenu_aqours");
 
