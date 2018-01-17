@@ -50,6 +50,21 @@ namespace Lovewing.Game.Graphics.Game
                     Origin = Anchor.Centre,
                     Masking = true,
                     BorderThickness = 8,
+                    BorderColour = Color4.White,
+                    Height = 128,
+                    Width = 128,
+                    Child = new Box
+                    {
+                        RelativeSizeAxes = Axes.Both,
+                        Colour = Color4.Transparent
+                    }
+                },
+                new CircularContainer
+                {
+                    Anchor = Anchor.Centre,
+                    Origin = Anchor.Centre,
+                    Masking = true,
+                    BorderThickness = 8,
                     BorderColour = new Color4(58, 244, 102, 255),
                     Height = 128,
                     Width = 128,
