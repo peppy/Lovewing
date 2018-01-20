@@ -174,5 +174,11 @@
   <ItemGroup>
     <Folder Include="Screens\Liveshow\Solo\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Beatmaps\sift\m_001_easy.json" />
+    <Content Include="Beatmaps\sift\m_001_expert.json" />
+    <Content Include="Beatmaps\sift\m_001_hard.json" />
+    <Content Include="Beatmaps\sift\m_001_normal.json" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,9 @@
-﻿using Lovewing.Game.Graphics;
+﻿using System;
+using Lovewing.Game.Graphics;
 using Lovewing.Game.Graphics.Game;
 using Lovewing.Game.Graphics.Overlay;
+using Lovewing.Game.Level;
+using Lovewing.Game.Loaders;
 using Lovewing.Game.Online;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
@@ -15,6 +18,7 @@ namespace Lovewing.Game.Screens.Game
     {
         private readonly Background bg;
         private readonly PauseOverlay pauseOverlay;
+        private readonly IBeatmapLoader loader = new SIFTLoader();
 
         private readonly HitCircle circle1;
         private readonly HitCircle circle2;
@@ -26,8 +30,12 @@ namespace Lovewing.Game.Screens.Game
         private readonly HitCircle circle8;
         private readonly HitCircle circle9;
 
+        private Beatmap beatmap;
+
         public GameScreen()
         {
+            loadTestMap();
+
             AddRange(new Drawable[]
             {
                 pauseOverlay = new PauseOverlay
@@ -231,6 +239,13 @@ namespace Lovewing.Game.Screens.Game
             DiscordRpc.UpdatePresence(ref presence);
 
             bg.BlurTo(new Vector2(10));
+        }
+
+        private async void loadTestMap()
+        {
+            beatmap = await loader.Load(@"../../Beatmaps/sift/m_001_easy.json");
+
+            Console.WriteLine(beatmap.SongName);
         }
     }
 }
