@@ -320,15 +320,6 @@ namespace Lovewing.Game.Screens.Game
 
         protected override void LoadComplete()
         {
-            var presence = new DiscordRpc.RichPresence
-            {
-                details = "Test Game",
-                state = "In-Game",
-                largeImageKey = "logo"
-            };
-
-            DiscordRpc.UpdatePresence(ref presence);
-
             bg.BlurTo(new Vector2(10));
         }
 
@@ -336,7 +327,14 @@ namespace Lovewing.Game.Screens.Game
         {
             beatmap = await loader.Load(@"../../Beatmaps/sift/m_001_easy.json");
 
-            Console.WriteLine(beatmap.SongName);
+            var presence = new DiscordRpc.RichPresence
+            {
+                details = $"{beatmap.SongName} [{beatmap.Difficulty}*]",
+                state = "In-Game",
+                largeImageKey = "logo"
+            };
+
+            DiscordRpc.UpdatePresence(ref presence);
         }
     }
 }
