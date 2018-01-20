@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Lovewing.Game.Level
 {
@@ -10,7 +6,7 @@ namespace Lovewing.Game.Level
     public class BeatmapRank
     {
         public uint Rank { get; set; } = 1;
-        public uint RankMax { get; set; } = 0;
+        public uint RankMax { get; set; }
     }
 
     /// <summary>
@@ -23,7 +19,7 @@ namespace Lovewing.Game.Level
         public string Background { get; set; } = "";
         public double BPM { get; set; } = 192.0;
         public double NoteSpeed { get; set; } = 1.0;
-        public uint Difficulty { get; set; } = 0u;
+        public uint Difficulty { get; set; }
         public List<BeatmapRank> Ranks { get; set; } = new List<BeatmapRank>();
         public List<Note> Notes { get; set; } = new List<Note>();
     }
