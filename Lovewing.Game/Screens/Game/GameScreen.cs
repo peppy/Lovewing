@@ -7,9 +7,11 @@ using Lovewing.Game.Loaders;
 using Lovewing.Game.Online;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
+using osu.Framework.Graphics.Sprites;
 using osu.Framework.Input;
 using osu.Framework.Screens;
 using OpenTK;
+using OpenTK.Graphics;
 using OpenTK.Input;
 
 namespace Lovewing.Game.Screens.Game
@@ -19,6 +21,7 @@ namespace Lovewing.Game.Screens.Game
         private readonly Background bg;
         private readonly PauseOverlay pauseOverlay;
         private readonly IBeatmapLoader loader = new SIFTLoader();
+        private readonly SongScore songScore;
 
         private readonly HitCircle circle1;
         private readonly HitCircle circle2;
@@ -65,6 +68,94 @@ namespace Lovewing.Game.Screens.Game
                     Origin = Anchor.Centre,
                     Children = new Drawable[]
                     {
+                        new Container
+                        {
+                            Anchor = Anchor.TopLeft,
+                            Origin = Anchor.TopLeft,
+                            RelativeSizeAxes = Axes.Both,
+                            Children = new Drawable[]
+                            {
+                                new SpriteIcon
+                                {
+                                    Icon = FontAwesome.fa_video_camera,
+                                    Height = 30,
+                                    Width = 40,
+                                    Colour = new Color4(58, 244, 102, 255),
+                                    Margin = new MarginPadding
+                                    {
+                                        Top = 50,
+                                        Left = 50
+                                    }
+                                },
+                                new SpriteText
+                                {
+                                    Text = "990",
+                                    Font = "Venera",
+                                    TextSize = 20,
+                                    Colour = new Color4(58, 244, 102, 255),
+                                    Margin = new MarginPadding
+                                    {
+                                        Top = 60,
+                                        Left = 100
+                                    }
+                                },
+                                new SpriteIcon
+                                {
+                                    Icon = FontAwesome.fa_circle,
+                                    Height = 30,
+                                    Width = 30,
+                                    Colour = Color4.Red,
+                                    Margin = new MarginPadding
+                                    {
+                                        Top = 50,
+                                        Left = 200
+                                    }
+                                },
+                                new SpriteText
+                                {
+                                    Text = "LIVE",
+                                    Font = "Venera",
+                                    TextSize = 20,
+                                    Colour = Color4.Red,
+                                    Margin = new MarginPadding
+                                    {
+                                        Top = 60,
+                                        Left = 235
+                                    }
+                                }
+                            }
+                        },
+                        new SpriteText
+                        {
+                            Text = "0123456789",
+                            Font = "Venera",
+                            TextSize = 30,
+                            Anchor = Anchor.TopCentre,
+                            Origin = Anchor.TopCentre,
+                            Margin = new MarginPadding
+                            {
+                                Top = 50
+                            }
+                        },
+                        songScore = new SongScore
+                        {
+                            Anchor = Anchor.TopCentre,
+                            Origin = Anchor.TopCentre,
+                            Margin = new MarginPadding
+                            {
+                                Top = 100
+                            },
+                            Score = 25
+                        },
+                        new MiddleCircle
+                        {
+                            Anchor = Anchor.BottomCentre,
+                            Origin = Anchor.BottomCentre,
+                            Margin = new MarginPadding
+                            {
+                                Bottom = 420
+                            }
+                        },
                         circle1 = new HitCircle
                         {
                             Anchor = Anchor.BottomCentre,
