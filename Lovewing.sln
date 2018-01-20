@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{5C23FD58-CD5E-4D5E-81B0-DFA78C6528DA}"
 EndProject
@@ -27,6 +27,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Packager", "Packager", "{0B7BB2E3-3EF9-430F-998F-1B0E96B3E344}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing.Game.Packager", "Lovewing.Packager\Lovewing.Game.Packager.csproj", "{BCD11A0C-81D1-41E1-A86F-C52A73960544}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing.UnitTests", "Lovewing.UnitTests\Lovewing.UnitTests.csproj", "{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,6 +86,14 @@ Global
 		{BCD11A0C-81D1-41E1-A86F-C52A73960544}.Visual Tests (Debug)|Any CPU.Build.0 = Debug|Any CPU
 		{BCD11A0C-81D1-41E1-A86F-C52A73960544}.Visual Tests (Release)|Any CPU.ActiveCfg = Release|Any CPU
 		{BCD11A0C-81D1-41E1-A86F-C52A73960544}.Visual Tests (Release)|Any CPU.Build.0 = Release|Any CPU
+		{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6}.Visual Tests (Debug)|Any CPU.ActiveCfg = Debug|Any CPU
+		{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6}.Visual Tests (Debug)|Any CPU.Build.0 = Debug|Any CPU
+		{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6}.Visual Tests (Release)|Any CPU.ActiveCfg = Release|Any CPU
+		{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6}.Visual Tests (Release)|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,6 +105,7 @@ Global
 		{A022240D-3E05-44CF-B23F-63E0DAB470A0} = {5C23FD58-CD5E-4D5E-81B0-DFA78C6528DA}
 		{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9} = {708BB68C-4202-4504-8890-3D552BEE1DE7}
 		{BCD11A0C-81D1-41E1-A86F-C52A73960544} = {0B7BB2E3-3EF9-430F-998F-1B0E96B3E344}
+		{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6} = {46CA05F7-5AC2-4A96-B065-FB6CB4E4D204}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E26A080D-D84A-4F99-B293-7999116D5D89}

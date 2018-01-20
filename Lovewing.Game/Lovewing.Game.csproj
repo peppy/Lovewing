@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -62,7 +63,13 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OpenTK, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ppy.OpenTK.3.0.11\lib\net45\OpenTK.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -73,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Level\Note.cs" />
     <Compile Include="Graphics\Background.cs" />
     <Compile Include="Graphics\Cursor\LovewingCursor.cs" />
     <Compile Include="Graphics\FontAwesome.cs" />
@@ -94,6 +102,17 @@
     <Compile Include="Graphics\UserInterface\LovewingSmallButton.cs" />
     <Compile Include="Graphics\UserInterface\LovewingTabControl.cs" />
     <Compile Include="Graphics\UserInterface\LovewingTextBox.cs" />
+    <Compile Include="Level\Beatmap.cs" />
+    <Compile Include="Loaders\CBFLoader.cs" />
+    <Compile Include="Loaders\DEPLSLoader.cs" />
+    <Compile Include="Loaders\AsyncFileUtils.cs" />
+    <Compile Include="Loaders\IBeatmapLoader.cs" />
+    <Compile Include="Loaders\LLPLoader.cs" />
+    <Compile Include="Loaders\LS2Loader.cs" />
+    <Compile Include="Loaders\MIDLoader.cs" />
+    <Compile Include="Loaders\SIFLoader.cs" />
+    <Compile Include="Loaders\SIFSLoader.cs" />
+    <Compile Include="Loaders\SIFTLoader.cs" />
     <Compile Include="LovewingGame.cs" />
     <Compile Include="LovewingGameBase.cs" />
     <Compile Include="LovewingTests.cs" />
@@ -136,6 +155,7 @@
     <None Include="libdiscord-rpc.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lovewing.Resources\Lovewing.Game.Resources\Lovewing.Game.Resources.csproj">

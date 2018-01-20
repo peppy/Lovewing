@@ -1,0 +1,9 @@
+L4/Custom/UR/SH_eli/0.3731138,1.185185,1.536351/True;
+L3/Custom/UR/SH_nico/1.272977,0,0.9876541/True;
+L2/Custom/UR/SH_hana/0,1.119342,0/True;
+L1/Custom/UR/SH_umi/0.3731142,0.4170099,1.27572/True;
+C/Custom/UR/SH_nozo/1.009602,0,1.03155/True;
+R1/Custom/UR/SH_honk/1.514403,0.8120708,0/True;
+R2/Custom/UR/SH_koto/1.009602,1.009602,1.009602/True;
+R3/Custom/UR/SH_rin/1.185185,1.163237,0.3072701/True;
+R4/Custom/UR/SH_maki/1.316872,0,0/True;
