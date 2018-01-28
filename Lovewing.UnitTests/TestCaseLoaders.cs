@@ -1,12 +1,10 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Lovewing.Game.Loaders;
-using Lovewing.Game.Level;
 
 namespace Lovewing.UnitTests
 {
@@ -104,6 +102,17 @@ namespace Lovewing.UnitTests
                 Assert.IsTrue(beatmap.Notes.Count > 0, "Beatmap has notes");
                 Assert.IsTrue(IsSorted(beatmap.Notes, note => note.Time), "Beatmap notes are sorted according to time");
             }
+        }
+
+        [TestMethod]
+        public async Task MIDILoaderTest()
+        {
+            var loader = new MIDLoader();
+
+            Assert.AreEqual(".mid", loader.GetFileExtension());
+            Assert.IsTrue(loader.CanLoadFile("../../Resources/sample.mid"));
+
+            var beatmap = loader.Load("../../Resources/sample.mid");
         }
     }
 }
