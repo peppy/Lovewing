@@ -1,4 +1,5 @@
-﻿using Lovewing.Graphics.Overlays;
+﻿using Lovewing.Graphics.Cursor;
+using Lovewing.Graphics.Overlays;
 using Lovewing.Screens;
 using Lovewing.Screens.Game;
 using osu.Framework.Graphics;
@@ -15,6 +16,8 @@ namespace Lovewing
         protected override void LoadComplete()
         {
             base.LoadComplete();
+
+            Child = new LovewingCursor();
 
             AddRange(new Drawable[]
             {
