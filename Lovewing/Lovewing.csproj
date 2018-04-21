@@ -2,9 +2,13 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFrameworks>netcoreapp2.0;net471</TargetFrameworks>
+    <AssemblyTitle>Lovewing</AssemblyTitle>
+    <Description>School Idol Festival. Redefined.</Description>
     <ApplicationIcon>lovewing.ico</ApplicationIcon>
     <StartupObject>Lovewing.Program</StartupObject>
+    <Company>ClarityMoe</Company>
+    <RepositoryUrl>https://github.com/ProjectLovewing/Lovewing</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
