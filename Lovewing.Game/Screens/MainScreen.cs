@@ -284,16 +284,6 @@ namespace Lovewing.Game.Screens
         protected override void OnEntering(Screen last)
         {
             Content.FadeIn(400);
-
-            var presence = new DiscordRpc.RichPresence
-            {
-                state = "Idle",
-                details = "Main Menu",
-                largeImageKey = "logo"
-            };
-
-            DiscordRpc.UpdatePresence(ref presence);
-
             base.OnEntering(last);
         }
 

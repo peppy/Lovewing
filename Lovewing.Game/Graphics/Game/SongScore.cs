@@ -1,4 +1,5 @@
 ﻿using System;
+using osu.Framework.Allocation;
 using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
@@ -10,18 +11,22 @@ namespace Lovewing.Game.Graphics.Game
 {
     public class SongScore : Container
     {
-        private readonly Box progressBox;
+        private Box progressBox;
 
         public double Score
         {
-            get => Math.Floor(progressBox.Width / ((GameHost.Instance.Window.Width - 100.0) / 100));
-            set => progressBox.Width = (float) ((GameHost.Instance.Window.Width - 100.0) / 100 * value);
+            get => Math.Floor(progressBox.Width / ((host.Window.Width - 100.0) / 100));
+            set => progressBox.Width = (float) ((host.Window.Width - 100.0) / 100 * value);
         }
 
-        public SongScore()
+        private GameHost host;
+
+        [BackgroundDependencyLoader]
+        private void load(GameHost host)
         {
+            this.host = host;
             Height = 10;
-            Width = GameHost.Instance.Window.Width - 100;
+            Width = host.Window.Width - 100;
             Masking = true;
             EdgeEffect = new EdgeEffectParameters
             {
@@ -44,7 +49,7 @@ namespace Lovewing.Game.Graphics.Game
                     Anchor = Anchor.CentreLeft,
                     Origin = Anchor.CentreLeft,
                     RelativeSizeAxes = Axes.Y,
-                    Width = GameHost.Instance.Window.Width - 100,
+                    Width = host.Window.Width - 100,
                     Colour = Color4.LightSkyBlue
                 }
             });

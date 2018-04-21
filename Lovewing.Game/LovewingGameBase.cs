@@ -4,7 +4,6 @@
 using Lovewing.Game.Online;
 using Lovewing.Game.Graphics;
 using osu.Framework.Allocation;
-using osu.Framework.Configuration;
 using osu.Framework.Platform;
 using osu.Framework.IO.Stores;
 using OpenTK;
@@ -21,13 +20,9 @@ namespace Lovewing.Game
         protected override IReadOnlyDependencyContainer CreateLocalDependencies(IReadOnlyDependencyContainer parent) =>
             dependencies = new DependencyContainer(base.CreateLocalDependencies(parent));
 
-        private DiscordRpc.EventHandlers discordHandlers;
-
         [BackgroundDependencyLoader]
         private void load()
         {
-            DiscordRpc.Initialize("384734966690611202", ref discordHandlers, true, "");
-
             dependencies.Cache(this);
             dependencies.Cache(new LovewingColours());
             dependencies.Cache(new UserData());
@@ -50,17 +45,18 @@ namespace Lovewing.Game
         {
             base.SetHost(host);
 
-            var config = new FrameworkConfigManager(storage);
+            /*var config = new FrameworkConfigManager(storage);
 
             config.Set(FrameworkSetting.WindowMode, WindowMode.Windowed);
             config.Set(FrameworkSetting.Height, 720);
-            config.Set(FrameworkSetting.Width, 1280);
+            config.Set(FrameworkSetting.Width, 1280);*/
 
             Window.CursorState = CursorState.Hidden;
             Window.WindowBorder = WindowBorder.Fixed;
 
-            Window.SetTitle(@"Lovewing");
-            Window.SetupWindow(config);
+            Window.Title = @"Lovewing";
+
+            //Window.SetupWindow(config);
         }
     }
 }

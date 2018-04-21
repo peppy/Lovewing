@@ -4,7 +4,6 @@
 using Lovewing.Game.Graphics;
 using Lovewing.Game.Graphics.Overlay;
 using Lovewing.Game.Graphics.UserInterface;
-using Lovewing.Game.Online;
 using Lovewing.Game.Screens.Game;
 using Lovewing.Game.Screens.Liveshow.Matchmaking;
 using osu.Framework.Graphics;
@@ -375,15 +374,6 @@ namespace Lovewing.Game.Screens.Liveshow
 
         protected override void OnEntering(Screen last)
         {
-            var presence = new DiscordRpc.RichPresence
-            {
-                details = "Liveshow Selection",
-                state = "Idle",
-                largeImageKey = "logo"
-            };
-
-            DiscordRpc.UpdatePresence(ref presence);
-
             Content.FadeInFromZero(400);
             base.OnEntering(last);
         }

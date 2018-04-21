@@ -1,0 +1,18 @@
+<!-- Contains required properties for osu!framework projects. -->
+<Project>
+  <PropertyGroup Label="C#">
+    <LangVersion>7</LangVersion>
+  </PropertyGroup>
+  <ItemGroup Label="License">
+    <None Include="..\Lovewing.licenseheader">
+      <Link>Lovewing.licenseheader</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup Label="Resources">
+    <EmbeddedResource Include="Resources\**\*.*" />
+  </ItemGroup>
+  <PropertyGroup Label="Project">
+    <Company>Clara</Company>
+    <Copyright>2017-2018 Clara</Copyright>
+  </PropertyGroup>
+</Project>
