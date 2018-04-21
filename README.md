@@ -4,7 +4,7 @@
 
 ## What's this repo about?
 
-This repository would contain Project Lovewing. We accept contributions here.
+This repository contains Project Lovewing. We accept contributions here.
 
 ## Building
 
@@ -24,7 +24,7 @@ $ sudo apt-get update
 $ sudo apt-get install -y mono-complete
 
 # Clone the repo
-$ git clone https://github.com/ClarityMoe/Lovewing --recursive # use "-b dev" for development branch
+$ git clone https://github.com/ProjectLovewing/Lovewing --recursive # use "-b dev" for development branch
 $ cd Lovewing
 
 # Restore NuGet packages
@@ -35,7 +35,7 @@ $ mono nuget.exe restore
 $ msbuild
 
 # Run the game
-$ mono Lovewing.Game/bin/Debug/Lovewing.Game.exe
+$ mono Lovewing/bin/Debug/Lovewing.exe
 ```
 
 ## Disclaimer
@@ -46,4 +46,4 @@ osu!Framework is by Dean "peppy" Herbert of ppy Ltd. Licensed under MIT.
 
 Xamarin, the underlying source code and the Xamarin logo are trademarks of Xamarin inc. All rights reserved.
 
-Lovewing is under Eclipse Public License 1.0 (Source Code) and CC-BY-NC (Original assets).
+Lovewing is under Eclipse Public License 2.0 (Source Code) and CC-BY-NC (Original assets).

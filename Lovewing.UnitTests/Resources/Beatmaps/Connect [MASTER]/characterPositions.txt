@@ -1,9 +1,0 @@
-L4/Custom/UR/C_mami/1.495199,1.36214,0.5267489/True;
-L3/Custom/R/C_kyub/2,2,2/True;
-L2/Custom/UR/C_homu/1.251029,0.4170099,1.75583/True;
-L1/Custom/R/C_kyub/2,2,2/True;
-C/Custom/UR/C_mado/1.909465,0.7681755,1.185185/True;
-R1/Custom/R/C_kyub/2,2,2/True;
-R2/Custom/UR/C_saya/0.7242799,1.097394,2/True;
-R3/Custom/R/C_kyub/2,2,2/True;
-R4/Custom/UR/C_kyou/1.319616,0.3511659,0.6145405/True;

@@ -25,5 +25,5 @@ after_build:
 
 notifications:
   - provider: Webhook
-    url: https://claraio-circledisc.herokuapp.com/hooks/appveyor
+    url: https://circledisc-clarity.herokuapp.com/webhook/appveyor
     method: POST

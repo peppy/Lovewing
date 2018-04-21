@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <ApplicationIcon>lovewing.ico</ApplicationIcon>
+    <StartupObject>Lovewing.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\lovewing-resources\Lovewing.Game.Resources\Lovewing.Game.Resources.csproj" />
+    <ProjectReference Include="..\osu-framework\osu.Framework\osu.Framework.csproj" />
+  </ItemGroup>
+
+</Project>
