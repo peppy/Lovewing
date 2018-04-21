@@ -6,7 +6,7 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
 
-namespace Lovewing.Graphics
+namespace Lovewing.Graphics.Containers
 {
     internal class Background : BufferedContainer
     {
