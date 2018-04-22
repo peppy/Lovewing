@@ -45,7 +45,6 @@ namespace Lovewing
             Window.CursorState = CursorState.Hidden;
             Window.WindowBorder = WindowBorder.Fixed;
             Window.Title = @"Project Lovewing";
-            
 
             Window.SetupWindow(config);
         }
