@@ -98,7 +98,7 @@ namespace Lovewing.Screens.Game
 
             AddRange(new Drawable[]
             {
-                new Background(@"https://cdn.discordapp.com/attachments/251718122447437824/403549744951066636/bg2.jpg"),
+                new Background(@"Backgrounds/liveshow"),
                 new Container
                 {
                     Anchor = Anchor.Centre,
