@@ -13,6 +13,7 @@ using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Input;
 using osu.Framework.Screens;
+using System;
 using System.Collections.Generic;
 
 namespace Lovewing.Screens.Game
@@ -189,40 +190,107 @@ namespace Lovewing.Screens.Game
             {
                 int index = beatmaps.Value.IndexOf(beatmap);
 
-                beatmapContainer?.Add(new Container
+                beatmapContainer?.Add(new BeatmapItem(beatmap)
                 {
-                    Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
-                    Size = new Vector2(200),
-                    Masking = true,
-                    EdgeEffect = new EdgeEffectParameters
-                    {
-                        Type = EdgeEffectType.Shadow,
-                        Radius = 10,
-                        Colour = ColourInfo.SingleColour(Color4.Black).MultiplyAlpha(0.05f)
-                    },
-                    CornerRadius = 5,
                     Margin = new MarginPadding { Left = 450 * index },
-                    Children = new Drawable[]
-                    {
-                        new Box
-                        {
-                            RelativeSizeAxes = Axes.Both,
-                            Colour = LovewingColours.LightBlue
-                        },
-                        new SpriteText
-                        {
-                            Rotation = 45,
-                            Text = beatmap.Title,
-                            Colour = Color4.White,
-                            Anchor = Anchor.Centre,
-                            Origin = Anchor.Centre
-                        }
-                    }
+                    Action = () => selected.Value = beatmap
                 });
             }
 
             base.LoadComplete();
+        }
+
+        private class BeatmapItem : ClickableContainer
+        {
+            private readonly Box hover;
+            private Circle curRipple;
+
+            public BeatmapItem(Beatmap beatmap)
+            {
+                Anchor = Anchor.Centre;
+                Origin = Anchor.Centre;
+                Size = new Vector2(200);
+                Masking = true;
+                EdgeEffect = new EdgeEffectParameters
+                {
+                    Type = EdgeEffectType.Shadow,
+                    Radius = 10,
+                    Colour = ColourInfo.SingleColour(Color4.Black).MultiplyAlpha(0.05f)
+                };
+                CornerRadius = 5;
+                Children = new Drawable[]
+                {
+                    new Box
+                    {
+                        RelativeSizeAxes = Axes.Both,
+                        Colour = LovewingColours.LightBlue
+                    },
+                    new SpriteText
+                    {
+                        Rotation = 45,
+                        Text = beatmap.Title,
+                        Colour = Color4.White,
+                        Anchor = Anchor.Centre,
+                        Origin = Anchor.Centre
+                    },
+                    hover = new Box
+                    {
+                        RelativeSizeAxes = Axes.Both,
+                        Colour = ColourInfo.SingleColour(Color4.White).MultiplyAlpha(0.2f),
+                        Alpha = 0
+                    }
+                };
+            }
+
+            protected override bool OnHover(InputState state)
+            {
+                hover.FadeIn(200);
+
+                return base.OnHover(state);
+            }
+
+            protected override void OnHoverLost(InputState state)
+            {
+                hover.FadeOut(200);
+
+                base.OnHoverLost(state);
+            }
+
+            protected override bool OnMouseDown(InputState state, MouseDownEventArgs args)
+            {
+                // var x = state.Mouse.Position.X - BoundingBox.X - BoundingBox.Width / 2;
+                // var y = state.Mouse.Position.Y - BoundingBox.Y - BoundingBox.Height / 2;
+
+                Circle ripple;
+
+                AddInternal(ripple = new Circle
+                {
+                    Anchor = Anchor.Centre,
+                    Origin = Anchor.Centre,
+                    // X = x,
+                    // Y = y,
+                    Width = 10,
+                    Height = 10,
+                    Colour = ColourInfo.SingleColour(Color4.Gray).MultiplyAlpha(0.3f),
+                    Blending = BlendingMode.Additive
+                });
+
+                ripple.ScaleTo(Math.Max(Size.X, Size.Y) / 5, 650, Easing.OutCirc);
+
+                curRipple = ripple;
+
+                return base.OnMouseDown(state, args);
+            }
+
+            protected override bool OnMouseUp(InputState state, MouseUpEventArgs args)
+            {
+                curRipple?.FadeOut(450)
+                    .Expire();
+
+                curRipple = null;
+
+                return base.OnMouseUp(state, args);
+            }
         }
     }
 }
