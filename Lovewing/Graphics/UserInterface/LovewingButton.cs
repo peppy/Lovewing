@@ -15,6 +15,12 @@ namespace Lovewing.Graphics.UserInterface
 
         protected Box hover;
 
+        public float TextSize
+        {
+            get => SpriteText.TextSize;
+            set => SpriteText.TextSize = value;
+        }
+
         public LovewingButton()
         {
             SpriteText.Font = @"Noto Sans CJK JP Regular";
