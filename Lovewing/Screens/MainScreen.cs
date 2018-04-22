@@ -18,7 +18,6 @@ namespace Lovewing.Screens
 {
     public class MainScreen : Screen
     {
-        private LovewingGame game;
         private Container<TabContainer> tabs;
         private TabContainer homeTab;
         private TabContainer idolTab;
