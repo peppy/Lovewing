@@ -5,7 +5,6 @@ using Lovewing.Graphics.UserInterface;
 using Lovewing.Screens.Game;
 using OpenTK;
 using OpenTK.Graphics;
-using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Colour;
 using osu.Framework.Graphics.Containers;
@@ -24,21 +23,27 @@ namespace Lovewing.Screens
         private TabContainer homeTab;
         private TabContainer idolTab;
         private TabContainer liveshowTab;
-        private GameScreen gameScreen = new GameScreen();
+        private GameScreen gameScreen;
+        private SongSelectorScreen songSelectorScreen;
 
-        [BackgroundDependencyLoader]
-        private void load(LovewingGame game) => this.game = game;
+        protected override void OnEntering(Screen last)
+        {
+            LoadComponentAsync(gameScreen = new GameScreen());
+            LoadComponentAsync(songSelectorScreen = new SongSelectorScreen());
+        }
 
         protected override bool OnClick(InputState state)
         {
-            if (game.Sidebar.IsOpen)
-                game.Sidebar.Toggle();
+            if (((LovewingGame) Game).Sidebar.IsOpen)
+                ((LovewingGame) Game).Sidebar.Toggle();
 
             return base.OnClick(state);
         }
 
         protected override void LoadComplete()
         {
+            base.LoadComplete();
+
             AddRange(new Drawable[]
             {
                 new Background(@"Backgrounds/mainmenu"),
@@ -58,7 +63,7 @@ namespace Lovewing.Screens
                             Origin = Anchor.BottomRight,
                             RelativeSizeAxes = Axes.Both,
                             Width = 0.5f,
-                            // ButtonAction = () => Push(gameScreen)
+                            ButtonAction = () => Push(songSelectorScreen)
                         },
                         idolTab = new TabContainer
                         {
