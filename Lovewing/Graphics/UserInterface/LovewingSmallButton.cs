@@ -20,12 +20,6 @@ namespace Lovewing.Graphics.UserInterface
             set => icon.Icon = value;
         }
 
-        public float TextSize
-        {
-            get => SpriteText.TextSize;
-            set => SpriteText.TextSize = value;
-        }
-
         public string Font
         {
             get => SpriteText.Font;
