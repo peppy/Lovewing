@@ -168,7 +168,7 @@ namespace Lovewing.Graphics.Overlays
                             RelativeSizeAxes = Axes.X,
                             Height = 50
                         },
-                        new Container
+                        levelCon = new Container
                         {
                             Anchor = Anchor.TopCentre,
                             Origin = Anchor.TopCentre,
@@ -186,7 +186,7 @@ namespace Lovewing.Graphics.Overlays
                                     Origin = Anchor.Centre,
                                     RelativeSizeAxes = Axes.Both
                                 },
-                                new SpriteText
+                                levelText = new SpriteText
                                 {
                                     Font = @"Muli Light",
                                     Anchor = Anchor.Centre,
