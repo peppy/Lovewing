@@ -46,7 +46,7 @@ namespace Lovewing.Graphics.Overlays
                     Icon = FontAwesome.fa_ellipsis_v,
                     Action = ButtonAction,
                     Margin = new MarginPadding { Top = 17.5f },
-                    Size = new Vector2(15, 55),
+                    Size = new Vector2(10, 50),
                     Origin = Anchor.TopRight,
                     Anchor = Anchor.TopRight,
                     Colour = Color4.White
