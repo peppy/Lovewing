@@ -32,7 +32,7 @@ namespace Lovewing.Graphics.UserInterface
             {
                 Type = EdgeEffectType.Shadow,
                 Radius = 10,
-                Colour = ColourInfo.SingleColour(Color4.Black).MultiplyAlpha(0.2f)
+                Colour = ColourInfo.SingleColour(Color4.Black).MultiplyAlpha(0.05f)
             };
 
             AddRangeInternal(new Drawable[]
