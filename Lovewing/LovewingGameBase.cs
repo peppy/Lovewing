@@ -26,6 +26,7 @@ namespace Lovewing
         private void load()
         {
             dependencies.Cache(this);
+            dependencies.Cache(storage);
 
             Fonts.AddStore(new GlyphStore(Resources, @"Fonts/FontAwesome"));
             Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Muli_Light"));
