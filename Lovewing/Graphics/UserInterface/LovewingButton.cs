@@ -13,7 +13,7 @@ namespace Lovewing.Graphics.UserInterface
     {
         private Circle curRipple;
 
-        protected Box hover;
+        protected Box Hover;
 
         public float TextSize
         {
@@ -37,7 +37,7 @@ namespace Lovewing.Graphics.UserInterface
 
             AddRangeInternal(new Drawable[]
             {
-                hover = new Box
+                Hover = new Box
                 {
                     RelativeSizeAxes = Axes.Both,
                     Colour = ColourInfo.SingleColour(Color4.White).MultiplyAlpha(0.2f),
@@ -48,13 +48,13 @@ namespace Lovewing.Graphics.UserInterface
 
         protected override bool OnHover(InputState state)
         {
-            hover.FadeIn(200);
+            Hover.FadeIn(200);
             return base.OnHover(state);
         }
 
         protected override void OnHoverLost(InputState state)
         {
-            hover.FadeOut(200);
+            Hover.FadeOut(200);
             base.OnHoverLost(state);
         }
 

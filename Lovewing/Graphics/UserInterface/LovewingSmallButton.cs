@@ -88,7 +88,7 @@ namespace Lovewing.Graphics.UserInterface
                     Margin = new MarginPadding { Bottom = 5 },
                     Font = @"Noto Sans CJK JP Regular"
                 },
-                hover = new Box
+                Hover = new Box
                 {
                     RelativeSizeAxes = Axes.Both,
                     Colour = ColourInfo.SingleColour(Color4.White).MultiplyAlpha(0.5f),
