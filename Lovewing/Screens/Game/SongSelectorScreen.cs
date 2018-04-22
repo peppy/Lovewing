@@ -5,8 +5,6 @@ using Lovewing.Graphics.UserInterface;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Input;
-using osu.Framework.Allocation;
-using osu.Framework.Audio.Track;
 using osu.Framework.Configuration;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Colour;
@@ -26,7 +24,7 @@ namespace Lovewing.Screens.Game
 
         private SpriteText titleText;
         private SpriteText artistText;
-        private FillFlowContainer beatmapContainer;
+        private ScrollContainer beatmapContainer;
 
         public SongSelectorScreen()
         {
@@ -51,6 +49,11 @@ namespace Lovewing.Screens.Game
                 {
                     Title = @"Broken Bones",
                     Artists = { @"Pixl", @"Cassandra Kay" }
+                },
+                new Beatmap
+                {
+                    Title = @"Searching for You",
+                    Artists = { @"Unlike Pluto", @"Karra", @"Eric Zayne" }
                 }
             });
 
@@ -107,7 +110,30 @@ namespace Lovewing.Screens.Game
                     Height = 500,
                     Children = new Drawable[]
                     {
-                        // TODO: Add carousel
+                        new FocusedTextBox
+                        {
+                            Anchor = Anchor.TopCentre,
+                            Origin = Anchor.TopCentre,
+                            PlaceholderText = @"Search",
+                            Width = 250,
+                            Height = 50,
+                            BorderColour = Color4.White,
+                            BorderThickness = 5,
+                            CornerRadius = 0,
+                            CommitColour = Color4.LimeGreen,
+                            FocusedColour = LovewingColours.LightBlue,
+                            UnfocusedColour = LovewingColours.Transparent,
+                            PlaceholderColour = LovewingColours.White,
+                            TextColour = LovewingColours.White
+                        },
+                        beatmapContainer = new ScrollContainer(Direction.Horizontal)
+                        {
+                            Anchor = Anchor.Centre,
+                            Origin = Anchor.Centre,
+                            RelativeSizeAxes = Axes.X,
+                            Height = 400,
+                            Margin = new MarginPadding { Bottom = 100 }
+                        }
                     }
                 },
                 new Container
@@ -155,6 +181,46 @@ namespace Lovewing.Screens.Game
                     }
                 }
             });
+
+            beatmapContainer.ScrollContent.Anchor = Anchor.Centre;
+            beatmapContainer.ScrollContent.Origin = Anchor.Centre;
+
+            foreach (var beatmap in beatmaps.Value)
+            {
+                int index = beatmaps.Value.IndexOf(beatmap);
+
+                beatmapContainer?.Add(new Container
+                {
+                    Anchor = Anchor.Centre,
+                    Origin = Anchor.Centre,
+                    Size = new Vector2(200),
+                    Masking = true,
+                    EdgeEffect = new EdgeEffectParameters
+                    {
+                        Type = EdgeEffectType.Shadow,
+                        Radius = 10,
+                        Colour = ColourInfo.SingleColour(Color4.Black).MultiplyAlpha(0.05f)
+                    },
+                    CornerRadius = 5,
+                    Margin = new MarginPadding { Left = 450 * index },
+                    Children = new Drawable[]
+                    {
+                        new Box
+                        {
+                            RelativeSizeAxes = Axes.Both,
+                            Colour = LovewingColours.LightBlue
+                        },
+                        new SpriteText
+                        {
+                            Rotation = 45,
+                            Text = beatmap.Title,
+                            Colour = Color4.White,
+                            Anchor = Anchor.Centre,
+                            Origin = Anchor.Centre
+                        }
+                    }
+                });
+            }
 
             base.LoadComplete();
         }
