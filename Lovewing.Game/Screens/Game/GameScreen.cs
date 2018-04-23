@@ -1,9 +1,6 @@
 ﻿using Lovewing.Game.Graphics;
 using Lovewing.Game.Graphics.Game;
 using Lovewing.Game.Graphics.Overlay;
-using Lovewing.Game.Graphics.UserInterface;
-using Lovewing.Game.Online;
-using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
@@ -314,15 +311,6 @@ namespace Lovewing.Game.Screens.Game
 
         protected override void LoadComplete()
         {
-            var presence = new DiscordRpc.RichPresence
-            {
-                details = "Test Game",
-                state = "In-Game",
-                largeImageKey = "logo"
-            };
-
-            DiscordRpc.UpdatePresence(ref presence);
-
             bg.BlurTo(new Vector2(10));
         }
     }

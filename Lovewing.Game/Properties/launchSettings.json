@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Game": {
+      "commandName": "Project"
+    },
+    "VisualTests": {
+      "commandName": "Project",
+      "commandLineArgs": "--tests"
+    }
+  }
+}

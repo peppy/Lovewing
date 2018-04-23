@@ -1,6 +1,6 @@
-[submodule "osu.Framework"]
-	path = osu.Framework
-	url = https://github.com/ppy/osu-framework
 [submodule "Lovewing.Resources"]
 	path = Lovewing.Resources
 	url = https://github.com/ClarityMoe/Lovewing.Resources
+[submodule "osu-framework"]
+	path = osu-framework
+	url = git@github.com:ppy/osu-framework.git
