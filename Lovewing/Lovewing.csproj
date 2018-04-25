@@ -11,6 +11,14 @@
     <RepositoryUrl>https://github.com/ProjectLovewing/Lovewing</RepositoryUrl>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp2.0|AnyCPU'">
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.4.1" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\lovewing-resources\Lovewing.Game.Resources\Lovewing.Game.Resources.csproj" />
     <ProjectReference Include="..\osu-framework\osu.Framework\osu.Framework.csproj" />
