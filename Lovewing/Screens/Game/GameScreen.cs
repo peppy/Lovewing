@@ -129,7 +129,7 @@ namespace Lovewing.Screens.Game
         private void loadGameState(Beatmap bm)
         {
             beatmap = bm;
-            gameState = new GameState(bm, 1.0);
+            gameState = new GameState(bm, 2.0);
             timeBase = Time.Current / 1000.0;
         }
 
@@ -184,7 +184,7 @@ namespace Lovewing.Screens.Game
                 double scaledTime = Time.Current - timeBase;
                 gameState.Update(scaledTime, noteState =>
                 {
-                    ActiveNote newNote = new ActiveNote
+                    ActiveNote newNote = new ActiveNote(lanePositions[noteState.LaneIndex])
                     {
                         RelativePositionAxes = Axes.Both,
                         Position = SourcePosition
