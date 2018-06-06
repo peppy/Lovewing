@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27428.2037
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing", "Lovewing\Lovewing.csproj", "{B6C49854-A2EF-4808-8824-FDA998EBB221}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lovewing", "Lovewing\Lovewing.csproj", "{B6C49854-A2EF-4808-8824-FDA998EBB221}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "osu.Framework", "osu-framework\osu.Framework\osu.Framework.csproj", "{0308FEFC-57E4-48C6-A907-D4ECE712A245}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing.Game.Resources", "lovewing-resources\Lovewing.Game.Resources\Lovewing.Game.Resources.csproj", "{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lovewing.Game.Resources", "lovewing-resources\Lovewing.Game.Resources\Lovewing.Game.Resources.csproj", "{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing.UnitTests", "Lovewing.UnitTests\Lovewing.UnitTests.csproj", "{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F450F4C3-9885-4D04-9AD4-7C3D7B5CBDB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
