@@ -1,9 +1,0 @@
-L4//0/0/0/0,0/0/False/True/True/True/True/Enter Right;
-L3//0/0/0/0,0/0/False/True/True/True/True/Enter Right;
-L2//0/0/0/0,0/0/False/True/True/True/True/Enter Right;
-L1//0/0/0/0,0/0/False/True/True/True/True/Enter Right;
-C//0/0/0/0,0/0/False/True/True/True/True/Enter Right;
-R1//0/0/0/0,0/0/False/True/True/True/True/Enter Right;
-R2//0/0/0/0,0/0/False/True/True/True/True/Enter Right;
-R3//0/0/0/0,0/0/False/True/True/True/True/Enter Right;
-R4//0/0/0/0,0/0/False/True/True/True/True/Enter Right;
