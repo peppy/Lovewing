@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Lovewing": {
+      "commandName": "Project",
+      "workingDirectory": "G:\\Lovewing\\Lovewing\\lovewing-resources\\Lovewing.Game.Resources"
+    }
+  }
+}

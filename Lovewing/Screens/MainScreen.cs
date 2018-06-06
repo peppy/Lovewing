@@ -25,10 +25,53 @@ namespace Lovewing.Screens
         private GameScreen gameScreen;
         private SongSelectorScreen songSelectorScreen;
 
+        /// <summary>
+        /// Loads up initial copies of all child screens.
+        /// </summary>
+        /// <param name="last">Unused</param>
         protected override void OnEntering(Screen last)
         {
-            LoadComponentAsync(gameScreen = new GameScreen());
             LoadComponentAsync(songSelectorScreen = new SongSelectorScreen());
+            LoadComponentAsync(gameScreen = new GameScreen());
+        }
+
+        /// <summary>
+        /// Called after resuming a subscreen.
+        /// Used to perform actions like swapping to the game screen after the user selected
+        /// a song in the song selector screen.
+        /// </summary>
+        /// <param name="last"></param>
+        protected override void OnResuming(Screen last)
+        {
+            if(last == songSelectorScreen)
+            {
+                if (songSelectorScreen.Selected != null)
+                {
+                    // The user just selected a song, so lets load up the game screen.
+                    gameScreen.Beatmap = songSelectorScreen.Selected;
+                    Push(gameScreen);
+                }
+            }
+
+            ReloadChildScreen(last);
+        }
+
+        /// <summary>
+        /// After returning from a subscreen it gets destroyed.
+        /// This asyncrynously reloads a new copy of a subscreen after returning to ensure
+        /// the next time the user loads a subscreen it's instantaneous.
+        /// </summary>
+        /// <param name="last">The subscreen that was just destroyed</param>
+        private void ReloadChildScreen(Screen last)
+        {
+            if (last == songSelectorScreen)
+            {
+                LoadComponentAsync(songSelectorScreen = new SongSelectorScreen());
+            }
+            else if (last == gameScreen)
+            {
+                LoadComponentAsync(gameScreen = new GameScreen());
+            }
         }
 
         protected override bool OnClick(InputState state)

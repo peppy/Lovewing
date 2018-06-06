@@ -15,12 +15,26 @@ using osu.Framework.Input;
 using osu.Framework.Screens;
 using System;
 using System.Collections.Generic;
+using Lovewing.Beatmaps.Loaders;
+using System.Threading.Tasks;
 
 namespace Lovewing.Screens.Game
 {
     public class SongSelectorScreen : Screen
     {
-        private Bindable<Beatmap> selected = new Bindable<Beatmap>();
+        private Bindable<Beatmap> selected = new Bindable<Beatmap>
+        {
+            Default = null
+        };
+
+        /// <summary>
+        /// Get the user's selected beatmap, if any.
+        /// </summary>
+        public Beatmap Selected
+        {
+            get => selected.Value;
+        }
+
         private Bindable<List<Beatmap>> beatmaps = new Bindable<List<Beatmap>>(new List<Beatmap>());
 
         private SpriteText titleText;
@@ -29,8 +43,15 @@ namespace Lovewing.Screens.Game
 
         public SongSelectorScreen()
         {
+            LLPLoader loader = new LLPLoader();
+            Task<Beatmap> task = loader.Load("G:\\Lovewing\\Lovewing\\lovewing-resources\\Lovewing.Game.Resources\\Beatmaps\\llp\\let_me_hear.llp");
+            task.Wait();
+            Beatmap testBeatmap = task.Result;
+            testBeatmap.Title = @"TestBeatmap";
+
             beatmaps.Value.AddRange(new Beatmap[]
             {
+                testBeatmap,
                 new Beatmap
                 {
                     Title = @"Questions",
@@ -177,7 +198,8 @@ namespace Lovewing.Screens.Game
                             TextSize = 20,
                             BackgroundColour = LovewingColours.Blue,
                             Height = 50,
-                            Width = 200
+                            Width = 200,
+                            Action = () => Exit()
                         }
                     }
                 }
