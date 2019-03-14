@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing", "Lovewing\Lovewing.csproj", "{B6C49854-A2EF-4808-8824-FDA998EBB221}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "osu.Framework", "osu-framework\osu.Framework\osu.Framework.csproj", "{0308FEFC-57E4-48C6-A907-D4ECE712A245}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lovewing.Game.Resources", "lovewing-resources\Lovewing.Game.Resources\Lovewing.Game.Resources.csproj", "{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{B6C49854-A2EF-4808-8824-FDA998EBB221}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6C49854-A2EF-4808-8824-FDA998EBB221}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6C49854-A2EF-4808-8824-FDA998EBB221}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0308FEFC-57E4-48C6-A907-D4ECE712A245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0308FEFC-57E4-48C6-A907-D4ECE712A245}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0308FEFC-57E4-48C6-A907-D4ECE712A245}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0308FEFC-57E4-48C6-A907-D4ECE712A245}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AE5D1F5-77A5-4478-8D6E-32D06C7060B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
