@@ -1,9 +1,8 @@
 ﻿using Lovewing.Graphics.Cursor;
 using Lovewing.Graphics.Overlays;
 using Lovewing.Screens;
-using Lovewing.Screens.Game;
 using osu.Framework.Graphics;
-using osu.Framework.Input;
+using osu.Framework.Screens;
 
 namespace Lovewing
 {
@@ -21,7 +20,10 @@ namespace Lovewing
 
             AddRange(new Drawable[]
             {
-                mainScreen = new MainScreen(),
+                new ScreenStack(mainScreen = new MainScreen())
+                {
+                    RelativeSizeAxes = Axes.Both,
+                },
                 Sidebar = new Sidebar(),
                 Toolbar = new Toolbar
                 {

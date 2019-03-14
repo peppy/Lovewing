@@ -1,7 +1,5 @@
-﻿using OpenTK.Graphics;
-using osu.Framework.Allocation;
+﻿using osuTK.Graphics;
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Colour;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.UserInterface;
 

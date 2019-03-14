@@ -1,6 +1,6 @@
 ﻿using Lovewing.Graphics.Sprites;
-using OpenTK;
-using OpenTK.Graphics;
+using osuTK;
+using osuTK.Graphics;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Colour;
 using osu.Framework.Graphics.Shapes;
@@ -22,7 +22,7 @@ namespace Lovewing.Graphics.UserInterface
 
         public string Font
         {
-            get => SpriteText.Font;
+            get => SpriteText.Font.Family;
             set => SpriteText.Font = value;
         }
 

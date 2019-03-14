@@ -1,4 +1,5 @@
-﻿using OpenTK;
+﻿using System.Drawing;
+using osuTK;
 using osu.Framework;
 using osu.Framework.Allocation;
 using osu.Framework.Configuration;
@@ -9,13 +10,11 @@ namespace Lovewing
 {
     public class LovewingGameBase : Game
     {
-        protected override string MainResourceFile => "Lovewing.Game.Resources.dll";
-
         private DependencyContainer dependencies;
-        private readonly Storage storage = new DesktopStorage("lovewing");
+        private Storage storage;
 
-        protected override IReadOnlyDependencyContainer CreateLocalDependencies(IReadOnlyDependencyContainer parent) => 
-            dependencies = new DependencyContainer(base.CreateLocalDependencies(parent));
+        protected override IReadOnlyDependencyContainer CreateChildDependencies(IReadOnlyDependencyContainer parent) =>
+            dependencies = new DependencyContainer(base.CreateChildDependencies(parent));
 
         public LovewingGameBase()
         {
@@ -25,6 +24,8 @@ namespace Lovewing
         [BackgroundDependencyLoader]
         private void load()
         {
+            Resources.AddStore(new DllResourceStore(@"Lovewing.Game.Resources.dll"));
+
             dependencies.Cache(this);
             dependencies.Cache(storage);
 
@@ -37,11 +38,11 @@ namespace Lovewing
         {
             base.SetHost(host);
 
+            storage = new DesktopStorage("lovewing", Host);
             var config = new FrameworkConfigManager(storage);
 
             config.Set(FrameworkSetting.WindowMode, WindowMode.Windowed);
-            config.Set(FrameworkSetting.Height, 720);
-            config.Set(FrameworkSetting.Width, 1280);
+            config.Set(FrameworkSetting.WindowedSize, new Size(1280, 720));
 
             Window.CursorState = CursorState.Hidden;
             Window.WindowBorder = WindowBorder.Fixed;

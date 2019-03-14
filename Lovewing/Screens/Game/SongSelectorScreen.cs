@@ -2,26 +2,26 @@
 using Lovewing.Graphics;
 using Lovewing.Graphics.Containers;
 using Lovewing.Graphics.UserInterface;
-using OpenTK;
-using OpenTK.Graphics;
-using OpenTK.Input;
-using osu.Framework.Configuration;
+using osuTK;
+using osuTK.Graphics;
+using osuTK.Input;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Colour;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
-using osu.Framework.Input;
 using osu.Framework.Screens;
 using System;
 using System.Collections.Generic;
+using osu.Framework.Bindables;
+using osu.Framework.Input.Events;
 
 namespace Lovewing.Screens.Game
 {
     public class SongSelectorScreen : Screen
     {
-        private Bindable<Beatmap> selected = new Bindable<Beatmap>();
-        private Bindable<List<Beatmap>> beatmaps = new Bindable<List<Beatmap>>(new List<Beatmap>());
+        private readonly Bindable<Beatmap> selected = new Bindable<Beatmap>();
+        private readonly Bindable<List<Beatmap>> beatmaps = new Bindable<List<Beatmap>>(new List<Beatmap>());
 
         private SpriteText titleText;
         private SpriteText artistText;
@@ -61,7 +61,7 @@ namespace Lovewing.Screens.Game
             selected.Value = beatmaps.Value[0];
         }
 
-        protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
+        protected override bool OnKeyDown(KeyDownEvent args)
         {
             var maps = beatmaps.Value;
 
@@ -70,15 +70,15 @@ namespace Lovewing.Screens.Game
             switch (args.Key)
             {
                 case Key.Left:
-                    i = maps.IndexOf(selected) - 1;
-
+                    i = maps.IndexOf(selected.Value) - 1;
                     if (i > -1)
+
                         selected.Value = maps[i];
 
                     return true;
 
                 case Key.Right:
-                    i = maps.IndexOf(selected) + 1;
+                    i = maps.IndexOf(selected.Value) + 1;
 
                     if (i < maps.Count)
                         selected.Value = maps[i];
@@ -86,7 +86,7 @@ namespace Lovewing.Screens.Game
                     return true;
 
                 default:
-                    return base.OnKeyDown(state, args);
+                    return base.OnKeyDown(args);
             }
         }
 
@@ -96,11 +96,11 @@ namespace Lovewing.Screens.Game
 
             selected.ValueChanged += val =>
             {
-                titleText.Text = val.Title;
-                artistText.Text = string.Join(", ", val.Artists);
+                titleText.Text = val.NewValue.Title;
+                artistText.Text = string.Join(", ", val.NewValue.Artists);
             };
 
-            AddRange(new Drawable[]
+            AddRangeInternal(new Drawable[]
             {
                 new Background(@"Backgrounds/liveshow"),
                 new Container
@@ -242,21 +242,21 @@ namespace Lovewing.Screens.Game
                 };
             }
 
-            protected override bool OnHover(InputState state)
+            protected override bool OnHover(HoverEvent state)
             {
                 hover.FadeIn(200);
 
                 return base.OnHover(state);
             }
 
-            protected override void OnHoverLost(InputState state)
+            protected override void OnHoverLost(HoverLostEvent state)
             {
                 hover.FadeOut(200);
 
                 base.OnHoverLost(state);
             }
 
-            protected override bool OnMouseDown(InputState state, MouseDownEventArgs args)
+            protected override bool OnMouseDown(MouseDownEvent args)
             {
                 // var x = state.Mouse.Position.X - BoundingBox.X - BoundingBox.Width / 2;
                 // var y = state.Mouse.Position.Y - BoundingBox.Y - BoundingBox.Height / 2;
@@ -279,17 +279,17 @@ namespace Lovewing.Screens.Game
 
                 curRipple = ripple;
 
-                return base.OnMouseDown(state, args);
+                return base.OnMouseDown(args);
             }
 
-            protected override bool OnMouseUp(InputState state, MouseUpEventArgs args)
+            protected override bool OnMouseUp(MouseUpEvent args)
             {
                 curRipple?.FadeOut(450)
                     .Expire();
 
                 curRipple = null;
 
-                return base.OnMouseUp(state, args);
+                return base.OnMouseUp(args);
             }
         }
     }

@@ -8,7 +8,7 @@ namespace Lovewing.Screens.Game
     {
         protected override void LoadComplete()
         {
-            AddRange(new Drawable[]
+            AddRangeInternal(new Drawable[]
             {
                 new Background(@"Backgrounds/game_default")
             });

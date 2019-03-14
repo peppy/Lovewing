@@ -1,6 +1,6 @@
 ﻿using System;
-using OpenTK.Input;
-using osu.Framework.Input;
+using osu.Framework.Input.Events;
+using osuTK.Input;
 
 namespace Lovewing.Graphics.UserInterface
 {
@@ -20,7 +20,7 @@ namespace Lovewing.Graphics.UserInterface
             }
         }
 
-        protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
+        protected override bool OnKeyDown(KeyDownEvent args)
         {
             if (args.Key == Key.Escape)
             {
@@ -32,7 +32,7 @@ namespace Lovewing.Graphics.UserInterface
                 return true;
             }
 
-            return base.OnKeyDown(state, args);
+            return base.OnKeyDown(args);
         }
 
         public override bool RequestsFocus => HoldFocus;

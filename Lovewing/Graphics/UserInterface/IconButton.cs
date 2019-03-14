@@ -1,11 +1,11 @@
 ﻿using Lovewing.Graphics.Sprites;
-using OpenTK.Graphics;
+using osuTK.Graphics;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Colour;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
-using osu.Framework.Input;
 using System;
+using osu.Framework.Input.Events;
 
 namespace Lovewing.Graphics.UserInterface
 {
@@ -45,19 +45,19 @@ namespace Lovewing.Graphics.UserInterface
             });
         }
 
-        protected override bool OnHover(InputState state)
+        protected override bool OnHover(HoverEvent args)
         {
             hover.FadeIn(200);
-            return base.OnHover(state);
+            return base.OnHover(args);
         }
 
-        protected override void OnHoverLost(InputState state)
+        protected override void OnHoverLost(HoverLostEvent args)
         {
             hover.FadeOut(200);
-            base.OnHoverLost(state);
+            base.OnHoverLost(args);
         }
 
-        protected override bool OnMouseDown(InputState state, MouseDownEventArgs args)
+        protected override bool OnMouseDown(MouseDownEvent args)
         {
             Circle ripple;
 
@@ -75,17 +75,17 @@ namespace Lovewing.Graphics.UserInterface
 
             curRipple = ripple;
 
-            return base.OnMouseDown(state, args);
+            return base.OnMouseDown(args);
         }
 
-        protected override bool OnMouseUp(InputState state, MouseUpEventArgs args)
+        protected override bool OnMouseUp(MouseUpEvent args)
         {
             curRipple?.FadeOut(450)
                 .Expire();
 
             curRipple = null;
 
-            return base.OnMouseUp(state, args);
+            return base.OnMouseUp(args);
         }
     }
 }

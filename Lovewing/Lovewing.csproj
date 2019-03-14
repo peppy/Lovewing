@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\lovewing-resources\Lovewing.Game.Resources\Lovewing.Game.Resources.csproj" />
-    <ProjectReference Include="..\osu-framework\osu.Framework\osu.Framework.csproj" />
   </ItemGroup>
 
   <ItemGroup>

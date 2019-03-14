@@ -3,16 +3,16 @@ using Lovewing.Graphics.Containers;
 using Lovewing.Graphics.Sprites;
 using Lovewing.Graphics.UserInterface;
 using Lovewing.Screens.Game;
-using OpenTK;
-using OpenTK.Graphics;
+using osuTK;
+using osuTK.Graphics;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Colour;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
-using osu.Framework.Input;
 using osu.Framework.Screens;
 using System;
+using osu.Framework.Input.Events;
 
 namespace Lovewing.Screens
 {
@@ -25,13 +25,13 @@ namespace Lovewing.Screens
         private GameScreen gameScreen;
         private SongSelectorScreen songSelectorScreen;
 
-        protected override void OnEntering(Screen last)
+        public override void OnEntering(IScreen last)
         {
             LoadComponentAsync(gameScreen = new GameScreen());
             LoadComponentAsync(songSelectorScreen = new SongSelectorScreen());
         }
 
-        protected override bool OnClick(InputState state)
+        protected override bool OnClick(ClickEvent state)
         {
             if (((LovewingGame) Game).Sidebar.IsOpen)
                 ((LovewingGame) Game).Sidebar.Toggle();
@@ -43,7 +43,7 @@ namespace Lovewing.Screens
         {
             base.LoadComplete();
 
-            AddRange(new Drawable[]
+            AddRangeInternal(new Drawable[]
             {
                 new Background(@"Backgrounds/mainmenu"),
                 tabs = new Container<TabContainer>
@@ -62,7 +62,7 @@ namespace Lovewing.Screens
                             Origin = Anchor.BottomRight,
                             RelativeSizeAxes = Axes.Both,
                             Width = 0.5f,
-                            ButtonAction = () => Push(songSelectorScreen)
+                            ButtonAction = () => this.Push(songSelectorScreen)
                         },
                         idolTab = new TabContainer
                         {
@@ -86,7 +86,7 @@ namespace Lovewing.Screens
                             Origin = Anchor.BottomRight,
                             RelativeSizeAxes = Axes.Both,
                             Width = 0.5f,
-                            Children = new Drawable[] 
+                            Children = new Drawable[]
                             {
                                 new Container
                                 {
@@ -142,7 +142,7 @@ namespace Lovewing.Screens
             idolTab.StateChanged += vis => selectTab(idolTab, vis);
             homeTab.StateChanged += vis => selectTab(homeTab, vis);
 
-            AddRange(new[]
+            AddRangeInternal(new[]
             {
                 liveshowTab.CreateButton(),
                 idolTab.CreateButton(),
@@ -218,19 +218,19 @@ namespace Lovewing.Screens
                 });
             }
 
-            protected override bool OnHover(InputState state)
+            protected override bool OnHover(HoverEvent args)
             {
                 hover.FadeIn(200);
-                return base.OnHover(state);
+                return base.OnHover(args);
             }
 
-            protected override void OnHoverLost(InputState state)
+            protected override void OnHoverLost(HoverLostEvent args)
             {
                 hover.FadeOut(200);
-                base.OnHoverLost(state);
+                base.OnHoverLost(args);
             }
 
-            protected override bool OnMouseDown(InputState state, MouseDownEventArgs args)
+            protected override bool OnMouseDown(MouseDownEvent args)
             {
                 Circle ripple;
 
@@ -248,17 +248,17 @@ namespace Lovewing.Screens
 
                 curRipple = ripple;
 
-                return base.OnMouseDown(state, args);
+                return base.OnMouseDown(args);
             }
 
-            protected override bool OnMouseUp(InputState state, MouseUpEventArgs args)
+            protected override bool OnMouseUp(MouseUpEvent args)
             {
                 curRipple?.FadeOut(450)
                     .Expire();
 
                 curRipple = null;
 
-                return base.OnMouseUp(state, args);
+                return base.OnMouseUp(args);
             }
         }
 
