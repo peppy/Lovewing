@@ -29,8 +29,8 @@ namespace Lovewing
             dependencies.Cache(this);
             dependencies.Cache(storage);
 
-            Fonts.AddStore(new GlyphStore(Resources, @"Fonts/FontAwesome"));
-            Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Muli_Light"));
+            //Fonts.AddStore(new GlyphStore(Resources, @"Fonts/FontAwesome"));
+            //Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Muli_Light"));
             // Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Noto_Sans_CJK_JP_Regular"));
         }
 
